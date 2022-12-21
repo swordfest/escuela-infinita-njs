@@ -32,8 +32,8 @@ export default function Navbar (props: any) {
     
 
     return (
-        <nav className={("navbar fixed top-0 w-full bg-slate-400 shadow-lg transition-all ") + (scrolled)}>
-            <div className="nav-wrapper container w-full h-full mx-auto bg-slate-300 flex items-center justify-between ">
+        <nav className={("navbar fixed top-0 w-full bg-white shadow-lg transition-all ") + (scrolled)}>
+            <div className="nav-wrapper container 2xl:w-full h-full mx-auto bg-white  flex items-center justify-between ">
                 <Logo width={scrolledLogo}/>
                 <MenuNavbar/>
             </div>
