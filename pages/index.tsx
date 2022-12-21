@@ -5,26 +5,46 @@ import styles from "../styles/Home.module.css";
 import { Meta } from "../components/meta";
 import Navbar from "../components/navbar";
 import Header from "../components/header";
+import DownloadBook from "../components/downloadBookBar";
+import VideosSection from "../components/videosSection";
+import useSWR from 'swr'
+import Sumario from "../components/sumarioSection";
+import Cursos from "../components/cursosSection";
+import News from "../components/reviewsSection";
+import Autors from "../components/autorsSection";
+import Sponsors from "../components/sponsorsSection";
+import Footer from "../components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 
-	return (
-		<>
-			<Meta />
+  const fetcher = (...args: [any, any]) => fetch(...args).then((res) => res.json())
+  const { data: posts, error } = useSWR('http://localhost:8000/wp-json/wp/v2/posts', fetcher)
+
+  if (error) {
+    return <>Error!</>
+  }
+
+  if (!posts) {
+    return <>Loading...</>
+  }
+
+  return (
+    <>
+      <Meta />
       <Navbar />
-			<main className="container grid grid-cols-12 auto-rows-auto mx-auto w-full h-auto bg-slate-200 scroll-smooth">
-        <Header/>
-        <div className="download-book w-full h-14 bg-slate-700 col-span-12 flex items-center justify-center text-white">Aqui va la descarga de los libros</div>
-        <div className="videos w-full h-[860px] bg-slate-300 col-span-12 flex items-center justify-center">Materiales Visuales</div>
-        <div className="summary w-full h-[860px] bg-slate-600 col-span-12 flex items-center justify-center">Sintesis y Sumario</div>
-        <div className="summary w-full h-[560px] bg-slate-200 col-span-12 flex items-center justify-center">Cursos Disponibles</div>
-        <div className="summary w-full h-[560px] bg-slate-400 col-span-12 flex items-center justify-center">Reviews, Noticias y Articulos</div>
-        <div className="summary w-full h-[560px] bg-slate-600 col-span-12 flex items-center justify-center">Autores</div>
-        <div className="summary w-full h-[560px] bg-slate-300 col-span-12 flex items-center justify-center">Sponsors</div>
-        <div className="summary w-full h-32 bg-slate-700 col-span-12 flex items-center justify-center">Footer</div>
+      <Header />
+      <DownloadBook />
+      <main className="container grid grid-cols-12 auto-rows-auto mx-auto w-full h-auto bg-slate-200 scroll-smooth">
+        <Sumario />
+        <News />
+        <Autors />
+        <Cursos />
+        <VideosSection />
+        <Sponsors />
+        <Footer />
       </main>
-		</>
-	);
+    </>
+  );
 }

@@ -2,15 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @layer components {
+  .heade {
+    @apply 3xl:min-w-[1920px] 2xl:min-w-[1536px] xl:min-w-[1280px] lg:min-w-[1024px] md:min-w-[768px] sm:min-w-[640px] xs:min-w-[360px];
+  }
+} */
 @layer base {
-  .full-width {
-    left: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    max-width: 100vw;
-    position: relative;
-    right: 50%;
-    width: 100vw;
+  body {
+    @apply antialiased;
   }
 }
 
@@ -124,6 +123,6 @@ a {
 
   body {
     color: #111111;
-    background: white;
+    background: #FFFCF1;
   }
 }
