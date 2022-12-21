@@ -10,10 +10,10 @@ import VideosSection from "../components/videosSection";
 import useSWR from 'swr'
 import Sumario from "../components/sumarioSection";
 import Cursos from "../components/cursosSection";
-import News from "../components/reviewsSection";
 import Autors from "../components/autorsSection";
 import Sponsors from "../components/sponsorsSection";
 import Footer from "../components/footer";
+import Reviews from "../components/reviewsSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,11 +34,11 @@ export default function Home() {
     <>
       <Meta />
       <Navbar />
-      <Header />
-      <DownloadBook />
-      <main className="container grid grid-cols-12 auto-rows-auto mx-auto w-full h-auto bg-slate-200 scroll-smooth">
+      <main className="container grid grid-cols-12 auto-rows-auto mx-auto w-full h-auto scroll-smooth gap-8 my-12">
+        <Header />
+        <DownloadBook />
         <Sumario />
-        <News />
+        <Reviews />
         <Autors />
         <Cursos />
         <VideosSection />

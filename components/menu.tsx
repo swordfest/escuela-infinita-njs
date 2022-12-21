@@ -13,7 +13,7 @@ export default function MenuNavbar () {
             <MenuItem name={'CURSOS'} link={'#courses'} />
             <MenuItem name={'EDITORIAL'} link={'#sponsors'} />
             {/* Hay que hacer la seccion de subscripcion de newsletter */}
-            <MenuItem name={'SUBSCRIPCION'} link={'#sponsors'} /> 
+            <MenuItem name={'SUBSCRIPCION'} link={'#sub'} /> 
         </div>
     )
 }
