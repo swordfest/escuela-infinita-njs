@@ -34,7 +34,7 @@ export default function Home() {
     <>
       <Meta />
       <Navbar />
-      <main className="container grid grid-cols-12 auto-rows-auto mx-auto w-full h-auto scroll-smooth my-12">
+      <main className="container grid grid-cols-12 auto-rows-auto mx-auto w-full h-auto scroll-smooth">
         <Header />
         <DownloadBook />
         <Sumario />
