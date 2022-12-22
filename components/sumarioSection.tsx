@@ -2,7 +2,7 @@
 
 export default function Sumario() {
     return (
-        <section id="sumario" className="sumario w-full h-auto col-span-12 gap-24 flex items-center justify-center">
+        <section id="sumario" className="sumario w-full h-auto col-span-12 gap-24 flex items-center justify-center my-20">
             <div className="w-full h-[840px] flex flex-col items-start gap-4 text-justify leading-8 ">
                 <h1 className="text-5xl uppercase font-black ">Síntesis</h1>
                 <p>

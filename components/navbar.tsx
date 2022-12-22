@@ -5,7 +5,7 @@ import MenuNavbar from "./menu";
 
 export default function Navbar (props: any) {
     // const [scrolled, setScrolled] = useState('h-24')
-    const [scrolled, setScrolled] = useState('h-24')
+    const [scrolled, setScrolled] = useState('h-20 text-[14px]')
     const [scrolledLogo, setScrolledLogo] = useState(' origin-left scale-100 text-normal ')
 
 
@@ -13,12 +13,14 @@ export default function Navbar (props: any) {
         let prevScrollpos = window.scrollY
         window.onscroll = () => {
             let currentScrollpos = window.scrollY
-            if (prevScrollpos > currentScrollpos || prevScrollpos == 0) {
+            // if (prevScrollpos > currentScrollpos || prevScrollpos == 0) {
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+
                 setScrolled('h-24 text-normal')
                 // setScrolled('top-0')
                 setScrolledLogo('origin-left scale-100 ')
             } else {
-                setScrolled('h-20 text-[14px]')
+                setScrolled('h-20 text-[14px] bg-transparent')
                 setScrolledLogo(' origin-left scale-[0.9]  ')
             }
             prevScrollpos = currentScrollpos

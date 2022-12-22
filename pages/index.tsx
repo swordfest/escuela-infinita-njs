@@ -20,21 +20,21 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
 
   const fetcher = (...args: [any, any]) => fetch(...args).then((res) => res.json())
-  const { data: posts, error } = useSWR('http://localhost:8000/wp-json/wp/v2/posts', fetcher)
+  const { data: posts, error } = useSWR('http://localhost/wordpress/wp-json/wp/v2/posts', fetcher)
 
-  if (error) {
-    return <>Error!</>
-  }
+  // if (error) {
+  //   return <>Error!</>
+  // }
 
-  if (!posts) {
-    return <>Loading...</>
-  }
+  // if (!posts) {
+  //   return <>Loading...</>
+  // }
 
   return (
     <>
       <Meta />
       <Navbar />
-      <main className="container grid grid-cols-12 auto-rows-auto mx-auto w-full h-auto scroll-smooth gap-8 my-12">
+      <main className="container grid grid-cols-12 auto-rows-auto mx-auto w-full h-auto scroll-smooth my-12">
         <Header />
         <DownloadBook />
         <Sumario />
