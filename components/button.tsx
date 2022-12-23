@@ -5,7 +5,7 @@ import { useOutsideClick } from "./functions";
 
 
 
-export default function ButtonDownload(props: any) {
+export default function Button(props: any) {
     const [open, setOpen] = useState(false)
 
     const handleClickOutside = () => {
@@ -16,7 +16,7 @@ export default function ButtonDownload(props: any) {
 
     if (props.type === 'button') {
         return (
-            <button name="Descarga" className=" w-60 h-14 bg-[#174563] flex items-center justify-center transition-all hover:bg-[#143c57] active:bg-[#194c6e]" >
+            <button name="Descarga" className=" w-60 h-14 bg-[#174563] text-white flex items-center justify-center transition-all hover:bg-[#143c57] active:bg-[#194c6e]" >
                 <Link href={props.link}>
                     {props.text}
                 </Link>

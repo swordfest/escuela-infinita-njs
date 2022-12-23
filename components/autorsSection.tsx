@@ -9,7 +9,7 @@ export default function Autors() {
 	return (
 		<section
 			id="autors"
-			className="autors w-full h-auto col-span-12 flex flex-col gap-4 py-24 items-center justify-center">
+			className="autors w-full h-auto col-span-12 flex flex-col gap-8 py-24 items-center justify-center">
 			<h1 className="text-5xl uppercase font-black ">Autores</h1>
             <div className="autores-wrapper w-full h-auto flex gap-8">
                 <Autor url={'/imgs/autor-1.png'} name={'Pepe El Cojo'} resume={resumen} />

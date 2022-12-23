@@ -14,6 +14,7 @@ import Autors from "../components/autorsSection";
 import Sponsors from "../components/sponsorsSection";
 import Footer from "../components/footer";
 import Reviews from "../components/reviewsSection";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,11 +31,15 @@ export default function Home() {
   //   return <>Loading...</>
   // }
 
+  // useEffect(() => {
+  //   document.querySelector('html')?.classList.add('scroll-smooth')
+  // })
+
   return (
     <>
       <Meta />
       <Navbar />
-      <main className="container grid grid-cols-12 auto-rows-auto mx-auto w-full h-auto scroll-smooth">
+      <main className="container grid grid-cols-12 auto-rows-auto mx-auto w-full h-auto">
         <Header />
         <DownloadBook />
         <Sumario />
