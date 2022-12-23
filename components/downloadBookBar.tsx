@@ -7,8 +7,7 @@ export default function DownloadBookBar () {
             <div className="container h-full mx-auto flex items-center justify-center gap-6 ">
             <ButtonDownload text={'DESCARGAR LIBRO - PDF'} type={'button'} link={'#'} />
             <ButtonDownload text={'DESCARGAR LIBRO - EPUB'} type={'button'} link={'#'} />
-            <ButtonDownload text={'DESCARGAR LIBRO - PDF'} type={'menu'} link={'#'} />
-
+            <ButtonDownload text={'DESCARGAR LIBRO - CAPITULOS'} type={'menu'} link={'#'} />
             </div>
         </div>
     )
