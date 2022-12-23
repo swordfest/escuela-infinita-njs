@@ -1,8 +1,21 @@
+import { useState } from "react";
+import Autor from "./autor";
 
-
-
-export default function Autors () {
-    return (
-        <section id="autors" className="autors w-full h-[560px] bg-slate-600 col-span-12 flex items-center justify-center">Autores</section>
+export default function Autors() {
+    const [resumen, setResumen] = useState(
+        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam cum numquam suscipit officiis enim molestiae voluptatibus tempora. Sit, temporibus vel? Nulla officiis eos iste omnis voluptatem libero corporis distinctio nobis.'
     )
+
+	return (
+		<section
+			id="autors"
+			className="autors w-full h-auto col-span-12 flex flex-col gap-4 py-24 items-center justify-center">
+			<h1 className="text-5xl uppercase font-black ">Autores</h1>
+            <div className="autores-wrapper w-full h-auto flex gap-8">
+                <Autor url={'/imgs/autor-1.png'} name={'Pepe El Cojo'} resume={resumen} />
+                <Autor url={'/imgs/autor-2.png'} name={'Pepe El Cojo'} resume={resumen} />
+                <Autor url={'/imgs/autor-3.png'} name={'Pepe El Cojo'} resume={resumen} />
+            </div>
+		</section>
+	);
 }

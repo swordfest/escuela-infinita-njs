@@ -13,7 +13,7 @@ export default function Sumario() {
                 </p>
             </div>
             <div className="w-full h-[840px] flex flex-col items-end justify-end gap-4 leading-8 ">
-                <h1 className="text-5xl uppercase font-bold " >Sumario</h1>
+                <h1 className="text-5xl uppercase font-black " >Sumario</h1>
                 <p className="text-justify ">
                     Lorem ipsum dolor sit amet consectetur. Enim sit diam ultrices amet scelerisque quis enim. Lorem sed amet et eget ut. Molestie leo adipiscing at platea. Iaculis dolor eu vel tortor metus urna nulla nullam. Elementum pellentesque sed sed faucibus tortor tincidunt egestas. Facilisis fermentum mauris iaculis fusce quisque venenatis. Lacinia id molestie duis ultrices suspendisse. Pulvinar laoreet pretium ullamcorper tincidunt quisque. Augue tristique vestibulum duis quam. Bibendum ultrices elit ac aenean. Eget duis quis egestas pellentesque. Cursus sapien tempor lorem et donec ornare et ac. In risus risus diam ipsum magna diam et arcu ultricies. Diam posuere nibh dignissim nisi malesuada et.
                 </p>
