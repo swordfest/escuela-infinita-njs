@@ -26,52 +26,25 @@ export default function Home() {
 		fetcher
 	);
 
-	// const [top, setTop] = useState(0);
-	// const [winHeight, setWinHeight] = useState(0);
-	// const [reveal, setReveal] = useState(130);
-	// const [flag, setFlag] = useState(false);
-  // const [hasMounted, setHasMounted] = useState(false)
-
-	// if (error) {
-	//   return <>Error!</>
-	// }
-
-	// if (!posts) {
-	//   return <>Loading...</>
-	// }
-
-	// useEffect(() => {
-	// 	// document.querySelector('html')?.classList.add('scroll-smooth')
-  //   setWinHeight(window.innerHeight)
-	// 	setTop(document.querySelector(".show")?.getBoundingClientRect().top!)
-
-	// 	window.addEventListener("scroll", handleScroll);
-	// });
-
-  // const handleScroll = () => {
-	// 	if (top < (winHeight - reveal)) {
-	// 		setFlag(true)
-	// 	} else {
-	// 		setFlag(false)
-	// 	}
-	// 	console.log(flag)
-	// };
-
 	return (
 		<>
 			<Meta />
 			<Navbar />
-			<main className="container grid grid-cols-12 auto-rows-auto mx-auto my-20 w-full h-auto">
-				<Header />
-				<DownloadBook />
-				<Sumario />
-				<Reviews />
-				<Autors />
-				<Cursos />
-				<VideosSection />
-				<Sponsors />
-				<Footer />
-			</main>
+			{/* <main className="grid grid-cols-12 auto-rows-auto mx-auto w-full h-auto"> */}
+				{/* <Header /> */}
+				<main className="container col-span-12 grid grid-cols-12 auto-rows-auto mx-auto px-4 xl:px-0 mt-20 w-full h-auto">
+					<Header />
+					<DownloadBook />
+					<Sumario />
+					<Reviews />
+					<Autors />
+					<Cursos />
+					<VideosSection />
+					<Sponsors />
+					<Footer />
+				</main>
+				{/* <Footer /> */}
+			{/* </main> */}
 		</>
 	);
 }

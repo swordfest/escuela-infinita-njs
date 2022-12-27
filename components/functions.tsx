@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 
 
 export const useOutsideClick = (callback: any) => {
-	const ref = useRef<HTMLUListElement>(null);
+	const ref = useRef<HTMLDivElement>(null);
   
 	React.useEffect(() => {
 	  const handleClick = (event: any) => {

@@ -10,9 +10,9 @@ export default function Cursos() {
 	return (
 		<section
 			id="courses"
-			className="courses w-full h-auto py-24  col-span-12 flex flex-col gap-8 items-center justify-center leading-8">
-			<h1 className="text-5xl uppercase font-black ">Cursos Disponibles</h1>
-			<div className="cursos flex gap-4">
+			className="courses w-full h-auto py-8 xl:py-24  col-span-12 flex flex-col gap-8 items-center justify-center leading-8">
+			<h1 className="text-3xl xl:text-5xl uppercase font-black ">Cursos Disponibles</h1>
+			<div className="cursos flex flex-col xl:flex-row gap-6 xl:gap-4">
 				<Curso
 					url={imgs[0]}
 					title={"Lorem ipsum dolor sit amet consectetur."}
@@ -28,7 +28,7 @@ export default function Cursos() {
 					}
 				/>
 			</div>
-			<Button type={'button'} text={'CONTÁCTA'} link={'#contacto'} />
+			<Button isVisible={true} type={'button'} text={'CONTÁCTA'} link={'#contacto'} />
 		</section>
 	);
 }

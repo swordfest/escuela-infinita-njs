@@ -10,13 +10,13 @@ export default function MenuNavbar() {
 	return (
 		<>
 			<div className="hidden w-auto h-auto xl:flex gap-8 ">
-				<MenuItem name={"INICIO"} link={"#"} />
-				<MenuItem name={"LIBRO"} link={"#sumario"} />
-				<MenuItem name={"RESEÑAS"} link={"#reviews"} />
+				{/* <MenuItem name={"INICIO"} link={"#"} section={} /> */}
+				<MenuItem name={"LIBRO"} link={"#sumario"} section={'sumario'} />
+				{/* <MenuItem name={"RESEÑAS"} link={"#reviews"} />
 				<MenuItem name={"BLOG"} link={"/blog"} />
 				<MenuItem name={"AUTORES"} link={"#autors"} />
 				<MenuItem name={"CURSOS"} link={"#courses"} />
-				<MenuItem name={"EDITORIAL"} link={"#sponsors"} />
+				<MenuItem name={"EDITORIAL"} link={"#sponsors"} /> */}
 				{/* Hay que hacer la seccion de subscripcion de newsletter */}
 				<MenuItem name={"SUBSCRIPCION"} link={"#sub"} />
 			</div>

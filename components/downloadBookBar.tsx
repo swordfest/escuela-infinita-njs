@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Button from "./button";
 
 export default function DownloadBookBar() {
-    const [enter, setEnter] = useState(false)
+    const [enter, setEnter] = useState(true)
 	const [winHeight, setWinHeight] = useState(0)
     const section = useRef<HTMLDivElement>(null)
     const [top, setTop] = useState(0)
@@ -25,8 +25,8 @@ export default function DownloadBookBar() {
     // })
 
 	return (
-		<div className="download-book relative w-screen h-32 right-1/2 left-1/2 mr-[-50vw] ml-[-50vw] bg-gradient-to-b from-[#D9D6CC] to-[#FFFCF1] col-span-12 flex items-center justify-center text-white">
-			<div className="container h-full mx-auto flex items-center justify-center gap-6 ">
+		<div className="download-book relative w-screen h-auto xl:h-32 right-1/2 left-1/2 mr-[-50vw] ml-[-50vw] bg-gradient-to-b from-[#D9D6CC] to-[#FFFCF1] col-span-12 flex items-center justify-center text-white">
+			<div className="container h-auto xl:h-full mx-auto flex flex-col lg:flex-row items-center justify-center gap-6 p-4 ">
 				<Button
 					text={"DESCARGAR LIBRO - PDF"}
 					type={"button"}
