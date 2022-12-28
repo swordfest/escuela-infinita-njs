@@ -10,7 +10,7 @@ export default function Cursos() {
 	return (
 		<section
 			id="courses"
-			className="courses w-full h-auto py-8 xl:py-24  col-span-12 flex flex-col gap-8 items-center justify-center leading-8">
+			className="courses w-full h-auto pt-8 pb-24 col-span-12 flex flex-col gap-8 items-center justify-center leading-8">
 			<h1 className="text-3xl xl:text-5xl uppercase font-black ">Cursos Disponibles</h1>
 			<div className="cursos flex flex-col xl:flex-row gap-6 xl:gap-4">
 				<Curso

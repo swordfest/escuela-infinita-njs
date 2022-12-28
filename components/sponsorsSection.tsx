@@ -2,7 +2,7 @@ export default function Sponsors() {
 	return (
 		<section
 			id="sponsors"
-			className="sponsors w-full h-auto col-span-12 flex flex-col gap-4 xl:gap-12 items-center justify-center my-8 xl:my-20">
+			className="sponsors w-full h-auto col-span-12 flex flex-col gap-4 xl:gap-12 items-center justify-center pt-8 pb-24">
 			<div className="flex flex-col gap-16 my-10 items-center justify-center ">
 				<h1 className="text-3xl xl:text-5xl uppercase font-black ">Casa Editorial</h1>
 				<img

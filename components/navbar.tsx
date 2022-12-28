@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import Logo from "./logo";
-import MenuNavbar from "./menu";
+import Menu from "./menu";
 import MenuMobile from "./menuMobile";
 import { menuMobileOpen } from "./store";
 import { Transition, CSSTransition } from "react-transition-group";
 import MenuItem from "./menuItem";
 import { useOutsideClick } from "./functions";
+import ButtonMenuMobile from "./buttonMenuMobile";
 
 export default function Navbar(props: any) {
 	// const [scrolled, setScrolled] = useState('h-24')
@@ -26,7 +27,7 @@ export default function Navbar(props: any) {
 				document.body.scrollTop > 80 ||
 				document.documentElement.scrollTop > 80
 			) {
-				setScrolled("h-24 text-normal");
+				setScrolled("h-24 text-[14px]");
 				// setScrolled('top-0')
 				setScrolledLogo("origin-left scale-100 ");
 			} else {
@@ -66,7 +67,8 @@ export default function Navbar(props: any) {
 				}>
 				<div className="nav-wrapper container 2xl:w-full h-full mx-auto bg-white  flex items-center justify-between ">
 					<Logo width={scrolledLogo} />
-					<MenuNavbar />
+					<Menu />
+					<ButtonMenuMobile />
 				</div>
 			</nav>
 			<CSSTransition
@@ -87,7 +89,7 @@ export default function Navbar(props: any) {
 					unmountOnExit
 					
 				   >
-				<MenuMobile ref={nodeRef} />
+				<MenuMobile />
 				{/* <div className="menu-mobile w-full h-screen fixed top-0 z-[1] bg-white transition-all flex flex-col items-center gap-6 py-6" ref={nodeRef}>aaaa</div> */}
 			</CSSTransition>
 		</>

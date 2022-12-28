@@ -25,8 +25,9 @@ export default function DownloadBookBar() {
     // })
 
 	return (
-		<div className="download-book relative w-screen h-auto xl:h-32 right-1/2 left-1/2 mr-[-50vw] ml-[-50vw] bg-gradient-to-b from-[#D9D6CC] to-[#FFFCF1] col-span-12 flex items-center justify-center text-white">
-			<div className="container h-auto xl:h-full mx-auto flex flex-col lg:flex-row items-center justify-center gap-6 p-4 ">
+		// relative w-screen h-auto xl:h-32 right-1/2 left-1/2 mr-[-50vw] ml-[-50vw]
+		<div className="download-book bg-gradient-to-b from-[#D9D6CC] to-[#FFFCF1] col-span-12 flex items-center justify-center text-white">
+			<div className="container h-auto xl:h-40 mx-auto flex flex-col lg:flex-row items-center justify-center gap-6 p-4 ">
 				<Button
 					text={"DESCARGAR LIBRO - PDF"}
 					type={"button"}

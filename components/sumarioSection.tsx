@@ -22,8 +22,9 @@ export default function Sumario() {
     // },[top])
 
     return (
-        <section  id="sumario" className="sumario snap-center show w-full h-[80vh] col-span-12 gap-8 xl:gap-24 flex flex-col xl:flex-row items-center justify-center my-8 xl:my-20">
-            <div className={"w-full h-full flex flex-col items-center xl:items-start gap-4 text-justify leading-8  transition-all"}>
+        // h-[80vh]
+        <section  id="sumario" className="sumario show w-full h-auto col-span-12 gap-8 xl:gap-24 flex flex-col xl:flex-row items-center justify-center pt-8 pb-24 ">
+            <div className={"w-full h-full flex flex-col items-center xl:items-start gap-4 text-justify leading-8 transition-all"}>
             {/* translate-y-10 */}
                 <h1 className="text-3xl xl:text-5xl uppercase font-black ">Síntesis</h1>
                 <p>

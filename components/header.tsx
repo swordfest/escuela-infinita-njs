@@ -2,7 +2,8 @@ import Image from "next/image";
 
 export default function Header() {
 	return (
-		<header className="header relative w-screen left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] h-96 xl:h-auto col-span-12 flex items-center justify-center">
+		//  left-1/2 right-1/2 ml-[-50vw] mr-[-50vw]
+		<header className="header w-full h-[640px] xl:h-[860px] col-span-12 flex items-center justify-center mt-20 ">
 			{/* <img
 				className=" object-cover w-full h-[1084px]"
 				src={"https://images.unsplash.com/photo-1508169351866-777fc0047ac5"}
