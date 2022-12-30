@@ -6,7 +6,7 @@ export default function Sponsors() {
 			<div className="flex flex-col gap-16 my-10 items-center justify-center ">
 				<h1 className="text-3xl xl:text-5xl uppercase font-black ">Casa Editorial</h1>
 				<img
-					className=" w-40 xl:w-80 h-auto"
+					className=" w-40 xl:w-64 h-auto"
 					src="/imgs/logo-editorial.svg"
 					alt="Logo Editorial Pueblo y Educación"
 				/>
@@ -15,7 +15,7 @@ export default function Sponsors() {
 				<h2 className=" text-xl xl:text-3xl uppercase font-black ">
 					Con la colaboración de
 				</h2>
-				<div className=" flex flex-col xl:flex-row items-center justify-center gap-12 ">
+				<div className=" flex flex-col xl:flex-row items-center justify-center gap-20 ">
 					<img
 						className="w-40 h-auto"
 						src="/imgs/logo-dte.svg"

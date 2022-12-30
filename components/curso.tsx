@@ -17,7 +17,7 @@ export default function Curso(props: any) {
 		<Link href={`#curso`}>
 			<div id="curso" className="w-full h-auto flex flex-col gap-4 group ">
                 <div className={"img-wrapper w-full h-auto overflow-hidden "}>
-				<img className={("w-full h-auto group-hover:scale-[1.02] group-hover:transition-all group-hover:duration-700 " ) + (transition)}src={props.url} alt={props.descp} />
+				<img className={("w-full h-auto group-hover:scale-105 group:ease-in-out group-hover:transition-all group-hover:duration-700 " ) + (transition)}src={props.url} alt={props.descp} />
                 </div>
 				<h2 className=" text-xl font-bold ">{props.title}</h2>
 				<p>{props.excerpt}</p>

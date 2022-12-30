@@ -41,6 +41,14 @@ export default function Button(props: any) {
             </div>
         )
     }
+    if (props.type === 'slider') {
+        return (
+            <button title="slide-button" name="Descarga" className={(" absolute z-[1] w-10 h-10 bg-[#174563] flex items-center justify-center transition-all hover:bg-[#143c57] active:bg-[#194c6e] ") + (props.side === 'left' ? '-left-12 top-[40%] ' : '') + (props.side === 'right' ? '-right-12 top-[40%] ' : '')} >
+                <svg className={props.side === 'left' ? 'fill-white' : 'hidden'} width="36" height="36" viewBox="0 0 24 24"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path></svg>
+                <svg className={props.side === 'right' ? 'fill-white' : 'hidden'} width="36" height="36" viewBox="0 0 24 24"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+            </button>
+        )
+    }
 
     return <>Especifica el tipo</>
 }

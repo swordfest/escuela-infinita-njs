@@ -9,7 +9,7 @@ type Props = {
 
 export function Meta ({ title, keywords, description}: Props) {
     useEffect(() => {
-    // document.querySelector('body')?.classList.add('overflow-y-scroll', 'bg-[#F8F8F8]', 'dark:bg-[#141414]', 'text-[#212121]')
+    // document.querySelector('html')?.classList.add('scroll-smooth')
     }, [])
     
     return (
