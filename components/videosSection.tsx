@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Video } from "./data";
 import { Carousel, ScrollingCarousel } from "@trendyol-js/react-carousel";
 import Button from "./button";
+import Thumbnail from "./thumbnail";
 
 export default function VideosSection() {
 	const [hasMounted, setHasMounted] = useState(false);
@@ -76,17 +77,18 @@ export default function VideosSection() {
 					responsive={true}
 					swiping={true}
 					show={4}
-					slide={1}>
+					slide={4}>
 					{videos.items.map((item: any) => (
-						<Image
-                            onClick={() => handleClick(item.id)}
-                            className="flex px-2 brightness-75 hover:brightness-100 transition-all"
-							key={item.id}
-							src={item.snippet.thumbnails.medium.url}
-							alt={"aaa"}
-							width={"640"}
-							height={"360"}
-                            />
+						// <Image
+                        //     onClick={() => handleClick(item.id)}
+                        //     className="flex px-2 brightness-75 hover:brightness-100 transition-all"
+						// 	key={item.id}
+						// 	src={item.snippet.thumbnails.medium.url}
+						// 	alt={"aaa"}
+						// 	width={"640"}
+						// 	height={"360"}
+                        //     />
+                        <Thumbnail key={item.id} handleClick={() => handleClick(item.id)} id={item.id} url={item.snippet.thumbnails.medium.url} />
 					))}
 				</Carousel>
 				{/* </div> */}

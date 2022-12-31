@@ -15,6 +15,8 @@ import Sponsors from "../components/sponsorsSection";
 import Footer from "../components/footer";
 import Reviews from "../components/reviewsSection";
 import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { scrollPercentage } from "../components/store";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +27,39 @@ export default function Home() {
 		"http://localhost/wordpress/wp-json/wp/v2/posts",
 		fetcher
 	);
+	const [scrollPos, setScrollPos] = useRecoilState<number>(scrollPercentage);
+	const [hasMounted, setHasMounted] = useState(false);
+
+	// const handleScroll = () => {
+	// 	setScrollPos(window.scrollY)
+	// 	console.log(scrollPos)
+	// }
+
+	useEffect(() => {
+		setHasMounted(true);
+		window.addEventListener("scroll", handleScroll);
+		
+	});
+
+	const handleScroll = () => {
+		let scrollPercentage =
+			(document.documentElement.scrollTop + document.body.scrollTop) /
+			(document.documentElement.scrollHeight -
+				document.documentElement.clientHeight);
+		setScrollPos(scrollPercentage);
+		console.log(scrollPos)
+
+		// setScrollPos(scrollPercentage);
+	};
+
+	// const handleScroll = () => {
+	// 	let scrollPercentage =
+	// 		(document.documentElement.scrollTop + document.body.scrollTop) /
+	// 		(document.documentElement.scrollHeight -
+	// 			document.documentElement.clientHeight);
+	// 	setScrollPos(scrollPercentage);
+	// 	console.log(scrollPercentage);
+	// }
 
 	return (
 		<>
@@ -32,7 +67,7 @@ export default function Home() {
 			<Navbar />
 			{/* <main className="grid grid-cols-12 auto-rows-auto mx-auto w-full h-auto"> */}
 			<Header />
-			<DownloadBook />
+			<DownloadBook appear={scrollPos} />
 			<main className="container col-span-12 grid grid-cols-12 auto-rows-auto mx-auto px-4 xl:px-0 mt-8 w-full h-auto">
 				{/* <Header /> */}
 				{/* <DownloadBook /> */}
