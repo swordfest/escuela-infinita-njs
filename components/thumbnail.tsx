@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Thumbnail(props: any) {
 	return (
-		<div className="relative w-auto h-auto group ">
+		<div onClick={() => props.handleClick(props.id)} className="relative w-auto h-auto group ">
 			<Image
-				onClick={() => props.handleClick(props.id)}
+				// onClick={() => props.handleClick(props.id)}
 				className="flex px-2 overflow-hidden brightness-75 group-hover:brightness-100 transition-all group-hover:scale-[1.02]"
 				key={props.id}
 				src={props.url}
@@ -13,6 +13,7 @@ export default function Thumbnail(props: any) {
 				height={"360"}
 			/>
 			<svg
+				// onClick={() => props.handleClick(props.id)}
 				className="absolute fill-red-600 overflow-hidden top-0 left-0 bottom-0 right-0 m-auto opacity-0 group-hover:opacity-100 transition-all group-hover:-translate-y-1 duration-500"
 				width="72"
 				height="72"

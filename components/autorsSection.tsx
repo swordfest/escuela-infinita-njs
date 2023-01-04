@@ -10,7 +10,7 @@ export default function Autors() {
 		<section
 			id="autors"
 			className="autors w-full h-auto col-span-12 flex flex-col gap-8 py-8 xl:py-24 items-center justify-center">
-			<h1 className="text-3xl xl:text-5xl uppercase font-black ">Autores</h1>
+			<h1 className="text-3xl xl:text-5xl text-[#162330] uppercase font-black ">Autores</h1>
             <div className="autores-wrapper w-full h-auto flex flex-col xl:flex-row gap-8">
                 <Autor url={'/imgs/autor-1.png'} name={'Pepe El Cojo'} resume={resumen} />
                 <Autor url={'/imgs/autor-2.png'} name={'Pepe El Cojo'} resume={resumen} />

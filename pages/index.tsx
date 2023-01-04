@@ -66,12 +66,12 @@ export default function Home() {
 			<Meta />
 			<Navbar />
 			{/* <main className="grid grid-cols-12 auto-rows-auto mx-auto w-full h-auto"> */}
-			<Header />
-			<DownloadBook appear={scrollPos} />
+			<Header appear={scrollPos} />
+			{/* <DownloadBook appear={scrollPos} /> */}
 			<main className="container col-span-12 grid grid-cols-12 auto-rows-auto mx-auto px-4 xl:px-0 mt-8 w-full h-auto">
 				{/* <Header /> */}
 				{/* <DownloadBook /> */}
-				<Sumario />
+				<Sumario appear={scrollPos} />
 				<Reviews />
 				<Autors />
 				<Cursos />

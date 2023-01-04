@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "13.0.7",
+    "@rive-app/react-canvas": "^3.0.34",
     "@trendyol-js/react-carousel": "^3.0.0",
     "@types/node": "18.11.17",
     "@types/react": "18.0.26",

@@ -51,7 +51,11 @@ export default function VideosSection() {
 	}
 
 	if (!videos) {
-		return <div>Loading</div>;
+		return <div>
+			<div className="video w-[1280px] flex justify-center bg-slate-400 h-[720px]">
+					
+				</div>
+		</div>;
 	}
 
 	return (

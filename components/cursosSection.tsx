@@ -28,7 +28,7 @@ export default function Cursos() {
 					}
 				/>
 			</div>
-			<Button isVisible={true} type={'button'} text={'CONTÁCTA'} link={'#contacto'} />
+			<Button isVisible={true} type={'button'} text={'CONTACTA'} link={'#contacto'} />
 		</section>
 	);
 }
