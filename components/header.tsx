@@ -35,7 +35,7 @@ export default function Header(props: any) {
 			{/* <img className="w-full h-full object-cover " src="/imgs/header.jpg" alt="header" /> */}
 			{/* <Rive style={{display: 'flex', alignItems: 'start', }} src="/animations/escuela_infinita_artboard_small.riv" /> */}
 			<RiveComponent />
-			<div className=" absolute w-full h-full top-0 right-0 text-white">
+			<div className=" absolute w-full h-full top-0 right-0 text-white bg-[#162330] bg-opacity-80 xl:bg-transparent">
 				<div className="container mx-auto px-4 h-full flex flex-col items-end justify-center">
 					<span className="font-black text-5xl lg:text-7xl text-end ">LA ESCUELA INFINITA</span>
 					<span className="font-bold text-2xl lg:text-5xl text-end ">Aprender y enseñar en entornos ubicuos</span>
