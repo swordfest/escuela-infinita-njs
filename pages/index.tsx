@@ -14,7 +14,7 @@ import Autors from "../components/autorsSection";
 import Sponsors from "../components/sponsorsSection";
 import Footer from "../components/footer";
 import Reviews from "../components/reviewsSection";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { scrollPercentage } from "../components/store";
 
@@ -29,16 +29,9 @@ export default function Home() {
 	);
 	const [scrollPos, setScrollPos] = useRecoilState<number>(scrollPercentage);
 	const [hasMounted, setHasMounted] = useState(false);
-
-	// const handleScroll = () => {
-	// 	setScrollPos(window.scrollY)
-	// 	console.log(scrollPos)
-	// }
-
+	
 	useEffect(() => {
-		setHasMounted(true);
-		window.addEventListener("scroll", handleScroll);
-		
+		window.addEventListener("scroll", () => handleScroll);
 	});
 
 	const handleScroll = () => {
@@ -47,19 +40,8 @@ export default function Home() {
 			(document.documentElement.scrollHeight -
 				document.documentElement.clientHeight);
 		setScrollPos(scrollPercentage);
-		console.log(scrollPos)
-
-		// setScrollPos(scrollPercentage);
+		console.log(scrollPos);
 	};
-
-	// const handleScroll = () => {
-	// 	let scrollPercentage =
-	// 		(document.documentElement.scrollTop + document.body.scrollTop) /
-	// 		(document.documentElement.scrollHeight -
-	// 			document.documentElement.clientHeight);
-	// 	setScrollPos(scrollPercentage);
-	// 	console.log(scrollPercentage);
-	// }
 
 	return (
 		<>
