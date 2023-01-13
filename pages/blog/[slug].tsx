@@ -12,13 +12,15 @@ export async function getStaticProps(context: any) {
 	} = context;
 
 	const data = await fetch(
-		`http://localhost/wordpress/wp-json/wp/v2/posts?_embed&slug=${slug}`
+		`http://localhost:8000/wp-json/wp/v2/posts?_embed&slug=${slug}`
+		// `http://localhost/wordpress/wp-json/wp/v2/posts?_embed&slug=${slug}`
 	);
 
 	const result = await data.json();
 
 	const comments = await fetch(
-		`http://localhost/wordpress/wp-json/wp/v2/comments?post=${result[0].id}`
+		// `http://localhost/wordpress/wp-json/wp/v2/comments?post=${result[0].id}`
+		`http://localhost:8000/wp-json/wp/v2/comments?post=${result[0].id}`
 	);
 
 	const resComment = await comments.json();
@@ -73,7 +75,7 @@ export default function Post(props: any) {
 
 	// ?post=${props.id}
 	const { trigger, isMutating } = useSWRMutation(
-		`http://localhost/wordpress/wp-json/wp/v2/comments?post=${props.id}&author_name=${commentData?.author_name}&author_email=${commentData?.author_email}&content=${commentData?.content}`,
+		`http://localhost:8000/wp-json/wp/v2/comments?post=${props.id}&author_name=${commentData?.author_name}&author_email=${commentData?.author_email}&content=${commentData?.content}`,
 		sendRequest,
         { revalidate: true }
 	);
@@ -81,7 +83,7 @@ export default function Post(props: any) {
 	const fetcher = (...args: [any, any]) =>
 		fetch(...args).then((res) => res.json());
 	const { data: comm, error, mutate } = useSWR(
-		`http://localhost/wordpress/wp-json/wp/v2/comments?post=${props.id}`,
+		`http://localhost:8000/wp-json/wp/v2/comments?post=${props.id}`,
 		fetcher,
         { revalidateOnFocus: false }
 	);

@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react'
 import useSWR, { preload } from "swr";
 
 export async function getStaticProps() {
-    const data =  await fetch(`http://localhost/wordpress/wp-json/wp/v2/posts?_embed`)
+    const data =  await fetch(`http://localhost:8000/wp-json/wp/v2/posts?_embed`)
+    // const data =  await fetch(`http://localhost/wordpress/wp-json/wp/v2/posts?_embed`)
     const result = await data.json()
 
     return {

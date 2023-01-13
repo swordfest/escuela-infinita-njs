@@ -27,6 +27,13 @@ export default function Cursos() {
 						"Lorem ipsum dolor sit amet consectetur. Enim sit diam ultrices amet scelerisque quis enim. Lorem sed amet et eget ut. Molestie leo adipiscing at platea. Iaculis dolor eu vel tortor metus urna nulla nullam. Elementum pellentesque sed sed faucibus tortor tincidunt egestas."
 					}
 				/>
+				<Curso
+					url={imgs[1]}
+					title={"Eu commodo vitae ac ut. In erat faucibus sagittis."}
+					excerpt={
+						"Lorem ipsum dolor sit amet consectetur. Enim sit diam ultrices amet scelerisque quis enim. Lorem sed amet et eget ut. Molestie leo adipiscing at platea. Iaculis dolor eu vel tortor metus urna nulla nullam. Elementum pellentesque sed sed faucibus tortor tincidunt egestas."
+					}
+				/>
 			</div>
 			<Button isVisible={true} type={'button'} text={'CONTACTA'} link={'#contacto'} />
 		</section>
