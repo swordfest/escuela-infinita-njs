@@ -28,10 +28,11 @@ export default function Home() {
 		fetcher
 	);
 	const [scrollPos, setScrollPos] = useRecoilState<number>(scrollPercentage);
-	const [hasMounted, setHasMounted] = useState(false);
+	// const [hasMounted, setHasMounted] = useState(false);
 	
 	useEffect(() => {
 		window.addEventListener("scroll", () => handleScroll);
+		return window.removeEventListener("scroll", ()=> handleScroll);
 	});
 
 	const handleScroll = () => {

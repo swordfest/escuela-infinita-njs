@@ -22,6 +22,7 @@ export default function DownloadBookBar(props: any) {
                     isVisible={enter}
                     delay={'100'}
 				/>
+
 				<Button
 					text={"DESCARGAR LIBRO - EPUB"}
 					type={"button"}
@@ -29,6 +30,7 @@ export default function DownloadBookBar(props: any) {
                     isVisible={enter}
                     delay={'300'}
 				/>
+				
 				<Button
 					text={"DESCARGAR LIBRO - CAPITULOS"}
 					type={"menu"}

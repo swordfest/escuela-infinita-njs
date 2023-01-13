@@ -15,7 +15,6 @@ export default function Header(props: any) {
 			alignment: Alignment.TopLeft,
 			maxX: 480,
 		}),
-		
 	}, {
 		useDevicePixelRatio: true,
 		// fitCanvasToArtboardHeight: true,
