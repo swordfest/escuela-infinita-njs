@@ -1,27 +1,45 @@
+import DOMPurify from "isomorphic-dompurify";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Youtube from "react-youtube";
+
 
 export default function Curso(props: any) {
-    const [transition, setTransition] = useState('')
+	const [transition, setTransition] = useState("");
+    const [hasMounted, setHasMounted] = useState(false)
+    const opts = {
+		height: "328",
+		width: "100%",
+		playerVars: {
+			// https://developers.google.com/youtube/player_parameters
+			autoplay: 0,
+			controls: 0,
+			disablekb: 0,
+		},
+	};
 
-    // const handleLeave = () => {
-    //     setTransition('group-hover:scale-100 group-hover:transition-all group-hover:duration-700')
-    // }
-
-    // const handleEnter = () => {
-    //     setTransition('group-hover:scale-[1.02] group-hover:transition-all group-hover:duration-700')
-    // }
-    // onMouseEnter={() => handleEnter()} onMouseLeave={() => handleLeave()}
+    useEffect(()=>{
+		setHasMounted(true)
+	},[])
 
 	return (
-		<Link href={`#curso`}>
-			<div id="curso" className="w-full h-auto flex flex-col gap-4 group ">
-                <div className={"img-wrapper w-full h-auto overflow-hidden "}>
-				<img className={("w-full h-auto group-hover:scale-[1.01] brightness-90 group-hover:brightness-110 ease-in-out transition-all duration-700 " ) + (transition)}src={props.url} alt={props.descp} />
-                </div>
+			<div id="curso" className="w-full h-auto flex flex-col gap-4 group cursor-pointer ">
+				<div className={"img-wrapper w-full h-auto overflow-hidden "}>
+					{/* <img className={("w-full h-auto group-hover:scale-[1.01] brightness-90 group-hover:brightness-110 ease-in-out transition-all duration-700 " ) + (transition)}src={props.url} alt={props.descp} /> */}
+					{/* <iframe
+						className="w-full h-auto group-hover:scale-[1.01] brightness-90 group-hover:brightness-110 ease-in-out transition-all duration-700"
+						title="thumbnail"
+						src={props.url}></iframe> */}
+                    <Youtube
+						videoId={props.url}
+						opts={opts}
+					/>
+				</div>
 				<h2 className=" text-xl font-bold ">{props.title}</h2>
-				<p>{props.excerpt}</p>
+				<p
+					dangerouslySetInnerHTML={{
+						__html: DOMPurify.sanitize(props.excerpt),
+					}}></p>
 			</div>
-		</Link>
 	);
 }

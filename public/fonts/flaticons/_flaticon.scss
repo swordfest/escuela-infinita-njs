@@ -1,0 +1,175 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 18/09/2017 14:53
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-001-wrap:before { content: "\f100"; }
+.flaticon-002-top:before { content: "\f101"; }
+.flaticon-003-center:before { content: "\f102"; }
+.flaticon-004-bottom-1:before { content: "\f103"; }
+.flaticon-005-text-2:before { content: "\f104"; }
+.flaticon-006-text-1:before { content: "\f105"; }
+.flaticon-007-strikethrough-1:before { content: "\f106"; }
+.flaticon-008-inbox:before { content: "\f107"; }
+.flaticon-009-profits:before { content: "\f108"; }
+.flaticon-010-text:before { content: "\f109"; }
+.flaticon-011-up-arrow:before { content: "\f10a"; }
+.flaticon-012-pie-chart-1:before { content: "\f10b"; }
+.flaticon-013-pie-chart:before { content: "\f10c"; }
+.flaticon-014-line-chart:before { content: "\f10d"; }
+.flaticon-015-dollar-2:before { content: "\f10e"; }
+.flaticon-016-dollar-1:before { content: "\f10f"; }
+.flaticon-017-edit-1:before { content: "\f110"; }
+.flaticon-018-chat-1:before { content: "\f111"; }
+.flaticon-019-merge:before { content: "\f112"; }
+.flaticon-020-line:before { content: "\f113"; }
+.flaticon-021-image:before { content: "\f114"; }
+.flaticon-022-link:before { content: "\f115"; }
+.flaticon-023-calendar:before { content: "\f116"; }
+.flaticon-024-happy:before { content: "\f117"; }
+.flaticon-025-file:before { content: "\f118"; }
+.flaticon-026-chat:before { content: "\f119"; }
+.flaticon-027-bar-chart:before { content: "\f11a"; }
+.flaticon-028-flashlight:before { content: "\f11b"; }
+.flaticon-029-symbol:before { content: "\f11c"; }
+.flaticon-030-underline:before { content: "\f11d"; }
+.flaticon-031-paragraph-1:before { content: "\f11e"; }
+.flaticon-032-paragraph:before { content: "\f11f"; }
+.flaticon-033-strikethrough:before { content: "\f120"; }
+.flaticon-034-format-size:before { content: "\f121"; }
+.flaticon-035-format-1:before { content: "\f122"; }
+.flaticon-036-quote:before { content: "\f123"; }
+.flaticon-037-paint-roller:before { content: "\f124"; }
+.flaticon-038-list-1:before { content: "\f125"; }
+.flaticon-039-list:before { content: "\f126"; }
+.flaticon-040-spacing:before { content: "\f127"; }
+.flaticon-041-italic:before { content: "\f128"; }
+.flaticon-042-indent-1:before { content: "\f129"; }
+.flaticon-043-indent:before { content: "\f12a"; }
+.flaticon-044-format:before { content: "\f12b"; }
+.flaticon-045-reset:before { content: "\f12c"; }
+.flaticon-046-fill:before { content: "\f12d"; }
+.flaticon-047-clear:before { content: "\f12e"; }
+.flaticon-048-bold:before { content: "\f12f"; }
+.flaticon-049-right-align:before { content: "\f130"; }
+.flaticon-050-left-align:before { content: "\f131"; }
+.flaticon-051-justify:before { content: "\f132"; }
+.flaticon-052-align-center:before { content: "\f133"; }
+.flaticon-053-equal:before { content: "\f134"; }
+.flaticon-054-bubble:before { content: "\f135"; }
+.flaticon-055-border-8:before { content: "\f136"; }
+.flaticon-056-border-7:before { content: "\f137"; }
+.flaticon-057-border-6:before { content: "\f138"; }
+.flaticon-058-border-5:before { content: "\f139"; }
+.flaticon-059-border-4:before { content: "\f13a"; }
+.flaticon-060-border-3:before { content: "\f13b"; }
+.flaticon-061-border-2:before { content: "\f13c"; }
+.flaticon-062-border-1:before { content: "\f13d"; }
+.flaticon-063-edit:before { content: "\f13e"; }
+.flaticon-064-border:before { content: "\f13f"; }
+.flaticon-065-bottom:before { content: "\f140"; }
+.flaticon-066-grid:before { content: "\f141"; }
+.flaticon-067-dollar:before { content: "\f142"; }
+.flaticon-068-attachment:before { content: "\f143"; }
+    
+    $font-Flaticon-001-wrap: "\f100";
+    $font-Flaticon-002-top: "\f101";
+    $font-Flaticon-003-center: "\f102";
+    $font-Flaticon-004-bottom-1: "\f103";
+    $font-Flaticon-005-text-2: "\f104";
+    $font-Flaticon-006-text-1: "\f105";
+    $font-Flaticon-007-strikethrough-1: "\f106";
+    $font-Flaticon-008-inbox: "\f107";
+    $font-Flaticon-009-profits: "\f108";
+    $font-Flaticon-010-text: "\f109";
+    $font-Flaticon-011-up-arrow: "\f10a";
+    $font-Flaticon-012-pie-chart-1: "\f10b";
+    $font-Flaticon-013-pie-chart: "\f10c";
+    $font-Flaticon-014-line-chart: "\f10d";
+    $font-Flaticon-015-dollar-2: "\f10e";
+    $font-Flaticon-016-dollar-1: "\f10f";
+    $font-Flaticon-017-edit-1: "\f110";
+    $font-Flaticon-018-chat-1: "\f111";
+    $font-Flaticon-019-merge: "\f112";
+    $font-Flaticon-020-line: "\f113";
+    $font-Flaticon-021-image: "\f114";
+    $font-Flaticon-022-link: "\f115";
+    $font-Flaticon-023-calendar: "\f116";
+    $font-Flaticon-024-happy: "\f117";
+    $font-Flaticon-025-file: "\f118";
+    $font-Flaticon-026-chat: "\f119";
+    $font-Flaticon-027-bar-chart: "\f11a";
+    $font-Flaticon-028-flashlight: "\f11b";
+    $font-Flaticon-029-symbol: "\f11c";
+    $font-Flaticon-030-underline: "\f11d";
+    $font-Flaticon-031-paragraph-1: "\f11e";
+    $font-Flaticon-032-paragraph: "\f11f";
+    $font-Flaticon-033-strikethrough: "\f120";
+    $font-Flaticon-034-format-size: "\f121";
+    $font-Flaticon-035-format-1: "\f122";
+    $font-Flaticon-036-quote: "\f123";
+    $font-Flaticon-037-paint-roller: "\f124";
+    $font-Flaticon-038-list-1: "\f125";
+    $font-Flaticon-039-list: "\f126";
+    $font-Flaticon-040-spacing: "\f127";
+    $font-Flaticon-041-italic: "\f128";
+    $font-Flaticon-042-indent-1: "\f129";
+    $font-Flaticon-043-indent: "\f12a";
+    $font-Flaticon-044-format: "\f12b";
+    $font-Flaticon-045-reset: "\f12c";
+    $font-Flaticon-046-fill: "\f12d";
+    $font-Flaticon-047-clear: "\f12e";
+    $font-Flaticon-048-bold: "\f12f";
+    $font-Flaticon-049-right-align: "\f130";
+    $font-Flaticon-050-left-align: "\f131";
+    $font-Flaticon-051-justify: "\f132";
+    $font-Flaticon-052-align-center: "\f133";
+    $font-Flaticon-053-equal: "\f134";
+    $font-Flaticon-054-bubble: "\f135";
+    $font-Flaticon-055-border-8: "\f136";
+    $font-Flaticon-056-border-7: "\f137";
+    $font-Flaticon-057-border-6: "\f138";
+    $font-Flaticon-058-border-5: "\f139";
+    $font-Flaticon-059-border-4: "\f13a";
+    $font-Flaticon-060-border-3: "\f13b";
+    $font-Flaticon-061-border-2: "\f13c";
+    $font-Flaticon-062-border-1: "\f13d";
+    $font-Flaticon-063-edit: "\f13e";
+    $font-Flaticon-064-border: "\f13f";
+    $font-Flaticon-065-bottom: "\f140";
+    $font-Flaticon-066-grid: "\f141";
+    $font-Flaticon-067-dollar: "\f142";
+    $font-Flaticon-068-attachment: "\f143";

@@ -1,4 +1,4 @@
-import { atom } from "recoil";
+import { atom, selector } from "recoil";
 
 
 export const menuMobileOpen = atom({
@@ -10,3 +10,23 @@ export const scrollPercentage = atom({
     key: 'scrollPercentage',
     default: 0,
 })
+
+export const itemsSlider = atom({
+    key: 'itemsSlider',
+    default: [],
+})
+
+export const slideCurrent = atom({
+    key: 'slideCurrent',
+    default: 0,
+})
+
+export const postsList = atom({
+    key: 'postsList',
+    default: [],
+})
+
+// const goToSlide = (number: number) => {
+//     setSlide(number % props.posts.length);
+// };
+

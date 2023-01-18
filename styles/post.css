@@ -1,0 +1,134 @@
+/* p {
+    color: red;
+} */
+
+@font-face {
+	font-family: "Flaticon";
+	src: url("/fonts/flaticons/Flaticon.eot");
+	src: url("/fonts/flaticons/Flaticon.eot?#iefix") format("embedded-opentype"),
+		url("/fonts/flaticons/Flaticon.woff") format("woff"),
+		url("/fonts/flaticons/Flaticon.ttf") format("truetype"),
+		url("/fonts/flaticons/Flaticon.svg#Flaticon") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.post {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.post p {
+	font-size: 1rem;
+	text-align: justify;
+	line-height: 1.8rem;
+}
+
+.post h5 {
+	font-size: 1.1rem;
+	font-weight: 500;
+}
+
+.post h4 {
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+.post h3 {
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+.post h2 {
+	font-size: 1.7rem;
+	font-weight: 500;
+}
+
+.post h1 {
+	font-size: 2rem;
+	font-weight: 500;
+}
+
+.post blockquote {
+	padding: 2rem 1rem;
+	background-color: #f5f2e9;
+	font-size: 1.1rem;
+	font-style: italic;
+	position: relative;
+}
+
+.post blockquote p {
+	font-size: 1.1rem;
+}
+
+.post blockquote::before {
+	content: "\f123";
+	font-family: "Flaticon";
+	font-size: 2rem;
+	position: absolute;
+	left: 0.5rem;
+	top: -0.3rem;
+}
+
+.post ol {
+	padding-left: 1rem;
+	font-weight: 500;
+}
+
+.post ul {
+	padding-left: 1rem;
+	font-weight: 500;
+}
+
+.post ol li {
+	padding-left: 1rem;
+}
+
+.post ol li::before {
+	padding-left: 1rem;
+}
+
+.post a {
+	color: #347abb;
+	font-weight: 500;
+}
+
+.post a:hover {
+	color: #162330;
+	font-weight: 500;
+	text-decoration: underline;
+}
+
+.excerpt {
+	font-size: 1rem;
+}
+
+@media (min-width: 1024px) {
+	.excerpt {
+		font-size: 1.125rem /* 18px */;
+		line-height: 1.75rem /* 28px */;
+	}
+
+    .post blockquote {
+        padding: 2rem 2rem 2rem 6rem;
+        margin: 0rem 1.5rem;
+        background-color: #f5f2e9;
+        font-size: 1.2rem;
+        font-style: italic;
+        position: relative;
+    }
+
+    .post blockquote::before {
+        content: "\f123";
+        font-family: "Flaticon";
+        font-size: 4rem;
+        position: absolute;
+        left: 0.5rem;
+        top: -0.6rem;
+    }
+
+    .post blockquote p {
+        font-size: 1.2rem;
+    }
+}
