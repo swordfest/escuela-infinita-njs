@@ -18,10 +18,11 @@ export default function CursosSection(props: any) {
 			<h1 className="text-3xl xl:text-5xl uppercase font-black ">
 				Cursos Disponibles
 			</h1>
-			<div className="cursos flex flex-col xl:flex-row gap-6 xl:gap-4">
+			<div className="cursos flex flex-col xl:flex-row gap-6 xl:gap-8">
 				{hasMounted && props.lista.map((c: any) => (
 					<Curso
 						key={c.id}
+						link={c.slug}
 						url={c.acf.video_thumbnail}
 						title={c.title.rendered}
 						excerpt={c.excerpt.rendered}
@@ -32,7 +33,7 @@ export default function CursosSection(props: any) {
 				isVisible={true}
 				type={"button"}
 				text={"MAS CURSOS"}
-				link={"#contacto"}
+				link={"/cursos"}
 			/>
 		</section>
 	);

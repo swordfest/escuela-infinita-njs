@@ -19,19 +19,19 @@ export async function getStaticProps(context: any) {
 	} = context;
 
 	const posts = await fetch(
-		`http://localhost/wordpress/wp-json/wp/v2/posts?_embed`
+		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/posts?_embed`
 	);
 	const postsResults = await posts.json();
 
 	const data = await fetch(
 		// `http://localhost:8000/wp-json/wp/v2/posts?_embed&slug=${slug}`
-		`http://localhost/wordpress/wp-json/wp/v2/posts?_embed&slug=${slug}`
+		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/posts?_embed&slug=${slug}`
 	);
 
 	const result = await data.json();
 
 	const comments = await fetch(
-		`http://localhost/wordpress/wp-json/wp/v2/comments?post=${result[0].id}`
+		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/comments?post=${result[0].id}`
 		// `http://localhost:8000/wp-json/wp/v2/comments?post=${result[0].id}`
 	);
 
@@ -64,7 +64,15 @@ type Inputs = {
 async function sendRequest(url: string, { arg }: any) {
 	return fetch(url, {
 		method: "POST",
+		redirect: 'follow',
+		// mode: 'same-origin',
 		body: JSON.stringify(arg),
+		headers: {
+			// 'Accept': '*/*'
+			// 'Allow':'*',
+			'Content-Type': 'application/json; charset=UTF-8',
+			// 'X-Content-Type-Options': 'nosniff',
+		},
 	}).then((res) => res.json());
 }
 
@@ -91,19 +99,20 @@ export default function Post(props: any) {
 		trigger,
 		isMutating,
 	} = useSWRMutation(
-		`http://localhost/wordpress/wp-json/wp/v2/comments?post=${props.id}&author_name=${commentData?.author_name}&author_email=${commentData?.author_email}&content=${commentData?.content}`,
+		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/comments?post=${props.id}&author_name=${commentData?.author_name}&author_email=${commentData?.author_email}&content=${commentData?.content}`,
 		sendRequest,
 		{ revalidate: true }
 	);
 
 	const fetcher = (...args: [any, any]) =>
 		fetch(...args).then((res) => res.json());
+
 	const {
 		data: comm,
 		error,
 		mutate,
 	} = useSWR(
-		`http://localhost/wordpress/wp-json/wp/v2/comments?post=${props.id}`,
+		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/comments?post=${props.id}`,
 		fetcher,
 		{ revalidateOnFocus: false }
 	);
@@ -153,12 +162,15 @@ export default function Post(props: any) {
 							{comm?.map((c: any) => (
 								<div className="w-full min-h-min flex flex-col bg-[#EDE9E9] gap-4 p-4">
 									<div className="font-semibold w-full flex items-center justify-between">
-										<span>{c.author_name} <span className="font-normal">ha comentado:</span></span>
-                                        <span className="text-[#7a7a7a] text-xs ">
-                                            {format(new Date(c.date), "d 'de' MMMM yyyy", {
-                                                locale: es,
-                                            })}
-                                        </span>
+										<span>
+											{c.author_name}{" "}
+											<span className="font-normal">ha comentado:</span>
+										</span>
+										<span className="text-[#7a7a7a] text-xs ">
+											{format(new Date(c.date), "d 'de' MMMM yyyy", {
+												locale: es,
+											})}
+										</span>
 									</div>
 									<div
 										key={c.id}
@@ -166,9 +178,7 @@ export default function Post(props: any) {
 										dangerouslySetInnerHTML={{
 											__html: DOMPurify.sanitize(c.content.rendered),
 										}}></div>
-									<span className="font-semibold">
-										
-									</span>
+									<span className="font-semibold"></span>
 								</div>
 							))}
 						</div>
@@ -187,7 +197,9 @@ export default function Post(props: any) {
 									className="h-14 p-4 border-2 bg-transparent border-[#476b91] focus:border-[#162330] focus:outline-none"
 									{...register("author_name", { required: true })}
 								/>
-								{errors.author_name && <span className="text-red-500">This field is required</span>}
+								{errors.author_name && (
+									<span className="text-red-500">This field is required</span>
+								)}
 								<label className="font-semibold" htmlFor="email">
 									Email *
 								</label>
@@ -199,7 +211,9 @@ export default function Post(props: any) {
 									placeholder="Escriba su email"
 									{...register("author_email", { required: true })}
 								/>
-								{errors.author_email && <span className="text-red-500">This field is required</span>}
+								{errors.author_email && (
+									<span className="text-red-500">This field is required</span>
+								)}
 								<label className="font-semibold" htmlFor="comentario">
 									Comentario *
 								</label>
@@ -210,7 +224,9 @@ export default function Post(props: any) {
 									className="h-48 p-4 border-2 bg-transparent border-[#476b91] focus:border-[#162330] focus:outline-none"
 									{...register("content", { required: true })}
 								/>
-								{errors.content && <span className="text-red-500">This field is required</span>}
+								{errors.content && (
+									<span className="text-red-500">This field is required</span>
+								)}
 								<input
 									className=" w-full lg:w-56 h-14 px-6 text-white cursor-pointer bg-[#174563] hover:bg-[#1e3042] transition-colors"
 									type="submit"

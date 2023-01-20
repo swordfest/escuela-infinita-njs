@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Autor(props: any) {
 	return (
 		<div className="autor flex flex-col gap-4">

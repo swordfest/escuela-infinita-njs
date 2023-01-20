@@ -1,6 +1,6 @@
 import { useRecoilState } from "recoil";
 import Dot from "./dot";
-import { itemsSlider, postsList, slideCurrent } from "./store";
+import { itemsSlider, postsList, reviewsList, slideCurrent } from "./store";
 
 
 export default function Dots () {
@@ -8,11 +8,13 @@ export default function Dots () {
     const [items, setItems] = useRecoilState(itemsSlider);
 	const [slide, setSlide] = useRecoilState(slideCurrent);
     const [posts, setPosts] = useRecoilState(postsList)
+	const [reviews, setReviews] = useRecoilState(reviewsList);
+
 
     return (
-        <div className=" flex gap-4">
+        <div className=" flex gap-4 ">
             {
-                posts.map((p: any, index: number) => (
+                reviews.map((p: any, index: number) => (
                     <Dot id={p.id} number={index} />
                 ))
             }

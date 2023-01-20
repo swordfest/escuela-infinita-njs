@@ -59,7 +59,7 @@ export default function VideosSection() {
 	}
 
 	return (
-		<section className="videos w-full h-auto col-span-12 flex flex-col gap-8 items-center justify-center">
+		<section id="videos" className="videos w-full h-auto col-span-12 flex flex-col gap-8 items-center justify-center">
 			<h1 className="text-3xl xl:text-5xl uppercase font-black ">
 				Materiales Visuales
 			</h1>

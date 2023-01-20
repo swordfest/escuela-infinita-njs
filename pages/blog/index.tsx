@@ -12,12 +12,12 @@ import { es } from 'date-fns/locale'
 export async function getStaticProps() {
 	// const data =  await fetch(`http://localhost:8000/wp-json/wp/v2/posts?_embed`)
 	const data = await fetch(
-		`http://localhost/wordpress/wp-json/wp/v2/posts?_embed`
+		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/posts?_embed`
 	);
 	const result = await data.json();
 
     const tags = await fetch(
-		`http://localhost/wordpress/wp-json/wp/v2/tags`
+		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/tags`
 	);
 	const tagsRes = await tags.json();
 

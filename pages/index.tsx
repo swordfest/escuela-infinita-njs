@@ -17,25 +17,31 @@ import Footer from "../components/footer";
 import Reviews from "../components/reviewsSection";
 import { useCallback, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { postsList, scrollPercentage } from "../components/store";
+import { postsList, reviewsList, scrollPercentage } from "../components/store";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export async function getStaticProps() {
 	const data = await fetch(
-		`http://localhost/wordpress/wp-json/wp/v2/courses`
+		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/cursos`
 	);
 	const cursos = await data.json();
 
 	const dataPosts = await fetch(
-		`http://localhost/wordpress/wp-json/wp/v2/posts?_embed`
+		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/posts?_embed`
 	);
 	const posts = await dataPosts.json();
+
+	const dataReviews = await fetch(
+		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/resenas?_embed`
+	);
+	const reviews = await dataReviews.json();
 
 	return {
 		props: {
 			cursos,
 			posts,
+			reviews,
 		},
 	};
 }
@@ -43,10 +49,12 @@ export async function getStaticProps() {
 export default function Home(props: any) {
 	const [scrollPos, setScrollPos] = useRecoilState<number>(scrollPercentage);
 	const [posts, setPosts] = useRecoilState(postsList);
+	const [reviews, setReviews] = useRecoilState(reviewsList);
 
 	// const [hasMounted, setHasMounted] = useState(false);
 	
 	useEffect(() => {
+		setReviews(props.reviews)
 		setPosts(props.posts)
 		window.addEventListener("scroll", () => handleScroll);
 		return window.removeEventListener("scroll", () => handleScroll);
@@ -70,7 +78,7 @@ export default function Home(props: any) {
 				{/* <Header /> */}
 				{/* <DownloadBook /> */}
 				<Sumario appear={scrollPos} />
-				<Reviews posts={props.posts} />
+				<Reviews />
 				<Autors />
 				<CursosSection lista={props.cursos} />
 				<VideosSection />

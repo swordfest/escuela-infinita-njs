@@ -1,5 +1,4 @@
 @tailwind base;
-
 @tailwind components;
 @tailwind utilities;
 
@@ -8,6 +7,18 @@
     @apply 3xl:min-w-[1920px] 2xl:min-w-[1536px] xl:min-w-[1280px] lg:min-w-[1024px] md:min-w-[768px] sm:min-w-[640px] xs:min-w-[360px];
   }
 } */
+
+@font-face {
+	font-family: "Flaticon";
+	src: url("/fonts/flaticons/Flaticon.eot");
+	src: url("/fonts/flaticons/Flaticon.eot?#iefix") format("embedded-opentype"),
+		url("/fonts/flaticons/Flaticon.woff") format("woff"),
+		url("/fonts/flaticons/Flaticon.ttf") format("truetype"),
+		url("/fonts/flaticons/Flaticon.svg#Flaticon") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
 @layer base {
   html {
     @apply scroll-smooth;

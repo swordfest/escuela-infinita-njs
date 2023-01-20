@@ -36,10 +36,11 @@ module.exports = {
 				// => @media (min-width: 1536px) { ... }
 				
 			},
-			// fontFamily: {
-			// 	twemoji: ["Twemoji", "sans-serif"],
-			// 	awesome: ["FontAwesome", "sans-serif"],
-			// },
+			fontFamily: {
+				// twemoji: ["Twemoji", "sans-serif"],
+				// awesome: ["FontAwesome", "sans-serif"],
+				flaticon: ["Flaticon", "sans-serif"],
+			},
 		},
 	},
 	// plugins: [require("@tailwindcss/line-clamp"), require("@tailwindcss/forms")],

@@ -26,6 +26,11 @@ export const postsList = atom({
     default: [],
 })
 
+export const reviewsList = atom({
+    key: 'reviewsList',
+    default: []
+})
+
 // const goToSlide = (number: number) => {
 //     setSlide(number % props.posts.length);
 // };

@@ -14,7 +14,7 @@ export default function HeaderSingle(props: any) {
 					<div className="flex gap-2">
 						<Link href={"/"}>Home</Link>
 						<div>{"»"}</div>
-						<Link href={"/blog"}>Blog</Link>
+						<Link className="capitalize" href={`/${props.page}`}>{props.page}</Link>
 					</div>
 				</div>
 			</div>

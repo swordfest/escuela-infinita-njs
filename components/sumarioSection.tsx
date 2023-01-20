@@ -15,13 +15,13 @@ export default function Sumario(props: any) {
 				<h1 className="text-3xl text-[#162330] xl:text-5xl uppercase font-black ">
 					Síntesis
 				</h1>
-				<p>
+				<p className="text-lg leading-loose">
 				La escuela infinita propone bases para un nuevo modelo de escolarización universal y explica cómo aprender y enseñar de forma híbrida en el siglo XXI. Desde planteamientos disruptivos crea su relato a través de seis metáforas claves: la escuela vista como una conversación transmedial, como abundancia, como ubicuidad líquida, como totalidad que integra múltiples relaciones, como espacio invisible y como una comunidad conectada. Este libro aborda varias de los más actuales problemáticas educativas: revela las relaciones entre virtualidad y educación en el cambio de época que vivimos con el tránsito de un mundo físico a uno ubicuo donde se integran lo físico y lo virtual; explica y propone soluciones a algunos de los grandes desafíos que hoy vive la educación; presenta una taxonomía que ayuda a ordenar el caos de las tendencias pedagógicas a partir de identificar enfoques, modelos tecnopedagógicos, modelos y metodologías didácticos y tecnologías; construye un enfoque pedagógico dialéctico que articula aspectos filosóficos, sociológicos y psicológicos sobre el aprendizaje humano; y termina aportando un modelo híbrido de aprendizaje y enseñanza a través del cual cualquier persona o institución interesada puede implementar su propia escuela infinita. 
 				</p>
 				
 			</div>
-			<div className="relative w-full h-full flex flex-col items-center justify-center bg-slate-400 overflow-hidden ">
-                <Image src={'/imgs/portada.png'} className='w-full h-full object-cover scale-110' fill alt='Portada Escuela Infinita' />
+			<div className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden ">
+                <Image src={'/imgs/book.png'} className='w-full h-full object-contain' fill alt='Portada Escuela Infinita' />
 				{/* <h1 className=" text-3xl xl:text-5xl text-[#162330] uppercase font-black ">
 					Sumario
 				</h1>

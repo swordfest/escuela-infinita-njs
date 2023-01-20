@@ -15,6 +15,12 @@ const nextConfig = {
         port: '',
         pathname: '/wordpress/**',
       },
+      {
+        protocol: 'http',
+        hostname: 'laescuelainfinita.aprendiendo.cu',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 }
