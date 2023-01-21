@@ -74,8 +74,8 @@ export default function Recurso(props: any) {
 
 				<Link
 					className="w-full h-12 bg-[#98CCA5] hover:bg-[#a5dfb4] active:bg-[#85b390] transition-colors flex items-center justify-center gap-1 font-semibold  "
-					href={"#"}
-					target={"_blank"}>
+					href={props.doc}
+					>
 					Descargar documento
 					<span>
 						<svg className="w-4 h-4" viewBox="0 0 24 24">

@@ -160,7 +160,7 @@ export default function Post(props: any) {
 							<hr />
 							<span className="text-3xl font-semibold">Comentarios:</span>
 							{comm?.map((c: any) => (
-								<div className="w-full min-h-min flex flex-col bg-[#EDE9E9] gap-4 p-4">
+								<div key={c.id} className="w-full min-h-min flex flex-col bg-[#EDE9E9] gap-4 p-4">
 									<div className="font-semibold w-full flex items-center justify-between">
 										<span>
 											{c.author_name}{" "}

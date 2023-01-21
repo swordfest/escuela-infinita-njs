@@ -15,7 +15,7 @@ export default function Dots () {
         <div className=" flex gap-4 ">
             {
                 reviews.map((p: any, index: number) => (
-                    <Dot id={p.id} number={index} />
+                    <Dot key={index} id={p.id} number={index} />
                 ))
             }
         </div>

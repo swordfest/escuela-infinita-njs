@@ -19,10 +19,16 @@ export async function getStaticProps() {
 	);
 	const tagsRes = await tags.json();
 
+	const dataDocs = await fetch(
+		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/media`
+	);
+	const media = await dataDocs.json();
+
 	return {
 		props: {
 			result,
 			tagsRes,
+			media,
 		},
 	};
 }
@@ -52,9 +58,11 @@ export default function Repositorio(props: any) {
 								licencia={c.acf.licencia_producto}
 								link={c.acf.url_recurso}
 								documento={c.acf.documento_recurso}
+								doc={props.media.filter((m: any)=>{return m.id === c.acf.documento_recurso})[0]?.source_url}
+								// doc={''}
 							/>
 						))}
-						{/* {console.log(props.result)} */}
+						{console.log(props.media.filter((m: any)=>{return m.id === props.result[1].acf.documento_recurso}))}
 				</div>
 				<div className="blog-sidebar col-span-12 lg:col-span-4 px-4 lg:px-0 h-auto lg:h-screen flex flex-col gap-8">
 					<div className="flex flex-col gap-4">

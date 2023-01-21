@@ -81,7 +81,7 @@ export default function Reviews() {
 						/>
 					</div>
 
-					<div className="flex flex-col w-full h-full items-center lg:items-start justify-center gap-4 lg:gap-12 py-4 ">
+					<div className="flex flex-col w-full h-full items-center lg:items-start justify-center gap-4 py-4 ">
 						{/* <h1 className="text-white text-3xl lg:text-5xl font-semibold text-center lg:text-start ">
 							{posts[slide]?.["title"]["rendered"]}
 						</h1> */}
@@ -92,6 +92,11 @@ export default function Reviews() {
 									reviews[slide]?.["excerpt"]["rendered"]
 								),
 							}}></p>
+							<div className="flex flex-col lg:pl-24 gap-2 text-white text-xl lg:text-2xl italic">
+							<span className="relative">{reviews[slide]?.['acf']['nombre_autor']}</span>
+							<span>{reviews[slide]?.['acf']['institucion_autor']}</span>
+							<span>{reviews[slide]?.['acf']['pais_autor']}</span>
+							</div>
 						<Link
 							className=" w-full md:w-1/2 xl:w-48 h-12 lg:ml-24 bg-[#98CCA5] hover:bg-[#a5dfb4] active:bg-[#85b390]  transition-colors flex items-center justify-center font-semibold "
 							href={`/reviews/${reviews[slide]?.["slug"]}`}

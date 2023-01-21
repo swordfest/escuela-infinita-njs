@@ -11,8 +11,6 @@ import Thumbnail from "./thumbnail";
 export default function VideosSection() {
 	const [hasMounted, setHasMounted] = useState(false);
 	const opts = {
-		height: "720",
-		width: "1280",
 		playerVars: {
 			// https://developers.google.com/youtube/player_parameters
 			autoplay: 0,
@@ -64,9 +62,10 @@ export default function VideosSection() {
 				Materiales Visuales
 			</h1>
 			<div className="flex flex-col items-center w-full h-auto gap-4 overflow-visible ">
-				<div className="video w-[1356px] flex justify-center h-[720px]">
+				<div className="video flex justify-center h-auto px-4">
 					<Youtube
 						// className={"w-[1280px] h-[720px]"}
+						iframeClassName="w-full h-40"
                         key={'videoBig'}
 						videoId={videoBig}
 						opts={opts}
