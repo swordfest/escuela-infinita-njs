@@ -29,7 +29,7 @@ export default function Button(props: any) {
 			<button
 				name="Descarga"
 				className={
-					`w-full md:w-72 h-14 bg-[#98CCA5] text-white select-none flex items-center transition-all hover:bg-[#a5dfb4] active:bg-[#85b390] ease-in-out ${overflow ? `` : `delay-[2000ms] ${props.delay}`} ${props.isVisible ? ' translate-y-0 ' : '  translate-y-20 '} `
+					`w-full md:w-72 h-14 bg-[#98CCA5] text-white select-none flex items-center transition-all hover:bg-[#a5dfb4] active:bg-[#85b390] ease-in-out ${overflow ? `` : `delay-[3000ms] ${props.delay}`} ${props.isVisible ? ' translate-y-0 ' : '  translate-y-20 '} `
 					}>
 				<Link
 				href={props.link}
@@ -54,7 +54,7 @@ export default function Button(props: any) {
 				onClick={() => setOpen(!open)}
 				title="Descargar Capitulos"
 				className={
-					`relative w-full md:w-72 h-14 bg-[#98CCA5] hover:bg-[#a5dfb4] select-none flex items-center transition-all text-sm cursor-pointer ease-in-out ${overflow ? `` : `delay-[2000ms] ${props.delay}`} ${props.isVisible ? 'translate-y-0 ' : 'translate-y-20 '}`
+					`relative w-full md:w-72 h-14 bg-[#98CCA5] hover:bg-[#a5dfb4] select-none flex items-center transition-all text-sm cursor-pointer ease-in-out ${overflow ? `` : `delay-[3000ms] ${props.delay}`} ${props.isVisible ? 'translate-y-0 ' : 'translate-y-20 '}`
 				}>
 				<span className=" w-full h-auto flex items-center justify-between px-4 gap-8 text-[#0d2636] font-semibold">
 					{props.text}

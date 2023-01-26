@@ -18,6 +18,20 @@ export default function Navbar(props: any) {
 	const [mobileMenuOpen, setMobileMenuOpen] = useRecoilState(menuMobileOpen);
 	const [scrollPos, setScrollPos] = useRecoilState<number>(scrollPercentage);
 	const nodeRef = useRef();
+	const [enter, setEnter] = useState(false);
+	const [overflow, setOverflow] = useState(false);
+
+	useEffect(() => {
+		if (enter) {
+			setTimeout(() => setOverflow(true), 1000);
+		}
+	}, [enter]);
+
+	useEffect(() => {
+		if (scrollPos >= 0) {
+			setEnter(true);
+		}
+	});
 
 	useEffect(() => {
 		let prevScrollpos = window.scrollY;
@@ -36,38 +50,15 @@ export default function Navbar(props: any) {
 				setScrolledLogo(" origin-left scale-[0.9]  ");
 			}
 			prevScrollpos = currentScrollpos;
-			// if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-			//     setScrolled('h-20')
-			// } else {
-			//     setScrolled('h-24')
-			// }
-
-			// console.log(scrollPos)
 		};
 	});
-
-	// const duration = 300;
-
-	// const defaultStyle = {
-	// 	transition: `opacity ${duration}ms ease-in-out`,
-	// 	opacity: 0,
-	// };
-
-	// const transitionStyles = {
-	// 	entering: { opacity: 1 },
-	// 	entered: { opacity: 1 },
-	// 	exiting: { opacity: 0 },
-	// 	exited: { opacity: 0 },
-	// };
-
 
 	return (
 		<>
 			<nav
-				className={
-					"navbar fixed top-0 z-[3] w-full px-4 bg-white shadow-lg transition-all " +
-					scrolled
-				}>
+				className={`navbar fixed top-0 z-[3] w-full px-4 bg-white shadow-lg transition-all ${
+					overflow ? " " : " duration-1000 "
+				} ${scrolled} ${enter ? " translate-y-0 " : " -translate-y-20 "}`}>
 				<div className="nav-wrapper container w-full h-full mx-auto bg-white  flex items-center justify-between ">
 					<Logo width={scrolledLogo} />
 					<Menu />
@@ -79,19 +70,17 @@ export default function Navbar(props: any) {
 				in={mobileMenuOpen}
 				timeout={100}
 				classNames={{
-					appear: 'opacity-0',
+					appear: "opacity-0",
 					// appearActive: 'my-active-appear',
 					// appearDone: 'my-done-appear',
-					enter: 'opacity-100 transition-all duration-300',
+					enter: "opacity-100 transition-all duration-300",
 					// enterActive: 'opacity-100 transition-all duration-300',
 					// enterDone: 'opacity-100 transition-all duration-300',
-					exit: 'opacity-100 transition-all duration-300',
+					exit: "opacity-100 transition-all duration-300",
 					// exitActive: 'opacity-0 scale-[0.9] transition-all duration-300',
 					// exitDone: 'opacity-100 transition-all duration-300',
-					}}
-					unmountOnExit
-					
-				   >
+				}}
+				unmountOnExit>
 				<MenuMobile />
 				{/* <div className="menu-mobile w-full h-screen fixed top-0 z-[1] bg-white transition-all flex flex-col items-center gap-6 py-6" ref={nodeRef}>aaaa</div> */}
 			</CSSTransition>

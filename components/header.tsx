@@ -61,7 +61,7 @@ export default function Header(props: any) {
 
 	return (
 		<div
-			className={`container-animation relative overflow-hidden transition-all ease-in-out duration-[1200ms] ${
+			className={`container-animation relative overflow-hidden transition-all ease-in-out delay-1000 duration-[1200ms] ${
 				enter ? " h-[940px] " : " h-0 "
 			} `}>
 			<header
@@ -70,7 +70,7 @@ export default function Header(props: any) {
 				{/* <Rive style={{display: 'flex', alignItems: 'start', }} src="/animations/escuela_infinita_artboard_small.riv" /> */}
 				{/* <div className="absolute w-0 h-0 border-t-[50vh] border-b-[50vh] border-l-[50vh] border-t-transparent border-b-transparent border-l-green-500 "></div> */}
 				<div
-					className={`absolute z-0 mix-blend-color-dodge w-full h-full animate-idleHead transition-all duration-700 delay-[1200ms] ${
+					className={`absolute z-0 mix-blend-color-dodge w-full h-full animate-idleHead transition-all duration-700 delay-[2200ms] ${
 						bigScreen ? "-left-[640px]" : "-left-[340px]"
 					}`}>
 					<Image
@@ -89,7 +89,7 @@ export default function Header(props: any) {
 					<div
 						className={`font-black text-5xl lg:text-8xl text-center xl:text-end overflow-hidden `}>
 						<div
-							className={` transition-all ease-in-out duration-[1500ms] delay-[1200ms] ${
+							className={` transition-all ease-in-out duration-[1500ms] delay-[2200ms] ${
 								enter ? " translate-y-0 " : " translate-y-20 "
 							} `}>
 							LA ESCUELA INFINITA
@@ -98,7 +98,7 @@ export default function Header(props: any) {
 					<div
 						className={`font-bold h-16 text-2xl lg:text-5xl text-center xl:text-end overflow-hidden `}>
 						<div
-							className={` transition-all ease-in-out duration-[1500ms] delay-[1200ms] ${
+							className={` transition-all ease-in-out duration-[1500ms] delay-[2200ms] ${
 								enter ? " translate-y-0 " : " translate-y-16 "
 							} `}>
 							Aprender y enseñar en entornos ubicuos
@@ -109,7 +109,6 @@ export default function Header(props: any) {
 						className={`buttons-download w-full lg:w-auto h-auto xl:h-auto flex flex-col lg:flex-row items-center justify-end gap-6 py-4 ${
 							overflow ? '' : 'overflow-hidden'
 						} `}>
-							{console.log(overflow)}
 						<Button
 							key={"but"}
 							text={"DESCARGAR LIBRO - PDF"}

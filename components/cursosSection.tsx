@@ -34,11 +34,10 @@ export default function CursosSection(props: any) {
 			<div className="flex flex-col gap-20 items-center ">
 				<div className="cursos flex flex-col xl:flex-row gap-6 xl:gap-8">
 					{hasMounted &&
-						props.lista
-							.slice(0, 3)
-							.map((c: any, index: number) => (
-								<>
+						props.lista.slice(0, 3).map((c: any, index: number) => (
+							<>
 								<Curso
+									home={true}
 									appear={enter}
 									delay={index}
 									iframe={
@@ -51,16 +50,20 @@ export default function CursosSection(props: any) {
 									slug={c.slug}
 								/>
 								{/* {console.log(index)} */}
-								</>
-							))}
+							</>
+						))}
 				</div>
-				<Button
-					isVisible={true}
-					type={"button"}
-					text={"MÁS CURSOS"}
-					link={"/cursos"}
-					download={true}
-				/>
+				<div className="overflow-hidden">
+					<Button
+						key={"but"}
+						text={"MÁS CURSOS"}
+						type={"button"}
+						link={"/cursos"}
+						isVisible={enter}
+						delay={"duration-[1500ms]"}
+						download={true}
+					/>
+				</div>
 			</div>
 		</section>
 	);
