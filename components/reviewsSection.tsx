@@ -4,8 +4,6 @@ import Link from "next/link";
 import { useState, useEffect, createContext } from "react";
 import { useRecoilState } from "recoil";
 import Dots from "./dots";
-import Slide from "./slide";
-import SlideList from "./slideList";
 import { itemsSlider, postsList, reviewsList, slideCurrent } from "./store";
 
 export const SliderContext = createContext({});
@@ -25,16 +23,17 @@ export default function Reviews() {
 	const [posts, setPosts] = useRecoilState(postsList);
 	const [reviews, setReviews] = useRecoilState(reviewsList);
 	const [touchPosition, setTouchPosition] = useState(null);
+	const [hasChanged, setHasChanged] = useState(false);
 
 	const changeSlide = (direction = 1) => {
 		let slideNumber = 0;
-
 		if (slide + direction < 0) {
 			slideNumber = reviews.length - 1;
 		} else {
 			slideNumber = (slide + direction) % reviews.length;
 		}
 		setSlide(slideNumber);
+		setHasChanged(true);
 	};
 
 	useEffect(() => {
@@ -43,8 +42,7 @@ export default function Reviews() {
 
 		const interval = setInterval(() => {
 			changeSlide(1);
-		}, 8000);
-
+		}, 1000);
 		return () => {
 			clearInterval(interval);
 		};
@@ -53,7 +51,7 @@ export default function Reviews() {
 	return (
 		<section
 			id="reviews"
-			className="reviews relative overflow-visible w-screen h-auto lg:h-[560px] left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] bg-[#000000] col-span-12 flex items-start lg:items-center justify-center">
+			className="reviews relative overflow-visible w-screen h-auto lg:h-[560px] left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] bg-[#000000] col-span-12 flex items-start lg:items-center justify-center ">
 			{/* <SliderContext.Provider
 				value={{
 					changeSlide,
@@ -65,18 +63,21 @@ export default function Reviews() {
 			{/* {posts.length ? <SlideList /> : null} */}
 			{/* <Slide key={slide} data={posts[slide]} /> */}
 			<Image
-				className="object-cover object-top z-[0] animate-fadeIn opacity-40 "
+				className="object-cover object-top z-[0] opacity-40 "
 				alt=""
-				src={'/imgs/reviews.jpg'}
+				src={"/imgs/reviews.jpg"}
 				fill
 			/>
-			<div className="content z-[1] w-full xl:w-3/4 h-auto flex flex-col items-start justify-center lg:justify-end gap-4 px-4 py-12 xl:px-0  ">
+			<div className="content  z-[1] w-full xl:w-3/4 h-auto flex flex-col items-start justify-center lg:justify-end gap-4 px-4 py-12 xl:px-0  ">
 				<div className="flex flex-col lg:flex-row shrink-0 w-full h-auto items-center justify-center gap-4 lg:gap-20  ">
-					<div className="autor-resena relative flex shrink-0 w-full sm:w-72 h-96 ">
+					<div
+					// ${ hasChanged ? "opacity-100" : "opacity-0"}
+						className={`autor-resena relative flex shrink-0 w-full sm:w-72 h-96 transition-all ease-linear duration-500  
+						`}>
 						<Image
-							className="object-cover animate-fadeIn"
+							className="object-cover "
 							alt=""
-							src={reviews[slide]?.['better_featured_image']['source_url']}
+							src={reviews[slide]?.["better_featured_image"]["source_url"]}
 							fill
 						/>
 					</div>
@@ -86,17 +87,20 @@ export default function Reviews() {
 							{posts[slide]?.["title"]["rendered"]}
 						</h1> */}
 						<p
-							className="relative w-full text-white text-xl lg:text-2xl italic leading-relaxed py-2 text-center lg:pl-24 pt-24 lg:pt-0 lg:text-start before:content-['\f123'] font-flaticon before:text-7xl before:absolute before:top-0 lg:before:-top-1.5 before:left-[36%] sm:before:left-[42%] md:before:left-[44%] lg:before:-left-2 "
+						// ${slide && "animate-fadeIn"}
+							className={`relative w-full text-white text-xl lg:text-2xl italic leading-relaxed py-2 text-center lg:pl-24 pt-24 lg:pt-0 lg:text-start before:content-['\f123'] font-flaticon before:text-7xl before:absolute before:top-0 lg:before:-top-1.5 before:left-[36%] sm:before:left-[42%] md:before:left-[44%] lg:before:-left-2 `}
 							dangerouslySetInnerHTML={{
 								__html: DOMPurify.sanitize(
 									reviews[slide]?.["excerpt"]["rendered"]
 								),
 							}}></p>
-							<div className="flex flex-col lg:pl-24 gap-2 text-white text-xl lg:text-2xl italic">
-							<span className="relative">{reviews[slide]?.['acf']['nombre_autor']}</span>
-							<span>{reviews[slide]?.['acf']['institucion_autor']}</span>
-							<span>{reviews[slide]?.['acf']['pais_autor']}</span>
-							</div>
+						<div className="flex lg:pl-24 gap-2 text-xl font-light text-[#c7c7c7]">
+							<span className="relative">
+								{`${reviews[slide]?.["acf"]["nombre_autor"]}. ${reviews[slide]?.["acf"]["institucion_autor"]}. ${reviews[slide]?.["acf"]["pais_autor"]}`}
+							</span>
+							{/* <span>{reviews[slide]?.["acf"]["institucion_autor"]}</span>
+							<span>{reviews[slide]?.["acf"]["pais_autor"]}</span> */}
+						</div>
 						<Link
 							className=" w-full md:w-1/2 xl:w-48 h-12 lg:ml-24 bg-[#98CCA5] hover:bg-[#a5dfb4] active:bg-[#85b390]  transition-colors flex items-center justify-center font-semibold "
 							href={`/reviews/${reviews[slide]?.["slug"]}`}

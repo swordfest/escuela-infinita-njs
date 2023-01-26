@@ -31,6 +31,16 @@ export const reviewsList = atom({
     default: []
 })
 
+export const mediaList = atom({
+    key: 'mediaList',
+    default: []
+})
+
+export const cursosList = atom({
+    key: 'cursosList',
+    default: [],
+})
+
 // const goToSlide = (number: number) => {
 //     setSlide(number % props.posts.length);
 // };

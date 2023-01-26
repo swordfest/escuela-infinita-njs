@@ -3,7 +3,7 @@ import { useRecoilState } from "recoil";
 import Logo from "./logo";
 import Menu from "./menu";
 import MenuMobile from "./menuMobile";
-import { menuMobileOpen } from "./store";
+import { menuMobileOpen, scrollPercentage } from "./store";
 import { Transition, CSSTransition } from "react-transition-group";
 import MenuItem from "./menuItem";
 import { useOutsideClick } from "./functions";
@@ -16,6 +16,7 @@ export default function Navbar(props: any) {
 		" origin-left scale-100 text-normal "
 	);
 	const [mobileMenuOpen, setMobileMenuOpen] = useRecoilState(menuMobileOpen);
+	const [scrollPos, setScrollPos] = useRecoilState<number>(scrollPercentage);
 	const nodeRef = useRef();
 
 	useEffect(() => {
@@ -40,6 +41,8 @@ export default function Navbar(props: any) {
 			// } else {
 			//     setScrolled('h-24')
 			// }
+
+			// console.log(scrollPos)
 		};
 	});
 
@@ -62,10 +65,10 @@ export default function Navbar(props: any) {
 		<>
 			<nav
 				className={
-					"navbar fixed top-0 z-[2] w-full px-4 xl:px-0 bg-white shadow-lg transition-all " +
+					"navbar fixed top-0 z-[3] w-full px-4 bg-white shadow-lg transition-all " +
 					scrolled
 				}>
-				<div className="nav-wrapper container 2xl:w-full h-full mx-auto bg-white  flex items-center justify-between ">
+				<div className="nav-wrapper container w-full h-full mx-auto bg-white  flex items-center justify-between ">
 					<Logo width={scrolledLogo} />
 					<Menu />
 					<ButtonMenuMobile />

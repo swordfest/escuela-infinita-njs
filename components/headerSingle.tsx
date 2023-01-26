@@ -13,17 +13,28 @@ export default function HeaderSingle(props: any) {
 					alt="Header Single Page"
 				/>
 			</div>
-			<div className="container w-full h-full mx-auto flex items-center justify-end lg:justify-between  ">
+			<div className="container w-full h-full mx-auto flex flex-col items-end justify-center gap-4  ">
 				{/* -left-0 xl:-left-12 2xl:-left-48 */}
 				<div className="text-4xl w-full text-white font-semibold text-center lg:text-right">
 					{props.title}
 				</div>
 				<div className="flex gap-2">
-					<Link href={"/"}>Home</Link>
-					<div>{"»"}</div>
-					<Link className="capitalize" href={`/${props.page}`}>
-						{props.page}
+					<Link className="flex group " href={"/"}>
+						{/* <svg
+							xmlns="http://www.w3.org/2000/svg"
+							className=" group-hover:-translate-x-1 fill-white transition-all duration-200 "
+							width="24"
+							height="24"
+							viewBox="0 0 24 24">
+							<path d="m12.707 7.707-1.414-1.414L5.586 12l5.707 5.707 1.414-1.414L8.414 12z"></path>
+							<path d="M16.293 6.293 10.586 12l5.707 5.707 1.414-1.414L13.414 12l4.293-4.293z"></path>
+						</svg> */}
+						<span className="text-white h-6 text-lg align-middle leading-5 group-hover:underline group-hover:underline-offset-[5px] ">Home</span>
 					</Link>
+					{/* <div>{"»"}</div> */}
+					{/* <Link className="capitalize" href={`/${props.page}`}>
+						{props.page}
+					</Link> */}
 				</div>
 			</div>
 		</div>

@@ -3,23 +3,43 @@ import Link from "next/link";
 
 export default function Autor(props: any) {
 	return (
-		<div className="autor w-full h-full flex flex-col gap-4">
+		<div className={`autor w-full h-full flex flex-col gap-4 `}>
+			{/* ${props.appear ? " opacity-100 translate-y-0 " : " opacity-0 translate-y-10 "} */}
 			{/* <img src={props.url} alt="Autor" /> */}
-			<div className="relative bg-slate-200 w-full h-[589px] flex">
-				<Image
-					className="w-full h-full object-cover"
-					src={props.url}
-					fill
-					alt={`Foto de ${props.name}`}
-				/>
+			<div className={`overflow-hidden relative w-full `}>
+				<div
+					className={`relative bg-slate-200 w-full h-[540px] flex origin-bottom transition-all ease-in-out duration-[1200ms] ${
+						props.delay
+					} ${props.appear ? " translate-y-0 " : " translate-y-[589px] "} `}>
+					<Image
+						className={`w-full h-full object-cover hover:scale-[1.03] hover:brightness-100 transition-all ease-in-out duration-500 brightness-90 `}
+						src={props.url}
+						fill
+						alt={`Foto de ${props.name}`}
+					/>
+				</div>
 			</div>
+
 			<div className=" h-28  flex flex-col gap-2">
 				<div className="flex flex-col">
-					<h2 className=" font-bold text-[#162330] ">{props.name}</h2>
-					<p className="text-[#7a7a7a] ">{props.institucion}</p>
+					<div className="overflow-hidden">
+						<h2
+							className={` font-bold text-[#162330] transition-all ease-in-out delay-[1200ms] duration-1000 ${props.appear ? "translate-y-0 " : "translate-y-8 "} `}>
+							{props.name}
+						</h2>
+					</div>
+					<div className="overflow-hidden">
+						<p
+							className={`text-[#7a7a7a] transition-all ease-in-out delay-[1500ms] duration-1000 ${props.appear ? "translate-y-0 " : "translate-y-14 "} `}>
+							{props.institucion}
+						</p>
+					</div>
 				</div>
 				<div className="redes flex items-center gap-2">
-					<Link href={props.orcid} target={'_blank'} >
+					<Link
+						className={`hover:-translate-y-0.5 transition-all ease-in-out delay-[2000ms] duration-1000 ${props.appear ? "opacity-100 translate-y-0 " : "opacity-0 translate-y-6 "}`}
+						href={props.orcid}
+						target={"_blank"}>
 						<svg
 							className="fill-[#212121] hover:fill-[#A6CE39] transition-colors"
 							width="24"
@@ -42,7 +62,10 @@ export default function Autor(props: any) {
 							/>
 						</svg>
 					</Link>
-					<Link href={props.linkedin} target={'_blank'}>
+					<Link
+						className={`hover:-translate-y-0.5 transition-all ease-in-out delay-[2500ms] duration-1000 ${props.appear ? " opacity-100 translate-y-0 " : " opacity-0 translate-y-6 "} `}
+						href={props.linkedin}
+						target={"_blank"}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							className="fill-[#212121] hover:fill-[#0a66c2] transition-colors"
@@ -52,7 +75,10 @@ export default function Autor(props: any) {
 							<path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path>
 						</svg>
 					</Link>
-					<Link href={props.twitter} target={'_blank'}>
+					<Link
+						className={`hover:-translate-y-0.5 transition-all ease-in-out delay-[3000ms] duration-1000 ${props.appear ? " opacity-100 translate-y-0 " : " opacity-0 translate-y-6 "} `}
+						href={props.twitter}
+						target={"_blank"}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							className="fill-[#212121] hover:fill-[#1a8cd8] transition-colors"

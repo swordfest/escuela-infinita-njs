@@ -3,78 +3,147 @@ import Rive, { Alignment, Fit, Layout, useRive } from "@rive-app/react-canvas";
 import Button from "./button";
 import { useEffect, useState } from "react";
 import HeaderImage from "./headerImage";
+import { useRecoilState } from "recoil";
+import { mediaList, scrollPercentage } from "./store";
 // import riveWasmUrl from '@rive-app/canvas/rive.wasm';
 // import { RuntimeLoader } from 'rive-react';
 
 export default function Header(props: any) {
-	const { rive, RiveComponent } = useRive({
-		src: '/animations/escuela_infinita_artboard_small.riv',
-		autoplay: true,
-		artboard: 'PortadaSmall',
-		layout: new Layout({
-			fit: Fit.FitHeight,
-			alignment: Alignment.TopLeft,
-			maxX: 480,
-		}),
-	}, {
-		useDevicePixelRatio: true,
-		// fitCanvasToArtboardHeight: true,
+	const [media, setMedia] = useRecoilState(mediaList);
+	const [link, setLink] = useState("");
+	const [width, setWidth] = useState(0);
+	const [bigScreen, setBigScreen] = useState(false);
+	const [overflow, setOverflow] = useState(false);
+	const [scrollPos, setScrollPos] = useRecoilState<number>(scrollPercentage);
+
+
+	const { rive, RiveComponent } = useRive(
+		{
+			src: "/animations/escuela_infinita_artboard_small.riv",
+			autoplay: true,
+			artboard: "PortadaSmall",
+			layout: new Layout({
+				fit: Fit.FitHeight,
+				alignment: Alignment.TopLeft,
+				maxX: 480,
+			}),
+		},
+		{
+			useDevicePixelRatio: true,
+			// fitCanvasToArtboardHeight: true,
+		}
+	);
+
+	const [enter, setEnter] = useState(false);
+
+	useEffect(() => {
+		setWidth(window.innerWidth);
+
+		if (scrollPos >= 0) {
+			setEnter(true);
+			setTimeout(() => setOverflow(true), 3500);
+		}
+
+		if (media != undefined) {
+			setLink(
+				media.filter((m: any) => {
+					return m.id === 163;
+				})[0]?.["source_url"]
+			);
+		}
+
+		if (width > 1200) {
+			setBigScreen(true);
+		} else {
+			setBigScreen(false);
+		}
 	});
 
-	const [enter, setEnter] = useState(true)
-
-	// useEffect(() => {
-	// if (props.appear > 0.02) {
-	// 	setEnter(true)
-	// }
-	// })
-
 	return (
-		//  left-1/2 right-1/2 ml-[-50vw] mr-[-50vw]
-		<header className="header relative w-full h-[640px] xl:h-[860px] bg-gradient-to-tl from-[#4d684a] via-[#222146] to-[#222146] col-span-12 flex items-center justify-start mt-20 ">
-			{/* <img className="w-full h-full object-cover " src="/imgs/header.jpg" alt="header" /> */}
-			{/* <Rive style={{display: 'flex', alignItems: 'start', }} src="/animations/escuela_infinita_artboard_small.riv" /> */}
-			{/* <div className="absolute w-0 h-0 border-t-[50vh] border-b-[50vh] border-l-[50vh] border-t-transparent border-b-transparent border-l-green-500 "></div> */}
+		<div
+			className={`container-animation relative overflow-hidden transition-all ease-in-out duration-[1200ms] ${
+				enter ? " h-[940px] " : " h-0 "
+			} `}>
+			<header
+				className={`header relative w-full h-[640px] xl:h-[860px] bg-gradient-to-tl from-[#4d684a] via-[#222146] to-[#222146] col-span-12 flex overflow-hidden items-center justify-end mt-20 `}>
+				{/* <img className="w-full h-full object-cover " src="/imgs/header.jpg" alt="header" /> */}
+				{/* <Rive style={{display: 'flex', alignItems: 'start', }} src="/animations/escuela_infinita_artboard_small.riv" /> */}
+				{/* <div className="absolute w-0 h-0 border-t-[50vh] border-b-[50vh] border-l-[50vh] border-t-transparent border-b-transparent border-l-green-500 "></div> */}
+				<div
+					className={`absolute z-0 mix-blend-color-dodge w-full h-full animate-idleHead transition-all duration-700 delay-[1200ms] ${
+						bigScreen ? "-left-[640px]" : "-left-[340px]"
+					}`}>
+					<Image
+						className="mix-blend-color-dodge animate-fadeIn duration-[1500ms] brightness-[95%]"
+						src={"/imgs/arte.svg"}
+						fill
+						alt={""}
+					/>
+				</div>
 
+				{/* <HeaderImage/> */}
+				{/* <RiveComponent /> */}
+				{/* <div className=" w-full h-full top-0 right-0 text-white bg-[#162330] bg-opacity-80 xl:bg-transparent"> */}
 
-			<div className="absolute -left-[340px] w-full h-full ">
-				<Image className="mix-blend-color-dodge brightness-[95%]" src={'/imgs/arte.svg'} fill alt={""}/>
-			</div>
+				<div className=" z-[1] px-4 w-full h-full flex flex-col items-center xl:items-end justify-center gap-4 text-white ">
+					<div
+						className={`font-black text-5xl lg:text-8xl text-center xl:text-end overflow-hidden `}>
+						<div
+							className={` transition-all ease-in-out duration-[1500ms] delay-[1200ms] ${
+								enter ? " translate-y-0 " : " translate-y-20 "
+							} `}>
+							LA ESCUELA INFINITA
+						</div>
+					</div>
+					<div
+						className={`font-bold h-16 text-2xl lg:text-5xl text-center xl:text-end overflow-hidden `}>
+						<div
+							className={` transition-all ease-in-out duration-[1500ms] delay-[1200ms] ${
+								enter ? " translate-y-0 " : " translate-y-16 "
+							} `}>
+							Aprender y enseñar en entornos ubicuos
+						</div>
+					</div>
 
-			{/* <HeaderImage/> */}
-			{/* <RiveComponent /> */}
-			<div className=" absolute w-full h-full top-0 right-0 text-white bg-[#162330] bg-opacity-80 xl:bg-transparent">
-				<div className="container mx-auto px-4 h-full flex flex-col items-end justify-center">
-					<span className="font-black text-5xl lg:text-7xl text-end ">LA ESCUELA INFINITA</span>
-					<span className="font-bold text-2xl lg:text-5xl text-end ">Aprender y enseñar en entornos ubicuos</span>
-					<div className={("container h-auto xl:h-40 mx-auto flex flex-col lg:flex-row items-center justify-end gap-6 py-4 ")}>
+					<div
+						className={`buttons-download w-full lg:w-auto h-auto xl:h-auto flex flex-col lg:flex-row items-center justify-end gap-6 py-4 ${
+							overflow ? '' : 'overflow-hidden'
+						} `}>
+							{console.log(overflow)}
 						<Button
-							key={'but'}
+							key={"but"}
 							text={"DESCARGAR LIBRO - PDF"}
 							type={"button"}
-							link={"#"}
+							link={
+								"http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CURSO-APRENDER-Y-ENSENAR-EV.docx"
+							}
 							isVisible={enter}
-							delay={'100'}
+							delay={"duration-[1500ms]"}
+							download={false}
 						/>
 						<Button
-							key={'but2'}
+							key={"but2"}
 							text={"DESCARGAR LIBRO - EPUB"}
 							type={"button"}
-							link={"#"}
+							link={
+								"http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CURSO-APRENDER-Y-ENSENAR-EV.docx"
+							}
 							isVisible={enter}
-							delay={'300'}
+							delay={"duration-[2000ms]"}
 						/>
 						<Button
-							key={'but3'}
+							key={"but3"}
 							text={"DESCARGAR CAPITULOS"}
 							type={"menu"}
-							link={"#"}
+							link={
+								"http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CURSO-APRENDER-Y-ENSENAR-EV.docx"
+							}
 							isVisible={enter}
-							delay={'500'}
+							delay={"duration-[2500ms]"}
 						/>
 					</div>
 				</div>
-			</div>
-		</header>
+			</header>
+		</div>
 	);
 }

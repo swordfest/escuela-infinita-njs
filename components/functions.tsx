@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { windowSize } from "./data";
 
 
 export const useOutsideClick = (callback: any) => {

@@ -9,7 +9,7 @@ export default function MenuMobile(props: any) {
 	return (
 		<div
 			className={
-				"menu-mobile overflow-hidden w-full h-screen fixed top-20 z-[1] bg-white transition-all flex flex-col items-center gap-6 py-6 "
+				"menu-mobile overflow-hidden w-full h-screen fixed top-20 z-[2] bg-white transition-all flex flex-col items-center gap-6 py-6 "
 			}>
 			<MenuNavbar isMobile={true} />
 		</div>

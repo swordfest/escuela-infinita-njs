@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
+// import { Inter, Archivo } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import { Meta } from "../components/meta";
 import Navbar from "../components/navbar";
@@ -17,20 +17,18 @@ import Footer from "../components/footer";
 import Reviews from "../components/reviewsSection";
 import { useCallback, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { postsList, reviewsList, scrollPercentage } from "../components/store";
+import { cursosList, mediaList, postsList, reviewsList, scrollPercentage } from "../components/store";
+import SumarioTesting from "../components/sumarioSectionTesting";
+import ReviewsTesting from "../components/reviewsSectionTesting";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
+// const archivo = Archivo({ subsets: ["latin"] });
 
 export async function getStaticProps() {
 	const data = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/cursos`
+		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/cursos?_embed`
 	);
 	const cursos = await data.json();
-
-	const dataPosts = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/posts?_embed`
-	);
-	const posts = await dataPosts.json();
 
 	const dataReviews = await fetch(
 		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/resenas?_embed`
@@ -40,7 +38,6 @@ export async function getStaticProps() {
 	return {
 		props: {
 			cursos,
-			posts,
 			reviews,
 		},
 	};
@@ -50,14 +47,16 @@ export default function Home(props: any) {
 	const [scrollPos, setScrollPos] = useRecoilState<number>(scrollPercentage);
 	const [posts, setPosts] = useRecoilState(postsList);
 	const [reviews, setReviews] = useRecoilState(reviewsList);
+	const [media, setMedia] = useRecoilState(mediaList);
+	const [cursos, setCursos] = useRecoilState(cursosList);
 
 	// const [hasMounted, setHasMounted] = useState(false);
 	
 	useEffect(() => {
 		setReviews(props.reviews)
-		setPosts(props.posts)
-		window.addEventListener("scroll", () => handleScroll);
-		return window.removeEventListener("scroll", () => handleScroll);
+		setCursos(props.cursos)
+		console.log(scrollPos)
+		window.addEventListener("scroll", handleScroll);
 	});
 
 	const handleScroll = () => {
@@ -66,7 +65,6 @@ export default function Home(props: any) {
 			(document.documentElement.scrollHeight -
 				document.documentElement.clientHeight);
 		setScrollPos(scrollPercentage);
-		console.log(scrollPos);
 	};
 
 	return (
@@ -74,11 +72,11 @@ export default function Home(props: any) {
 			<Meta />
 			<Navbar />
 			<Header appear={scrollPos} />
-			<main className="container col-span-12 grid grid-cols-12 auto-rows-auto mx-auto px-4 xl:px-0 mt-8 w-full h-auto">
+			<main className={`container col-span-12 grid grid-cols-12 auto-rows-auto mx-auto mt-8 w-full h-auto ${''}`}>
 				{/* <Header /> */}
 				{/* <DownloadBook /> */}
-				<Sumario appear={scrollPos} />
-				<Reviews />
+				<SumarioTesting appear={scrollPos} />
+				<ReviewsTesting />
 				<Autors />
 				<CursosSection lista={props.cursos} />
 				<VideosSection />

@@ -41,7 +41,7 @@ export default function Cursos(props: any) {
 		<>
 			<Meta title="La Escuela Infinita - Blog" />
 			<HeaderSingle page={'cursos'} />
-			<main className="container h-auto mx-auto  grid grid-cols-12 auto-rows-auto gap-[30px] my-10 ">
+			<main className="container h-auto mx-auto grid grid-cols-12 auto-rows-auto gap-[30px] my-10 ">
 				<div className="post-list col-span-12 lg:col-span-8 h-auto grid grid-cols-12 auto-rows-auto gap-8 px-4 xl:px-0 ">
 					{hasMounted &&
 						props.result.map((c: any) => (
@@ -49,7 +49,7 @@ export default function Cursos(props: any) {
 								key={c.id}
 								styleClass={" col-span-4 "}
 								iframe={" h-44 brightness-75 group-hover:brightness-100 group-hover:scale-[1.03] transition-all duration-700 "}
-								link={c.slug}
+								slug={c.slug}
 								url={c.acf.video_thumbnail}
 								title={c.title.rendered}
 								excerpt={c.excerpt.rendered}
