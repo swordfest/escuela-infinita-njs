@@ -10,7 +10,7 @@ export default function CursosSection(props: any) {
 	const [enter, setEnter] = useState(false);
 
 	useEffect(() => {
-		if (scrollPos > 0.55) {
+		if (scrollPos > 0.53) {
 			setEnter(true);
 		}
 	});
@@ -43,7 +43,7 @@ export default function CursosSection(props: any) {
 									iframe={
 										" h-56 lg:h-[640px] xl:h-[280px] brightness-75 group-hover:brightness-100 group-hover:scale-[1.03] transition-all duration-700 "
 									}
-									key={c.id}
+									key={index}
 									url={c.acf.video_thumbnail}
 									title={c.title.rendered}
 									excerpt={c.excerpt.rendered}
@@ -53,7 +53,7 @@ export default function CursosSection(props: any) {
 							</>
 						))}
 				</div>
-				<div className="overflow-hidden">
+				{/* <div className="overflow-hidden">
 					<Button
 						key={"but"}
 						text={"MÁS CURSOS"}
@@ -63,7 +63,7 @@ export default function CursosSection(props: any) {
 						delay={"duration-[1500ms]"}
 						download={true}
 					/>
-				</div>
+				</div> */}
 			</div>
 		</section>
 	);

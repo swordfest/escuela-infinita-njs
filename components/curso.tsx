@@ -50,7 +50,7 @@ export default function Curso(props: any) {
 					<h2
 						className={`text-xl font-bold group-hover:text-[#2d2b5c] transition-all ease-in-out duration-[${600 *
 							(props.delay + 1)}ms] ${
-							props.appear ? "translate-y-0 " : "translate-y-6 "
+							props.appear ? "translate-y-0 " : "translate-y-14 "
 						} `}>
 						{props.title}
 					</h2>
@@ -59,7 +59,7 @@ export default function Curso(props: any) {
 					<p
 						className={`p-curso text-lg text-start transition-all ease-in-out duration-[${600 *
 							(props.delay + 1)}ms] ${
-							props.appear ? "translate-y-0 " : "translate-y-32 "
+							props.appear ? "translate-y-0 " : "translate-y-48 "
 						}`}
 						dangerouslySetInnerHTML={{
 							__html: DOMPurify.sanitize(props.excerpt),
@@ -67,25 +67,23 @@ export default function Curso(props: any) {
 				</div>
 				<div className="overflow-hidden">
 					<Link
-						className={`flex items-center group transition-all ease-in-out duration-[${600 *
+						className={`flex items-center w-auto group transition-all ease-in-out duration-[${600 *
 							(props.delay + 1)}ms] ${
-							props.appear ? "translate-x-0 " : "-translate-x-6 "
+							props.appear ? "translate-x-0 " : "-translate-x-24 "
 						}`}
 						href={`/cursos/${props.slug}`}>
-						<span className="h-6 group-hover:text-[#85b390] transition-all duration-200 align-middle text-lg font-semibold leading-5">
+						<div className="h-6 group-hover:text-[#85b390] transition-all duration-200 align-middle text-lg font-semibold leading-5">
 							Ver curso
-						</span>
-						<span>
-							<svg
-								className=" group-hover:translate-x-1 group-hover:fill-[#85b390] transition-all duration-200 "
-								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
-								viewBox="0 0 24 24">
-								<path d="M10.296 7.71 14.621 12l-4.325 4.29 1.408 1.42L17.461 12l-5.757-5.71z"></path>
-								<path d="M6.704 6.29 5.296 7.71 9.621 12l-4.325 4.29 1.408 1.42L12.461 12z"></path>
-							</svg>
-						</span>
+						</div>
+						<svg
+							className=" group-hover:translate-x-1 group-hover:fill-[#85b390] transition-all duration-200 "
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24">
+							<path d="M10.296 7.71 14.621 12l-4.325 4.29 1.408 1.42L17.461 12l-5.757-5.71z"></path>
+							<path d="M6.704 6.29 5.296 7.71 9.621 12l-4.325 4.29 1.408 1.42L12.461 12z"></path>
+						</svg>
 					</Link>
 				</div>
 			</div>
@@ -112,7 +110,8 @@ export default function Curso(props: any) {
 				<Link
 					className={`flex items-center group  `}
 					href={`/cursos/${props.slug}`}>
-					<h2 className={`text-xl font-bold group-hover:text-[#85b390] transition-all duration-200  `}>
+					<h2
+						className={`text-xl font-bold group-hover:text-[#85b390] transition-all duration-200  `}>
 						{props.title}
 					</h2>
 				</Link>

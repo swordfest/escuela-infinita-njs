@@ -15,7 +15,7 @@ export async function getStaticProps() {
 	const result = await data.json();
 
 	const tags = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/tags`
+		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/tags`
 	);
 	const tagsRes = await tags.json();
 
@@ -38,31 +38,33 @@ export default function Repositorio(props: any) {
 
 	useEffect(() => {
 		setHasMounted(true);
+		
 	}, []);
 
 	return (
 		<>
 			<Meta title="La Escuela Infinita - Repositorio" />
 			<HeaderSingle page={'repositorio'} />
-			<main className="container h-auto mx-auto  grid grid-cols-12 auto-rows-auto gap-[30px] my-10 ">
-				<div className="post-list col-span-12 lg:col-span-8 h-auto grid grid-cols-12 auto-rows-auto gap-8 px-4 xl:px-0 ">
+			<main className="container h-auto mx-auto grid grid-cols-12 auto-rows-auto gap-[30px] my-10 ">
+				<div className="recursos-list col-span-12 lg:col-span-8 h-auto grid grid-cols-12 auto-rows-auto gap-8 px-4 xl:px-0 ">
 					{hasMounted &&
 						props.result.map((c: any) => (
-							// <></>
 							<Recurso
 								key={c.id}
 								type={c.acf.tipo_de_recurso}
-								image={c.better_featured_image.source_url}
+								image={c.better_featured_image?.source_url}
 								title={c.title.rendered}
-								autor={c.acf.autor_recurso}
+								autor1={c.acf.autor_1_recurso}
+								autor2={c.acf.autor_2_recurso}
+								autor3={c.acf.autor_3_recurso}
+								autor4={c.acf.autor_4_recurso}
 								licencia={c.acf.licencia_producto}
 								link={c.acf.url_recurso}
 								documento={c.acf.documento_recurso}
 								doc={props.media.filter((m: any)=>{return m.id === c.acf.documento_recurso})[0]?.source_url}
-								// doc={''}
 							/>
 						))}
-						{console.log(props.media.filter((m: any)=>{return m.id === props.result[1].acf.documento_recurso}))}
+						{/* {console.log(props.media.filter((m: any)=>{return m.id === props.result[0].acf.documento_recurso}))} */}
 				</div>
 				<div className="blog-sidebar col-span-12 lg:col-span-4 px-4 lg:px-0 h-auto lg:h-screen flex flex-col gap-8">
 					<div className="flex flex-col gap-4">
@@ -98,7 +100,7 @@ export default function Repositorio(props: any) {
 					</div> */}
 				</div>
 			</main>
-			<Footer />
+			<Footer animate={false} />
 		</>
 	);
 }

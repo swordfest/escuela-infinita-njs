@@ -3,7 +3,7 @@ import useSWR from "swr";
 import React from "react";
 import Youtube from "react-youtube";
 import Image from "next/image";
-import { Video, windowSize } from "./data";
+import { Item, Video, windowSize, YoutubeItem } from "./data";
 import { Carousel, ScrollingCarousel } from "@trendyol-js/react-carousel";
 import Button from "./button";
 import Thumbnail from "./thumbnail";
@@ -24,15 +24,16 @@ export default function VideosSection() {
 	const [show, setShow] = useState(3);
 	const [styleArrows, setStyleArrows] = useState(true);
 	const [width, setWidth] = useState(0);
+	const [hasMounted, setHasMounted] = useState(false);
 
 	const fetcher = (...args: [any, any]) =>
 		fetch(...args).then((res) => res.json());
-	// const { data: videos, error } = useSWR<dataYoutube>(
-	// 	"https://www.googleapis.com/youtube/v3/search?key=AIzaSyAYmahKRo0Q4KNx_xw6ON4S5z6_SlpQ5PQ&part=snippet&channelId=UCjIUGN6vQCrvDpyc4G6tCpQ&type=video",
+	// const { data: videos, error } = useSWR<YoutubeItem>(
+	// 	"https://www.googleapis.com/youtube/v3/search?key=AIzaSyAYmahKRo0Q4KNx_xw6ON4S5z6_SlpQ5PQ&part=snippet&channelId=UCjIUGN6vQCrvDpyc4G6tCpQ&type=video&maxResults=20",
 	// 	fetcher
 	// );
 
-	const { data: videos, error } = useSWR<dataYoutube>(
+	const { data: videos, error } = useSWR<YoutubeItem>(
 		"https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&chart=mostPopular&key=AIzaSyAXMRrG--exsMbFqcofGdnxx4FNu3aMmOs",
 		fetcher
 	);
@@ -44,14 +45,15 @@ export default function VideosSection() {
 	const [enter, setEnter] = useState(false);
 
 	useEffect(() => {
-		if (scrollPos > 0.7) {
+		setHasMounted(true);
+		if (scrollPos > 0.62) {
 			setEnter(true);
 		}
 	});
 
 	const handleClick = (id: string) => {
 		setVideoBig(id);
-		console.log(videoBig);
+		console.log(id);
 	};
 
 	useEffect(() => {
@@ -87,7 +89,7 @@ export default function VideosSection() {
 	return (
 		<section
 			id="videos"
-			className="videos w-full h-auto col-span-12 flex flex-col gap-8 items-center justify-center">
+			className="videos w-full h-[960px] col-span-12 flex flex-col gap-8 items-center justify-center">
 			<div className="overflow-hidden">
 				<h1
 					className={`text-3xl text-[#162330] xl:text-5xl uppercase font-black transition-all ease-in-out duration-[1000ms] ${
@@ -96,7 +98,7 @@ export default function VideosSection() {
 					Materiales Visuales
 				</h1>
 			</div>
-			<div className="flex flex-col items-center w-full h-auto gap-4 overflow-visible ">
+			<div className=" w-[328px] sm:w-[608px] md:w-[736px] lg:w-[992px] flex flex-col items-center h-auto gap-4 overflow-visible ">
 				<div className="overflow-hidden">
 					<div
 						className={`video flex justify-center bg-[#000] transition-all ease-in-out duration-[1000ms] ${
@@ -115,8 +117,8 @@ export default function VideosSection() {
 					</div>
 				</div>
 				<Carousel
-					className={` transition-all ease-in-out duration-[2000ms] ${
-						enter ? " h-56 " : " h-0 "
+					className={` bg-slate-200 transition-all ease-in-out duration-[2000ms] ${
+						enter ? " h-32 " : " h-0 "
 					}`}
 					rightArrow={
 						<Button type={"slider"} side={"right"} styleArrows={styleArrows} />
@@ -126,19 +128,21 @@ export default function VideosSection() {
 					}
 					useArrowKeys={true}
 					responsive={true}
-					dynamic={true}
+					// dynamic={true}
 					swiping={true}
 					// infinite={false}
 					show={show}
 					slide={numSlides}>
-					{videos.items.map((item: any) => (
-						<Thumbnail
-							key={item.id}
-							handleClick={() => handleClick(item.id)}
-							id={item.id}
-							url={item.snippet.thumbnails.high.url}
-						/>
-					))}
+						{/* .filter((f: Item) => f.snippet.liveBroadcastContent === "none") */}
+					{
+						videos.items?.filter((f: Item) => f.snippet.liveBroadcastContent === "none").map((item: Item) => (
+								<Thumbnail
+									key={item.id.videoId}
+									handleClick={() => handleClick(item.id.videoId)}
+									id={item.id.videoId}
+									url={item.snippet.thumbnails.high.url}
+								/>
+							))}
 				</Carousel>
 			</div>
 		</section>

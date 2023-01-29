@@ -12,6 +12,9 @@ import { es } from "date-fns/locale";
 import Image from "next/image";
 import HeaderSingle from "../../components/headerSingle";
 import DOMPurify from "isomorphic-dompurify";
+import { useRecoilState } from "recoil";
+import { postsList } from "../../components/store";
+import { Inputs, lastPosts } from "../../components/data";
 
 export async function getStaticProps(context: any) {
 	const {
@@ -19,22 +22,19 @@ export async function getStaticProps(context: any) {
 	} = context;
 
 	const posts = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/posts?_embed`
+		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/posts?_embed`
 	);
-	const postsResults = await posts.json();
+	const postsResults: lastPosts = await posts.json();
 
 	const data = await fetch(
 		// `http://localhost:8000/wp-json/wp/v2/posts?_embed&slug=${slug}`
-		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/posts?_embed&slug=${slug}`
+		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/posts?_embed&slug=${slug}`
 	);
-
 	const result = await data.json();
 
 	const comments = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/comments?post=${result[0].id}`
-		// `http://localhost:8000/wp-json/wp/v2/comments?post=${result[0].id}`
+		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/comments?post=${result[0].id}`
 	);
-
 	const resComment = await comments.json();
 
 	return {
@@ -49,28 +49,38 @@ export async function getStaticProps(context: any) {
 }
 
 export async function getStaticPaths() {
+
+	const posts = await fetch(
+		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/posts`
+	);
+	const postsResults = await posts.json();
+
+	console.log(postsResults)
+
+	const paths: lastPosts = postsResults.map((p: any) => {
+		return {
+			params: { slug: p.slug },
+		};
+	});
+
 	return {
-		paths: [],
-		fallback: "blocking",
+		paths,
+		fallback: false,
 	};
 }
 
-type Inputs = {
-	author_name: string;
-	author_email: string;
-	content: string;
-};
+
 
 async function sendRequest(url: string, { arg }: any) {
 	return fetch(url, {
 		method: "POST",
-		redirect: 'follow',
+		redirect: "follow",
 		// mode: 'same-origin',
 		body: JSON.stringify(arg),
 		headers: {
 			// 'Accept': '*/*'
 			// 'Allow':'*',
-			'Content-Type': 'application/json; charset=UTF-8',
+			"Content-Type": "application/json; charset=UTF-8",
 			// 'X-Content-Type-Options': 'nosniff',
 		},
 	}).then((res) => res.json());
@@ -81,6 +91,7 @@ export default function Post(props: any) {
 	// const [email, setEmail] = useState("");
 	// const [content, setContent] = useState("");
 	const [commentData, setCommentData] = useState<Inputs>();
+	const [posts, setPosts] = useRecoilState(postsList);
 
 	const {
 		register,
@@ -126,7 +137,7 @@ export default function Post(props: any) {
 			trigger(commentData);
 			reset();
 		}
-		console.log(commentData);
+		console.log(props.postsResults);
 	}, [commentData]);
 
 	useEffect(() => {
@@ -160,7 +171,9 @@ export default function Post(props: any) {
 							<hr />
 							<span className="text-3xl font-semibold">Comentarios:</span>
 							{comm?.map((c: any) => (
-								<div key={c.id} className="w-full min-h-min flex flex-col bg-[#EDE9E9] gap-4 p-4">
+								<div
+									key={c.id}
+									className="w-full min-h-min flex flex-col bg-[#EDE9E9] gap-4 p-4">
 									<div className="font-semibold w-full flex items-center justify-between">
 										<span>
 											{c.author_name}{" "}
@@ -240,6 +253,7 @@ export default function Post(props: any) {
 					<div className="flex flex-col gap-4">
 						<span className="text-xl font-semibold">Entradas recientes</span>
 						{props.postsResults.slice(0, 4).map((d: any) => (
+							
 							<div
 								key={d.id}
 								className="last-entry w-full h-24 pl-4 flex gap-4">

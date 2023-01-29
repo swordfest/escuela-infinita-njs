@@ -56,7 +56,7 @@ export default function Autors() {
                     appear={enter}
                     duration={'duration-[1200ms]'}
                     delay={'delay-200'}
-					url={"/imgs/autor-1.png"}
+					url={"/imgs/diosvany.jpg"}
 					name={datosAutor[0].autor}
 					institucion={datosAutor[0].institucion}
 					orcid={datosAutor[0].codigo_orcid}
@@ -67,7 +67,7 @@ export default function Autors() {
                     appear={enter}
                     delay={'delay-300'}
                     duration={'duration-[1800ms]'}
-					url={"/imgs/autor-2.png"}
+					url={"/imgs/celio.jpg"}
 					name={datosAutor[1].autor}
 					institucion={datosAutor[1].institucion}
 					orcid={datosAutor[1].codigo_orcid}
@@ -78,12 +78,13 @@ export default function Autors() {
                     appear={enter}
                     delay={'delay-400'}
                     duration={'duration-[2200ms]'}
-					url={"/imgs/autor-3.png"}
+					url={"/imgs/fernando1.jpg"}
 					name={datosAutor[2].autor}
 					institucion={datosAutor[2].institucion}
 					orcid={datosAutor[2].codigo_orcid}
 					linkedin={datosAutor[2].linkedin}
 					twitter={datosAutor[2].twitter}
+					adjustImage={'saturate-[1.4] '}
 				/>
 			</div>
 		</section>

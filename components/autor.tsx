@@ -12,7 +12,7 @@ export default function Autor(props: any) {
 						props.delay
 					} ${props.appear ? " translate-y-0 " : " translate-y-[589px] "} `}>
 					<Image
-						className={`w-full h-full object-cover hover:scale-[1.03] hover:brightness-100 transition-all ease-in-out duration-500 brightness-90 `}
+						className={`w-full h-full object-cover object-top hover:scale-[1.03] hover:brightness-100 transition-all ease-in-out duration-500 brightness-90 ${props.adjustImage}`}
 						src={props.url}
 						fill
 						alt={`Foto de ${props.name}`}

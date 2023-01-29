@@ -16,7 +16,6 @@ export default function Header(props: any) {
 	const [overflow, setOverflow] = useState(false);
 	const [scrollPos, setScrollPos] = useRecoilState<number>(scrollPercentage);
 
-
 	const { rive, RiveComponent } = useRive(
 		{
 			src: "/animations/escuela_infinita_artboard_small.riv",
@@ -41,7 +40,7 @@ export default function Header(props: any) {
 
 		if (scrollPos >= 0) {
 			setEnter(true);
-			setTimeout(() => setOverflow(true), 3500);
+			setTimeout(() => setOverflow(true), 4500);
 		}
 
 		if (media != undefined) {
@@ -61,11 +60,12 @@ export default function Header(props: any) {
 
 	return (
 		<div
-			className={`container-animation relative overflow-hidden transition-all ease-in-out delay-1000 duration-[1200ms] ${
-				enter ? " h-[940px] " : " h-0 "
-			} `}>
+			className={`container-animation relative transition-all ease-in-out delay-1000 duration-[1200ms] ${
+				enter ? " h-[640px] xl:h-[940px] " : " h-0 "
+			} 
+			${overflow ? "overflow-visible" : "overflow-hidden"}`}>
 			<header
-				className={`header relative w-full h-[640px] xl:h-[860px] bg-gradient-to-tl from-[#4d684a] via-[#222146] to-[#222146] col-span-12 flex overflow-hidden items-center justify-end mt-20 `}>
+				className={`header relative w-full h-[640px] xl:h-[860px] bg-gradient-to-tl from-[#4d684a] via-[#222146] to-[#222146] col-span-12 flex overflow-visible items-center justify-end mt-20 `}>
 				{/* <img className="w-full h-full object-cover " src="/imgs/header.jpg" alt="header" /> */}
 				{/* <Rive style={{display: 'flex', alignItems: 'start', }} src="/animations/escuela_infinita_artboard_small.riv" /> */}
 				{/* <div className="absolute w-0 h-0 border-t-[50vh] border-b-[50vh] border-l-[50vh] border-t-transparent border-b-transparent border-l-green-500 "></div> */}
@@ -107,14 +107,14 @@ export default function Header(props: any) {
 
 					<div
 						className={`buttons-download w-full lg:w-auto h-auto xl:h-auto flex flex-col lg:flex-row items-center justify-end gap-6 py-4 ${
-							overflow ? '' : 'overflow-hidden'
+							overflow ? "" : "overflow-hidden"
 						} `}>
 						<Button
 							key={"but"}
 							text={"DESCARGAR LIBRO - PDF"}
 							type={"button"}
 							link={
-								"http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CURSO-APRENDER-Y-ENSENAR-EV.docx"
+								"http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/LA-ESCUELA-INFINITA-LIBRO.pdf"
 							}
 							isVisible={enter}
 							delay={"duration-[1500ms]"}
@@ -125,7 +125,7 @@ export default function Header(props: any) {
 							text={"DESCARGAR LIBRO - EPUB"}
 							type={"button"}
 							link={
-								"http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CURSO-APRENDER-Y-ENSENAR-EV.docx"
+								"http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/LA-ESCUELA-INFINITA-LIBRO.pdf"
 							}
 							isVisible={enter}
 							delay={"duration-[2000ms]"}

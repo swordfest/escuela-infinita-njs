@@ -20,6 +20,7 @@ import { useRecoilState } from "recoil";
 import { cursosList, mediaList, postsList, reviewsList, scrollPercentage } from "../components/store";
 import SumarioTesting from "../components/sumarioSectionTesting";
 import ReviewsTesting from "../components/reviewsSectionTesting";
+import Contact from "../components/contact";
 
 // const inter = Inter({ subsets: ["latin"] });
 // const archivo = Archivo({ subsets: ["latin"] });
@@ -72,7 +73,7 @@ export default function Home(props: any) {
 			<Meta />
 			<Navbar />
 			<Header appear={scrollPos} />
-			<main className={`container col-span-12 grid grid-cols-12 auto-rows-auto mx-auto mt-8 w-full h-auto ${''}`}>
+			<main className={`container col-span-12 grid grid-cols-12 auto-rows-auto mx-auto mt-8 w-full h-auto px-4 ${''}`}>
 				{/* <Header /> */}
 				{/* <DownloadBook /> */}
 				<SumarioTesting appear={scrollPos} />
@@ -80,6 +81,7 @@ export default function Home(props: any) {
 				<Autors />
 				<CursosSection lista={props.cursos} />
 				<VideosSection />
+				<Contact/>
 				<Sponsors />
 				{/* <Footer /> */}
 			</main>

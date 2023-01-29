@@ -5,7 +5,7 @@ export default function Thumbnail(props: any) {
 		<div
 			onClick={() => props.handleClick(props.id)}
 			className="relative w-auto h-auto group ">
-			<div className="relative w-full h-56 ">
+			<div className="relative w-56 h-32 ">
 				<Image
 					// onClick={() => props.handleClick(props.id)}
 					className="flex px-2 overflow-hidden brightness-75 group-hover:brightness-100 transition-all group-hover:scale-[1.02]"

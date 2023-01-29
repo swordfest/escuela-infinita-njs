@@ -32,9 +32,21 @@ export async function getStaticProps(context: any) {
 }
 
 export async function getStaticPaths() {
+
+	const posts = await fetch(
+		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/cursos`
+	);
+	const cursosResults = await posts.json();
+
+	const paths = cursosResults.map((c: any) => {
+		return {
+			params: { slug: c.slug },
+		};
+	});
+
 	return {
-		paths: [],
-		fallback: "blocking",
+		paths,
+		fallback: false,
 	};
 }
 

@@ -28,13 +28,14 @@ export default function Button(props: any) {
 		return (
 			<button
 				name="Descarga"
-				className={
-					`w-full md:w-72 h-14 bg-[#98CCA5] text-white select-none flex items-center transition-all hover:bg-[#a5dfb4] active:bg-[#85b390] ease-in-out ${overflow ? `` : `delay-[3000ms] ${props.delay}`} ${props.isVisible ? ' translate-y-0 ' : '  translate-y-20 '} `
-					}>
+				className={`w-full md:w-72 h-14 bg-[#98CCA5] text-white select-none flex items-center transition-all hover:bg-[#a5dfb4] active:bg-[#85b390] ease-in-out ${
+					overflow ? `` : `delay-[3000ms] ${props.delay}`
+				} ${props.isVisible ? " translate-y-0 " : "  translate-y-20 "} `}>
 				<Link
-				href={props.link}
-					className={`text-[#0d2636] text-sm font-semibold w-full flex items-center gap-8 px-4 ${!props.download ? 'justify-between' : 'justify-center' }`}
-					>
+					href={props.link} target={'_blank'}
+					className={`text-[#0d2636] text-sm font-semibold w-full flex items-center gap-8 px-4 ${
+						!props.download ? "justify-between" : "justify-center"
+					}`}>
 					{/* href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 					{props.text}
 					{!props.download && (
@@ -53,9 +54,9 @@ export default function Button(props: any) {
 				ref={ref}
 				onClick={() => setOpen(!open)}
 				title="Descargar Capitulos"
-				className={
-					`relative w-full md:w-72 h-14 bg-[#98CCA5] hover:bg-[#a5dfb4] select-none flex items-center transition-all text-sm cursor-pointer ease-in-out ${overflow ? `` : `delay-[3000ms] ${props.delay}`} ${props.isVisible ? 'translate-y-0 ' : 'translate-y-20 '}`
-				}>
+				className={`relative w-full md:w-72 h-14 bg-[#98CCA5] hover:bg-[#a5dfb4] select-none flex items-center transition-all text-sm cursor-pointer ease-in-out ${
+					overflow ? `` : `delay-[3000ms] ${props.delay}`
+				} ${props.isVisible ? "translate-y-0 " : "translate-y-20 "}`}>
 				<span className=" w-full h-auto flex items-center justify-between px-4 gap-8 text-[#0d2636] font-semibold">
 					{props.text}
 					<svg
@@ -72,13 +73,93 @@ export default function Button(props: any) {
 
 				<ul
 					className={
-						"menu absolute w-full h-auto top-14 bg-[#98CCA5] text-[#0d2636] font-semibold flex flex-col items-center justify-start transition-transform  " +
+						"menu absolute w-full h-72 top-14 bg-[#98CCA5] text-[#0d2636] font-semibold flex flex-col items-center justify-start transition-transform overflow-y-auto " +
 						(open ? "" : "hidden")
 					}>
-					<Link className="w-full" href={props.link}>
-					{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
+					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/PROLOGO.pdf'} target={'_blank'}>
+						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
-							Capitulo 1
+							Prologo
+							<svg className="w-4 h-4  mr-1" viewBox="0 0 24 24">
+								<path d="m12 16 4-5h-3V4h-2v7H8z"></path>
+								<path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
+							</svg>
+						</li>
+					</Link>
+					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/INTRODUCCION.pdf'} target={'_blank'}>
+						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
+						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
+							Introducción
+							<svg className="w-4 h-4  mr-1" viewBox="0 0 24 24">
+								<path d="m12 16 4-5h-3V4h-2v7H8z"></path>
+								<path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
+							</svg>
+						</li>
+					</Link>
+					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-0.pdf'} target={'_blank'}>
+						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
+						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
+							Capítulo 0
+							<svg className="w-4 h-4  mr-1" viewBox="0 0 24 24">
+								<path d="m12 16 4-5h-3V4h-2v7H8z"></path>
+								<path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
+							</svg>
+						</li>
+					</Link>
+					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-1.pdf'} target={'_blank'}>
+						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
+						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
+							Capítulo 1
+							<svg className="w-4 h-4  mr-1" viewBox="0 0 24 24">
+								<path d="m12 16 4-5h-3V4h-2v7H8z"></path>
+								<path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
+							</svg>
+						</li>
+					</Link>
+					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-2.pdf'} target={'_blank'}>
+						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
+						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
+							Capítulo 2
+							<svg className="w-4 h-4  mr-1" viewBox="0 0 24 24">
+								<path d="m12 16 4-5h-3V4h-2v7H8z"></path>
+								<path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
+							</svg>
+						</li>
+					</Link>
+					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-3.pdf'} target={'_blank'}>
+						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
+						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
+							Capítulo 3
+							<svg className="w-4 h-4  mr-1" viewBox="0 0 24 24">
+								<path d="m12 16 4-5h-3V4h-2v7H8z"></path>
+								<path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
+							</svg>
+						</li>
+					</Link>
+					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-4.pdf'} target={'_blank'}>
+						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
+						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
+							Capítulo 4
+							<svg className="w-4 h-4  mr-1" viewBox="0 0 24 24">
+								<path d="m12 16 4-5h-3V4h-2v7H8z"></path>
+								<path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
+							</svg>
+						</li>
+					</Link>
+					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-5.pdf'} target={'_blank'}>
+						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
+						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
+							Capítulo 5
+							<svg className="w-4 h-4  mr-1" viewBox="0 0 24 24">
+								<path d="m12 16 4-5h-3V4h-2v7H8z"></path>
+								<path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
+							</svg>
+						</li>
+					</Link>
+					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/SPIN-OFF.pdf'} target={'_blank'}>
+						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
+						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
+							Spin Off
 							<svg className="w-4 h-4  mr-1" viewBox="0 0 24 24">
 								<path d="m12 16 4-5h-3V4h-2v7H8z"></path>
 								<path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
