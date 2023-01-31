@@ -13,12 +13,12 @@ import Curso from "../../components/curso";
 export async function getStaticProps() {
 	// const data =  await fetch(`http://localhost:8000/wp-json/wp/v2/posts?_embed`)
 	const data = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/cursos?_embed`
+		`https://apiei.aprendiendo.cu/index.php/wp-json/wp/v2/cursos?_embed`
 	);
 	const result = await data.json();
 
 	const tags = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/tags`
+		`https://apiei.aprendiendo.cu/index.php/wp-json/wp/v2/tags`
 	);
 	const tagsRes = await tags.json();
 
@@ -90,7 +90,7 @@ export default function Cursos(props: any) {
 					</div> */}
 				</div>
 			</main>
-			<Footer />
+			<Footer animate={false} />
 		</>
 	);
 }

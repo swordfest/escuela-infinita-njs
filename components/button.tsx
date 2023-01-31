@@ -76,17 +76,17 @@ export default function Button(props: any) {
 						"menu absolute w-full h-72 top-14 bg-[#98CCA5] text-[#0d2636] font-semibold flex flex-col items-center justify-start transition-transform overflow-y-auto " +
 						(open ? "" : "hidden")
 					}>
-					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/PROLOGO.pdf'} target={'_blank'}>
+					<Link className="w-full" href={'http://apiei.aprendiendo.cu/wp-content/uploads/2023/01/PROLOGO.pdf'} target={'_blank'}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
-							Prologo
+							Prólogo
 							<svg className="w-4 h-4  mr-1" viewBox="0 0 24 24">
 								<path d="m12 16 4-5h-3V4h-2v7H8z"></path>
 								<path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/INTRODUCCION.pdf'} target={'_blank'}>
+					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/INTRODUCCION.pdf'} target={'_blank'}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Introducción
@@ -96,7 +96,7 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-0.pdf'} target={'_blank'}>
+					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-0.pdf'} target={'_blank'}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Capítulo 0
@@ -106,7 +106,7 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-1.pdf'} target={'_blank'}>
+					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-1.pdf'} target={'_blank'}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Capítulo 1
@@ -116,7 +116,7 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-2.pdf'} target={'_blank'}>
+					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-2.pdf'} target={'_blank'}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Capítulo 2
@@ -126,7 +126,7 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-3.pdf'} target={'_blank'}>
+					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-3.pdf'} target={'_blank'}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Capítulo 3
@@ -136,7 +136,7 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-4.pdf'} target={'_blank'}>
+					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-4.pdf'} target={'_blank'}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Capítulo 4
@@ -146,7 +146,7 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-5.pdf'} target={'_blank'}>
+					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-5.pdf'} target={'_blank'}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Capítulo 5
@@ -156,7 +156,7 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/SPIN-OFF.pdf'} target={'_blank'}>
+					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/SPIN-OFF.pdf'} target={'_blank'}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Spin Off
@@ -176,23 +176,19 @@ export default function Button(props: any) {
 				title="slide-button"
 				name="Descarga"
 				className={
-					` absolute z-[1] w-10 h-10 hover:scale-105 select-none flex items-center justify-center transition-all ${
-						props.styleArrows
-							? "bg-transparent "
-							: "bg-[#98CCA5] hover:bg-[#a5dfb4] active:bg-[#85b390] "
-					} ${
-						props.side === "left" && props.styleArrows
+					` absolute z-[1] w-10 h-10 hover:scale-105 select-none flex items-center justify-center transition-all bg-[#98CCA5] hover:bg-[#a5dfb4] active:bg-[#85b390] ${
+						props.side === "left" 
 							? "-left-8 top-[15%] "
 							: ""
 					} ${
-						props.side === "right" && props.styleArrows
+						props.side === "right"
 							? "-right-8 top-[15%] "
 							: ""
 					}` +
-					(props.side === "left" && !props.styleArrows
+					(props.side === "left"
 						? "left-8 top-[40%] "
 						: "") +
-					(props.side === "right" && !props.styleArrows
+					(props.side === "right"
 						? "right-8 top-[40%] "
 						: "")
 				}>

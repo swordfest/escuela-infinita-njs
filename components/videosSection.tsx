@@ -3,7 +3,7 @@ import useSWR from "swr";
 import React from "react";
 import Youtube from "react-youtube";
 import Image from "next/image";
-import { Item, Video, windowSize, YoutubeItem } from "./data";
+import { Item, Video, windowSize, YoutubeId, YoutubeItem } from "./data";
 import { Carousel, ScrollingCarousel } from "@trendyol-js/react-carousel";
 import Button from "./button";
 import Thumbnail from "./thumbnail";
@@ -20,11 +20,12 @@ export default function VideosSection() {
 			disablekb: 0,
 		},
 	};
-	const [numSlides, setNumSlides] = useState(1);
+	const [numSlides, setNumSlides] = useState(2);
 	const [show, setShow] = useState(3);
 	const [styleArrows, setStyleArrows] = useState(true);
 	const [width, setWidth] = useState(0);
 	const [hasMounted, setHasMounted] = useState(false);
+	const [flag, setFlag] = useState(false);
 
 	const fetcher = (...args: [any, any]) =>
 		fetch(...args).then((res) => res.json());
@@ -33,8 +34,8 @@ export default function VideosSection() {
 	// 	fetcher
 	// );
 
-	const { data: videos, error } = useSWR<YoutubeItem>(
-		"https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&chart=mostPopular&key=AIzaSyAXMRrG--exsMbFqcofGdnxx4FNu3aMmOs",
+	const { data: videos, error } = useSWR(
+		"https://apiei.aprendiendo.cu/wp-json/wp/v2/youtube",
 		fetcher
 	);
 
@@ -59,9 +60,10 @@ export default function VideosSection() {
 	useEffect(() => {
 		// setSlider(document.getElementById('slider')!)
 		if (videos != undefined) {
-			setVideoBig(videos.items[0].id.videoId);
+			setVideoBig(videos[3].acf.identificador_del_video);
+			console.log(videos);
 		}
-		console.log(videos);
+		// console.log(videos);
 	}, [videos]);
 
 	useEffect(() => {
@@ -70,6 +72,9 @@ export default function VideosSection() {
 			setShow(4);
 			setNumSlides(4);
 			setStyleArrows(false);
+			setFlag(true);
+		} else {
+			setFlag(false);
 		}
 		// console.log(numSlides)
 	});
@@ -89,13 +94,13 @@ export default function VideosSection() {
 	return (
 		<section
 			id="videos"
-			className="videos w-full h-[960px] col-span-12 flex flex-col gap-8 items-center justify-center">
+			className="videos w-full h-[960px] col-span-12 flex flex-col gap-8 items-center py-24 lg:py-0 lg:justify-center">
 			<div className="overflow-hidden">
 				<h1
-					className={`text-3xl text-[#162330] xl:text-5xl uppercase font-black transition-all ease-in-out duration-[1000ms] ${
+					className={`text-3xl text-[#162330] text-center xl:text-5xl uppercase font-black transition-all ease-in-out duration-[1000ms] ${
 						enter ? " translate-y-0 " : " translate-y-10 "
 					} `}>
-					Materiales Visuales
+					Materiales Audiovisuales
 				</h1>
 			</div>
 			<div className=" w-[328px] sm:w-[608px] md:w-[736px] lg:w-[992px] flex flex-col items-center h-auto gap-4 overflow-visible ">
@@ -110,39 +115,41 @@ export default function VideosSection() {
 						<Youtube
 							className="w-full"
 							iframeClassName="w-[328px] h-[184px] sm:w-[608px] sm:h-[342px] md:w-[736px] md:h-[414px] lg:w-[992px] lg:h-[558px] xl:w-[992px] xl:h-[558px] "
-							key={"videoBig"}
+							key={videoBig}
 							videoId={videoBig}
 							opts={opts}
 						/>
 					</div>
 				</div>
 				<Carousel
-					className={` bg-slate-200 transition-all ease-in-out duration-[2000ms] ${
+					className={` transition-all ease-in-out duration-[2000ms]  ${
 						enter ? " h-32 " : " h-0 "
 					}`}
 					rightArrow={
-						<Button type={"slider"} side={"right"} styleArrows={styleArrows} />
+						<Button type={"slider"} side={"right"} styleArrows={!flag} />
 					}
 					leftArrow={
-						<Button type={"slider"} side={"left"} styleArrows={styleArrows} />
+						<Button type={"slider"} side={"left"} styleArrows={!flag} />
 					}
 					useArrowKeys={true}
 					responsive={true}
 					// dynamic={true}
 					swiping={true}
 					// infinite={false}
-					show={show}
-					slide={numSlides}>
-						{/* .filter((f: Item) => f.snippet.liveBroadcastContent === "none") */}
-					{
-						videos.items?.filter((f: Item) => f.snippet.liveBroadcastContent === "none").map((item: Item) => (
-								<Thumbnail
-									key={item.id.videoId}
-									handleClick={() => handleClick(item.id.videoId)}
-									id={item.id.videoId}
-									url={item.snippet.thumbnails.high.url}
-								/>
-							))}
+					show={flag ? 4 : (width < 768 ? 1 : 3)}
+					slide={flag ? 4 : 1}>
+					{videos.map((item: any, index: number) => (
+						<div
+							key={index}
+							className={`${flag ? "w-56" : "w-40"} h-32 mx-4 ${width < 768 ? 'flex items-center justify-center' : ''} `}
+							onClick={() => handleClick(item.acf.identificador_del_video)}>
+							<Thumbnail
+								key={item.acf.identificador_del_video}
+								id={item.acf.identificador_del_video}
+								url={`https://img.youtube.com/vi/${item.acf.identificador_del_video}/maxresdefault.jpg`}
+							/>
+						</div>
+					))}
 				</Carousel>
 			</div>
 		</section>

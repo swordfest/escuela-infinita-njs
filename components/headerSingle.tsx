@@ -18,6 +18,7 @@ export default function HeaderSingle(props: any) {
 				<div className="text-4xl w-full text-white font-semibold text-center lg:text-right">
 					{props.title}
 				</div>
+				<div className={`text-4xl w-full text-white font-semibold text-center lg:text-right ${props.isBlog ? '' : 'hidden'}`}>Blog</div>
 				<div className="flex gap-2">
 					<Link className="flex group " href={"/"}>
 						{/* <svg

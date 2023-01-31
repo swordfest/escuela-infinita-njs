@@ -10,7 +10,7 @@ export default function CursosSection(props: any) {
 	const [enter, setEnter] = useState(false);
 
 	useEffect(() => {
-		if (scrollPos > 0.53) {
+		if (scrollPos > 0.52) {
 			setEnter(true);
 		}
 	});
@@ -22,7 +22,7 @@ export default function CursosSection(props: any) {
 	return (
 		<section
 			id="courses"
-			className="courses w-full h-auto pt-8 pb-24 col-span-12 flex flex-col gap-12 items-center justify-center leading-8">
+			className="courses w-full h-auto pt-8 lg:pb-24 col-span-12 flex flex-col gap-12 items-center justify-center leading-8">
 			<div className="overflow-hidden">
 				<h1
 					className={`text-3xl text-[#162330] xl:text-5xl uppercase font-black transition-all ease-in-out duration-[1000ms] ${

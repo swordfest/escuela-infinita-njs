@@ -12,7 +12,7 @@ export default function DownloadBookBar(props: any) {
 	  if (props.appear > 0.07) {
 		setEnter(true)
 	  }
-	  console.log(media)
+	//   console.log(media)
 	})
 	
 
@@ -27,7 +27,7 @@ export default function DownloadBookBar(props: any) {
                     isVisible={enter}
                     delay={'100'}
 					download={true}
-					link={'http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/LA-ESCUELA-INFINITA-LIBRO.pdf'}
+					link={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/LA-ESCUELA-INFINITA-LIBRO.pdf'}
 				/>
 
 				<Button

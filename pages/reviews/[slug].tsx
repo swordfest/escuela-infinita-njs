@@ -19,13 +19,13 @@ export async function getStaticProps(context: any) {
 	} = context;
 
 	const posts = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/resenas?_embed`
+		`https://apiei.aprendiendo.cu/index.php/wp-json/wp/v2/resenas?_embed`
 	);
 	const postsResults = await posts.json();
 
 	const data = await fetch(
 		// `http://localhost:8000/wp-json/wp/v2/posts?_embed&slug=${slug}`
-		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/resenas?_embed&slug=${slug}`
+		`https://apiei.aprendiendo.cu/index.php/wp-json/wp/v2/resenas?_embed&slug=${slug}`
 	);
 
 	const result = await data.json();
@@ -42,7 +42,7 @@ export async function getStaticProps(context: any) {
 
 export async function getStaticPaths() {
 	const posts = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/resenas`
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/resenas`
 	);
 	const resenasResults = await posts.json();
 
@@ -130,7 +130,7 @@ export default function Review(props: any) {
 					</div> */}
 				</div>
 			</main>
-			<Footer animate={true} />
+			<Footer animate={false} />
 		</>
 	);
 }

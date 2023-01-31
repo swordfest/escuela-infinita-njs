@@ -41,7 +41,7 @@ export default function Autors() {
 	return (
 		<section
 			id="autors"
-			className="autors w-full h-auto col-span-12 flex flex-col gap-8 py-8 xl:py-24 items-center justify-center">
+			className="autors w-full h-auto col-span-12 flex flex-col gap-8 py-24 xl:py-24 items-center justify-center">
                 
 			<div className="overflow-hidden">
 				<h1 className={`text-3xl text-[#162330] xl:text-5xl uppercase font-black transition-all ease-in-out duration-[1000ms] ${

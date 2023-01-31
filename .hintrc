@@ -9,6 +9,49 @@
         "image-alt": "off"
       }
     ],
-    "no-inline-styles": "off"
-  }
+    "no-inline-styles": "off",
+    "axe/forms": [
+      "default",
+      {
+        "label": "off"
+      }
+    ],
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ],
+    "axe/name-role-value": [
+      "default",
+      {
+        "link-name": "off"
+      }
+    ],
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "background-clip",
+          "inset",
+          "backdrop-filter",
+          "color-scheme",
+          "@layer"
+        ]
+      }
+    ]
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_chr <= 106",
+    "not chrome <= 106",
+    "not edge <= 105",
+    "not ios_saf <= 15.3",
+    "not opera <= 90",
+    "not safari <= 14.1",
+    "not samsung <= 18",
+    "not edge <= 106",
+    "not opera <= 91"
+  ]
 }

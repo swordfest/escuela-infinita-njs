@@ -48,7 +48,7 @@ export default function Curso(props: any) {
 				</div>
 				<div className="overflow-hidden">
 					<h2
-						className={`text-xl font-bold group-hover:text-[#2d2b5c] transition-all ease-in-out duration-[${600 *
+						className={`text-xl font-bold h-14 group-hover:text-[#2d2b5c] transition-all ease-in-out duration-[${600 *
 							(props.delay + 1)}ms] ${
 							props.appear ? "translate-y-0 " : "translate-y-14 "
 						} `}>
@@ -69,7 +69,7 @@ export default function Curso(props: any) {
 					<Link
 						className={`flex items-center w-auto group transition-all ease-in-out duration-[${600 *
 							(props.delay + 1)}ms] ${
-							props.appear ? "translate-x-0 " : "-translate-x-24 "
+							props.appear ? "translate-x-0 " : "-translate-x-32 "
 						}`}
 						href={`/cursos/${props.slug}`}>
 						<div className="h-6 group-hover:text-[#85b390] transition-all duration-200 align-middle text-lg font-semibold leading-5">

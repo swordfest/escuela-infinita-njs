@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
+  compress: true,
   trailingSlash: true,
   images: {
     unoptimized: true,
@@ -24,8 +30,8 @@ const nextConfig = {
         pathname: '/wordpress/**',
       },
       {
-        protocol: 'http',
-        hostname: 'laescuelainfinita.aprendiendo.cu',
+        protocol: 'https',
+        hostname: 'apiei.aprendiendo.cu',
         port: '',
         pathname: '/**',
       },

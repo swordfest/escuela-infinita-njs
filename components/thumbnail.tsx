@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Thumbnail(props: any) {
 	return (
 		<div
-			onClick={() => props.handleClick(props.id)}
+			// onClick={() => props.handleClick(props.id.videoId)}
 			className="relative w-auto h-auto group ">
 			<div className="relative w-56 h-32 ">
 				<Image
@@ -18,7 +18,7 @@ export default function Thumbnail(props: any) {
 				/>
 			</div>
 
-			<svg
+			{/* <svg
 				// onClick={() => props.handleClick(props.id)}
 				className="absolute fill-red-600 overflow-hidden top-0 left-0 bottom-0 right-0 m-auto opacity-0 group-hover:opacity-100 transition-all group-hover:-translate-y-1 duration-500"
 				width="72"
@@ -32,7 +32,7 @@ export default function Thumbnail(props: any) {
 					d="M30.003 27.015L29.988 45.015L45.624 36.03L30.003 27.015Z"
 					fill="white"
 				/>
-			</svg>
+			</svg> */}
 		</div>
 	);
 }

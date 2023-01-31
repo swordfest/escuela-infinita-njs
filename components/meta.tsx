@@ -1,5 +1,6 @@
 import Head, { defaultHead } from "next/head";
 import { useEffect } from "react";
+import Script from 'next/script'
 
 type Props = {
     title: string;
@@ -19,6 +20,8 @@ export function Meta ({ title, keywords, description}: Props) {
             <meta name="keywords" content={keywords} />
             <meta name="description" content={description} />
             <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any"/>
+            {/* <link rel="stylesheet" type="text/css" href="/fonts/flaticons/flaticon.css"></link> */}
+            <Script src="/js/scrollIntoView.js" />
             <title>{title}</title>
         </Head>
     )

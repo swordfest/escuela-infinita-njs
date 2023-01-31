@@ -55,7 +55,7 @@ export default function ReviewsTesting() {
 			changeSlide(1);
 		}, 3000);
 
-		// console.log(slide)
+		// console.log(reviews.length);
 
 		return () => {
 			clearInterval(interval);
@@ -83,7 +83,7 @@ export default function ReviewsTesting() {
 						<div
 							// ${ hasChanged ? "opacity-100" : "opacity-0"}
 							className={`autor-resena relative flex shrink-0 w-full sm:w-72 h-96 transition-all ease-linear duration-500  
-						${reviews.indexOf(reviews[slide]?.["id"]) ? "opacity-100" : "opacity-0"}`}>
+						`}>
 							<Image
 								className="object-cover "
 								alt=""
@@ -93,14 +93,23 @@ export default function ReviewsTesting() {
 						</div>
 
 						<div className="flex flex-col w-full h-full items-center lg:items-start justify-center gap-4 py-4 ">
+							<div className="flaticon-036-quote w-8 h-8 inline "></div>
 							<p
+								// ${slide && "animate-fadeIn"}
+								className={`relative w-full text-white text-xl lg:text-2xl italic leading-relaxed py-2 text-center lg:pl-24 pt-24 lg:pt-0 lg:text-start `}
+								dangerouslySetInnerHTML={{
+									__html: DOMPurify.sanitize(
+										reviews[slide]?.["excerpt"]["rendered"]
+									),
+								}}></p>
+							{/* <p
 								// ${slide && "animate-fadeIn"}
 								className={`relative w-full text-white text-xl lg:text-2xl italic leading-relaxed py-2 text-center lg:pl-24 pt-24 lg:pt-0 lg:text-start before:content-['\f123'] font-flaticon before:text-7xl before:absolute before:top-0 lg:before:-top-1.5 before:left-[36%] sm:before:left-[42%] md:before:left-[44%] lg:before:-left-2 before:z-[1] `}
 								dangerouslySetInnerHTML={{
 									__html: DOMPurify.sanitize(
 										reviews[slide]?.["excerpt"]["rendered"]
 									),
-								}}></p>
+								}}></p> */}
 							<div className="flex lg:pl-24 gap-2 text-xl font-light text-[#c7c7c7]">
 								<span className="relative animate-fadeIn text-center lg:text-left ">
 									{`${reviews[slide]?.["acf"]["nombre_autor"]}. ${reviews[slide]?.["acf"]["institucion_autor"]}. ${reviews[slide]?.["acf"]["pais_autor"]}`}
@@ -142,7 +151,7 @@ export default function ReviewsTesting() {
 	// 				<div className="flex flex-col lg:flex-row shrink-0 w-full h-auto items-center justify-center gap-4 lg:gap-20  ">
 	// 					<div
 	// 						// ${ hasChanged ? "opacity-100" : "opacity-0"}
-	// 						className={`autor-resena relative flex shrink-0 w-full sm:w-72 h-96 transition-all ease-linear duration-500  
+	// 						className={`autor-resena relative flex shrink-0 w-full sm:w-72 h-96 transition-all ease-linear duration-500
 	// 					${reviews.indexOf(reviews[slide]?.["id"]) ? "opacity-100" : "opacity-0"}`}>
 	// 						<Image
 	// 							className="object-cover "

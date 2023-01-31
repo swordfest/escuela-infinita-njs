@@ -10,13 +10,13 @@ export async function getStaticProps(context: any) {
 	} = context;
 
 	const posts = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/posts?_embed`
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/posts?_embed`
 	);
 	const postsResults = await posts.json();
 
 	const data = await fetch(
 		// `http://localhost:8000/wp-json/wp/v2/posts?_embed&slug=${slug}`
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/cursos?_embed&slug=${slug}`
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/cursos?_embed&slug=${slug}`
 	);
 
 	const result = await data.json();
@@ -32,9 +32,8 @@ export async function getStaticProps(context: any) {
 }
 
 export async function getStaticPaths() {
-
 	const posts = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/cursos`
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/cursos`
 	);
 	const cursosResults = await posts.json();
 
@@ -51,7 +50,7 @@ export async function getStaticPaths() {
 }
 
 export default function Curso(props: any) {
-    const opts = {
+	const opts = {
 		// height: "328",
 		width: "100%",
 		playerVars: {
@@ -76,10 +75,19 @@ export default function Curso(props: any) {
 				</div>
 				<div className="blog-sidebar order-1 lg:order-2 col-span-12 lg:col-span-4 lg:h-screen px-4 xl:px-0 flex flex-col gap-8">
 					<div className="flex flex-col gap-4">
-						<span className="text-xl font-semibold">Video Presentacion</span>
-                        <YouTube className="" iframeClassName="h-44 sm:h-[340px] lg:h-44 xl:h-56 2xl:h-72 " videoId={props.acf.video_thumbnail} opts={opts} />
-                        <span className="text-xl font-semibold">Profesores</span>
-						<span className="w-1/2 bg-slate-500">{props.acf.profesores}</span>
+						<h1 className="text-xl font-semibold">Video Presentacion</h1>
+						<YouTube
+							className="px-2"
+							iframeClassName="h-44 sm:h-[340px] lg:h-44 xl:h-56 2xl:h-72 "
+							videoId={props.acf.video_thumbnail}
+							opts={opts}
+						/>
+						<div className="profesores flex flex-col gap-2">
+							<h1 className="text-xl font-semibold">Profesores</h1>
+							{props.acf.profesores.map((p: any) => (
+								<div className="w-auto px-2 font-semibold text-[#7a7a7a] ">{p.nombre_profesor}</div>
+							))}
+						</div>
 					</div>
 					{/* <div className="flex flex-col gap-4 ">
 						<span className="text-xl font-semibold">Nube de etiquetas</span>
@@ -95,7 +103,7 @@ export default function Curso(props: any) {
 					</div> */}
 				</div>
 			</main>
-			<Footer />
+			<Footer animate={false} />
 		</>
 	);
 }

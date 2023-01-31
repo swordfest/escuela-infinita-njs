@@ -9,7 +9,7 @@ export default function Recurso(props: any) {
 
 	useEffect(() => {
 		setAutores([props.autor1, props.autor2, props.autor3, props.autor4]);
-	});
+	},[]);
 
 	if (props.type === "enlace") {
 		return (

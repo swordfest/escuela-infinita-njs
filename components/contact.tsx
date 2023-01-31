@@ -30,19 +30,24 @@ export default function Contact() {
 	const [success, setSuccess] = useState(false);
 	const [isSent, setIsSent] = useState(false);
 
-    let schema = yup.object().shape({
-        nombre: yup.string().required(),
-        correo: yup.string().email().required(),
-        texto_mensaje: yup.string().required(),
-      });
+	let schema = yup.object().shape({
+		nombre: yup.string().required(),
+		correo: yup
+			.string()
+			.email()
+			.required(),
+		texto_mensaje: yup.string().required(),
+	});
 
-    schema.isValid({
-        nombre:'jimmy',
-        email: '/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/',
-        texto_mensaje: 'Texto del mensaje'
-    }).then(function (valid) {
-        valid; // => true
-      });
+	schema
+		.isValid({
+			nombre: "jimmy",
+			email: "/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/",
+			texto_mensaje: "Texto del mensaje",
+		})
+		.then(function(valid) {
+			valid; // => true
+		});
 
 	const {
 		register,
@@ -63,15 +68,15 @@ export default function Contact() {
 		isMutating,
 		error,
 	} = useSWRMutation(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/mensajes?title=${`Mensaje de `}${
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/mensajes?title=${`Mensaje de `}${
 			messageData?.acf.nombre
 		}&acf=${messageData?.acf}`,
 		sendRequest,
-		{ revalidate: true }
+		{ revalidate: false }
 	);
 
 	useEffect(() => {
-		if (scrollPos > 0.7) {
+		if (scrollPos > 0.79) {
 			setEnter(true);
 		}
 	});
@@ -105,7 +110,10 @@ export default function Contact() {
 				</h1>
 			</div>
 
-			<div className="write-comment w-2/3 flex flex-col gap-8 ">
+			<div
+				className={`write-comment w-full lg:w-2/3 flex flex-col gap-8 transition-all ease-in-out duration-1000 ${
+					enter ? " opacity-100 " : " opacity-0 "
+				}`}>
 				<div
 					className={`bg-[#f3f0e7] w-full flex items-center justify-center gap-2 font-semibold overflow-hidden transition-all ease-in-out duration-300 ${
 						success ? "h-24" : "h-0"
@@ -115,7 +123,9 @@ export default function Contact() {
 					</svg>
 					Tu mensaje ha sido enviado satisfactoriamente...
 				</div>
-				<form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
+				<form
+					className={`flex flex-col gap-2 `}
+					onSubmit={handleSubmit(onSubmit)}>
 					<label className="font-semibold" htmlFor="autor">
 						Nombre *
 					</label>
@@ -137,17 +147,20 @@ export default function Contact() {
 						id="email"
 						type="text"
 						title="Email"
-                        aria-invalid={errors.acf?.correo ? "true" : "false"}
+						// aria-invalid={errors.acf?.correo ? "true" : "false"}
 						className="h-14 p-4 border-2 bg-transparent border-[#476b91] focus:border-[#162330] focus:outline-none"
 						placeholder="Escriba su email"
-						{...register("acf.correo", { required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })}
+						{...register("acf.correo", {
+							required: true,
+							pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+						})}
 					/>
 					{errors.acf?.correo && (
 						<span className="text-red-500">Dirección de correo requerida</span>
 					)}
-                    
+
 					<label className="font-semibold" htmlFor="comentario">
-						Comentario *
+						Mensaje *
 					</label>
 					<textarea
 						id="comentario"

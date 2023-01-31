@@ -60,11 +60,13 @@ export default function Header(props: any) {
 
 	return (
 		<div
+			
 			className={`container-animation relative transition-all ease-in-out delay-1000 duration-[1200ms] ${
 				enter ? " h-[640px] xl:h-[940px] " : " h-0 "
 			} 
 			${overflow ? "overflow-visible" : "overflow-hidden"}`}>
 			<header
+			id="header"
 				className={`header relative w-full h-[640px] xl:h-[860px] bg-gradient-to-tl from-[#4d684a] via-[#222146] to-[#222146] col-span-12 flex overflow-visible items-center justify-end mt-20 `}>
 				{/* <img className="w-full h-full object-cover " src="/imgs/header.jpg" alt="header" /> */}
 				{/* <Rive style={{display: 'flex', alignItems: 'start', }} src="/animations/escuela_infinita_artboard_small.riv" /> */}
@@ -114,7 +116,7 @@ export default function Header(props: any) {
 							text={"DESCARGAR LIBRO - PDF"}
 							type={"button"}
 							link={
-								"http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/LA-ESCUELA-INFINITA-LIBRO.pdf"
+								"http://apiei.aprendiendo.cu/download/378/?tmstv=1675133380"
 							}
 							isVisible={enter}
 							delay={"duration-[1500ms]"}
@@ -125,18 +127,18 @@ export default function Header(props: any) {
 							text={"DESCARGAR LIBRO - EPUB"}
 							type={"button"}
 							link={
-								"http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/LA-ESCUELA-INFINITA-LIBRO.pdf"
+								"https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/LA-ESCUELA-INFINITA-LIBRO.epub"
 							}
 							isVisible={enter}
 							delay={"duration-[2000ms]"}
 						/>
 						<Button
 							key={"but3"}
-							text={"DESCARGAR CAPITULOS"}
+							text={"DESCARGAR CAPÍTULOS"}
 							type={"menu"}
-							link={
-								"http://laescuelainfinita.aprendiendo.cu/wp-content/uploads/2023/01/CURSO-APRENDER-Y-ENSENAR-EV.docx"
-							}
+							// link={
+							// 	"https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/CURSO-APRENDER-Y-ENSENAR-EV.docx"
+							// }
 							isVisible={enter}
 							delay={"duration-[2500ms]"}
 						/>

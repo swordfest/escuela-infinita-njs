@@ -28,6 +28,7 @@
     "react-transition-group": "^4.4.5",
     "react-youtube": "^10.1.0",
     "recoil": "^0.7.6",
+    "scroll-into-view": "^1.16.2",
     "swr": "^2.0.0",
     "typescript": "4.9.4",
     "yup": "^0.32.11"

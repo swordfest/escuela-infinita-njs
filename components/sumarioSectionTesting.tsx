@@ -6,6 +6,7 @@ import { scrollPercentage } from "./store";
 export default function SumarioTesting(props: any) {
 	const [scrollPos, setScrollPos] = useRecoilState<number>(scrollPercentage);
 	const [enter, setEnter] = useState(false);
+	const [enterMobile, setEnterMobile] = useState(false);
 
 	useEffect(() => {
 		if (scrollPos > 0.015) {
@@ -35,7 +36,7 @@ export default function SumarioTesting(props: any) {
 					<p className={`text-lg leading-loose transition-all ease-in-out duration-[1200ms] ${
 							enter ? " translate-y-0 " : " translate-y-10 "
 						}`}>
-						La escuela infinita propone bases para un nuevo modelo de
+						La Escuela Infinita propone bases para un nuevo modelo de
 						escolarización universal y explica cómo aprender y enseñar de forma
 						híbrida en el siglo XXI. Desde planteamientos disruptivos crea su
 						relato a través de seis metáforas claves: la escuela vista como una

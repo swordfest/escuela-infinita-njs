@@ -8,6 +8,7 @@ import { Transition, CSSTransition } from "react-transition-group";
 import MenuItem from "./menuItem";
 import { useOutsideClick } from "./functions";
 import ButtonMenuMobile from "./buttonMenuMobile";
+import Link from "next/link";
 
 export default function Navbar(props: any) {
 	// const [scrolled, setScrolled] = useState('h-24')

@@ -22,20 +22,22 @@ export async function getStaticProps(context: any) {
 	} = context;
 
 	const posts = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/posts?_embed`
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/posts?_embed`
 	);
 	const postsResults: lastPosts = await posts.json();
 
 	const data = await fetch(
 		// `http://localhost:8000/wp-json/wp/v2/posts?_embed&slug=${slug}`
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/posts?_embed&slug=${slug}`
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/posts?_embed&slug=${slug}`
 	);
 	const result = await data.json();
 
 	const comments = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/comments?post=${result[0].id}`
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/comments?post=${result[0].id}`
 	);
 	const resComment = await comments.json();
+
+	console.log(`Building slug: ${slug}`)
 
 	return {
 		notFound: result.length == 0,
@@ -51,11 +53,11 @@ export async function getStaticProps(context: any) {
 export async function getStaticPaths() {
 
 	const posts = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/posts`
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/posts`
 	);
 	const postsResults = await posts.json();
 
-	console.log(postsResults)
+	// console.log(postsResults)
 
 	const paths: lastPosts = postsResults.map((p: any) => {
 		return {
@@ -110,7 +112,7 @@ export default function Post(props: any) {
 		trigger,
 		isMutating,
 	} = useSWRMutation(
-		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/comments?post=${props.id}&author_name=${commentData?.author_name}&author_email=${commentData?.author_email}&content=${commentData?.content}`,
+		`https://apiei.aprendiendo.cu/index.php/wp-json/wp/v2/comments?post=${props.id}&author_name=${commentData?.author_name}&author_email=${commentData?.author_email}&content=${commentData?.content}`,
 		sendRequest,
 		{ revalidate: true }
 	);
@@ -123,7 +125,7 @@ export default function Post(props: any) {
 		error,
 		mutate,
 	} = useSWR(
-		`http://laescuelainfinita.aprendiendo.cu/index.php/wp-json/wp/v2/comments?post=${props.id}`,
+		`https://apiei.aprendiendo.cu/index.php/wp-json/wp/v2/comments?post=${props.id}`,
 		fetcher,
 		{ revalidateOnFocus: false }
 	);

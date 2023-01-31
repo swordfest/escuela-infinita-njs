@@ -30,7 +30,7 @@ export default function Autor(props: any) {
 					</div>
 					<div className="overflow-hidden">
 						<p
-							className={`text-[#7a7a7a] transition-all ease-in-out delay-[1500ms] duration-1000 ${props.appear ? "translate-y-0 " : "translate-y-14 "} `}>
+							className={`text-[#7a7a7a] transition-all ease-in-out delay-[1500ms] duration-1000 ${props.appear ? "translate-y-0 " : "translate-y-24 "} `}>
 							{props.institucion}
 						</p>
 					</div>

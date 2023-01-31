@@ -116,6 +116,7 @@ type PickOnly<T, K extends keyof T> =
     Pick<T, K> & { [P in Exclude<keyof T, K>]?: never };
 
 export type lastPosts = PickOnly<Post, 'id' | 'betterFeaturedImage' | 'slug' | 'title' | 'date'>
+export type YoutubeId = PickOnly<Post, 'acf' >
 
 export type Inputs = {
 	author_name: string;
@@ -312,3 +313,4 @@ export interface PageInfo {
     totalResults:   number;
     resultsPerPage: number;
 }
+

@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { RecoilRoot } from 'recoil'
 import '../styles/post.css'
 import { Archivo } from '@next/font/google'
+import '../public/fonts/flaticons/flaticon.css'
 
 // const archivo = Archivo({ subsets: ["latin"] });
 

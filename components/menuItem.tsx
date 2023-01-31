@@ -29,15 +29,15 @@ export default function MenuItem(props: any) {
 
 	return (
 		<div
-			className={`w-auto h-auto flex items-center font-semibold select-none transition-all ease-in-out delay-1000 duration-[${
-				props.duration
-			}ms] ${enter ? " translate-y-0 " : " translate-y-6 "}`}>
+			className={`w-auto h-auto flex items-center font-semibold select-none transition-all ease-in-out `}>
 			{/* <a className="w-auto h-full " href={props.link} onClick={() => setMobileMenuOpen(false)} >{props.name}</a> */}
 			<L
 				className=" relative w-auto h-6 cursor-pointer after:block after:w-32 after:h-[3px] after:absolute overflow-hidden after:transition-transform after:bottom-0 after:-left-32 after:bg-black hover:after:translate-x-32 after:duration-300  "
 				activeClass="visited:underline visited:underline-offset-4 visited:decoration-[3px]"
 				to={props.link}
-				spy={true}
+				spy
+				// hashSpy
+				// containerId="main-container"
 				smooth={true}
 				offset={props.offset}
 				duration={50}

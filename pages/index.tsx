@@ -17,22 +17,28 @@ import Footer from "../components/footer";
 import Reviews from "../components/reviewsSection";
 import { useCallback, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { cursosList, mediaList, postsList, reviewsList, scrollPercentage } from "../components/store";
+import {
+	cursosList,
+	mediaList,
+	postsList,
+	reviewsList,
+	scrollPercentage,
+} from "../components/store";
 import SumarioTesting from "../components/sumarioSectionTesting";
-import ReviewsTesting from "../components/reviewsSectionTesting";
+import ReviewsTesting from "../components/reviewsSectionTrying";
 import Contact from "../components/contact";
-
+import { useRouter } from "next/router";
 // const inter = Inter({ subsets: ["latin"] });
 // const archivo = Archivo({ subsets: ["latin"] });
 
 export async function getStaticProps() {
 	const data = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/cursos?_embed`
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/cursos?_embed`
 	);
 	const cursos = await data.json();
 
 	const dataReviews = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/resenas?_embed`
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/resenas`
 	);
 	const reviews = await dataReviews.json();
 
@@ -46,19 +52,61 @@ export async function getStaticProps() {
 
 export default function Home(props: any) {
 	const [scrollPos, setScrollPos] = useRecoilState<number>(scrollPercentage);
-	const [posts, setPosts] = useRecoilState(postsList);
+	// const [posts, setPosts] = useRecoilState(postsList);
 	const [reviews, setReviews] = useRecoilState(reviewsList);
-	const [media, setMedia] = useRecoilState(mediaList);
+	// const [media, setMedia] = useRecoilState(mediaList);
 	const [cursos, setCursos] = useRecoilState(cursosList);
 
-	// const [hasMounted, setHasMounted] = useState(false);
-	
+	const router = useRouter();
+
+	const [hasMounted, setHasMounted] = useState(false);
+
+	// const hashChanger = () => {
+	// 	return
+	// }
+
+	// const onHashChangeStart = (url: any) => {
+	// 	console.log(`Path changing to ${url}`);
+	// };
+
 	useEffect(() => {
-		setReviews(props.reviews)
-		setCursos(props.cursos)
-		console.log(scrollPos)
+		setReviews(props.reviews);
+		setCursos(props.cursos);
+		console.log(scrollPos);
 		window.addEventListener("scroll", handleScroll);
+		window.onbeforeunload = () => {
+            // window.scrollTo(0, 0);
+			if(window.location.hash != '') {
+				window.location.hash = '#'
+			}
+			
+        }; 
 	});
+
+	useEffect(() => {
+		if (hasMounted) {
+			console.log('Hay un hash', window.location.hash != '');
+			window.location.hash = '#'
+			
+		} else {
+			setHasMounted(true);
+		}
+		// document.addEventListener('hashchange', hashChanger)
+	}, [hasMounted]);
+
+	// useEffect(() => {
+	// 	// console.log(window.location)
+
+	//     router.events.on("hashChangeStart", onHashChangeStart);
+	// 	// return () => {
+	//     //     router.events.off("hashChangeStart", onHashChangeStart);
+	//     // };
+	// }, [router.events]);
+
+	// useEffect(() => {
+	// 	const hash = router.asPath.split("#")[1];
+	// 	console.log(hash)
+	// }, [router.asPath]);
 
 	const handleScroll = () => {
 		let scrollPercentage =
@@ -73,7 +121,8 @@ export default function Home(props: any) {
 			<Meta />
 			<Navbar />
 			<Header appear={scrollPos} />
-			<main className={`container col-span-12 grid grid-cols-12 auto-rows-auto mx-auto mt-8 w-full h-auto px-4 ${''}`}>
+			<main
+				className={`main-container container scroll-smooth col-span-12 grid grid-cols-12 auto-rows-auto mx-auto mt-8 w-full h-auto px-4 ${""}`}>
 				{/* <Header /> */}
 				{/* <DownloadBook /> */}
 				<SumarioTesting appear={scrollPos} />
@@ -81,11 +130,11 @@ export default function Home(props: any) {
 				<Autors />
 				<CursosSection lista={props.cursos} />
 				<VideosSection />
-				<Contact/>
+				<Contact />
 				<Sponsors />
 				{/* <Footer /> */}
 			</main>
-			<Footer />
+			<Footer animate={true} />
 			{/* </main> */}
 		</>
 	);

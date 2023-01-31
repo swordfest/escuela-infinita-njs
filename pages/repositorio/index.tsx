@@ -10,17 +10,17 @@ import Recurso from "../../components/recurso";
 export async function getStaticProps() {
 	// const data =  await fetch(`http://localhost:8000/wp-json/wp/v2/posts?_embed`)
 	const data = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/recursos?_embed`
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/recursos?_embed`
 	);
 	const result = await data.json();
 
 	const tags = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/tags`
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/tags`
 	);
 	const tagsRes = await tags.json();
 
 	const dataDocs = await fetch(
-		`http://laescuelainfinita.aprendiendo.cu/wp-json/wp/v2/media`
+		`https://apiei.aprendiendo.cu/wp-json/wp/v2/media`
 	);
 	const media = await dataDocs.json();
 
