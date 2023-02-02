@@ -9,7 +9,7 @@ const nextConfig = {
   compress: true,
   trailingSlash: true,
   images: {
-    unoptimized: true,
+    unoptimized: false,
     remotePatterns: [
       {
         protocol: 'https',

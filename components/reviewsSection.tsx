@@ -65,12 +65,13 @@ export default function ReviewsTesting() {
 	return (
 		// ${enter && 'animate-reviewsEnter'}
 		<div
-			className={`padre-reviews relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] overflow-hidden col-span-12  transition-all ease-in-out duration-[1200ms] ${
-				enter ? "w-screen" : "w-0"
-			}`}>
+			className={`padre-reviews relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] overflow-hidden col-span-12 origin-center transition-all ease-in-out duration-[1200ms] `}>
 			<section
 				id="reviews"
-				className={`reviews relative z-[1] w-screen h-[1280px] lg:h-[560px] bg-[#000000] flex items-start lg:items-center justify-center `}>
+				className={`reviews relative z-[1] w-screen h-[1280px] lg:h-[560px] bg-[#000000] flex items-start lg:items-center justify-center transition-all ease-in-out duration-[1200ms] delay-75 ${
+					enter ? "translate-y-0" : "translate-y-[1280px]"
+					// enter ? "w-screen" : "w-0"
+				}`}>
 				{/* className={`reviews relative w-screen lg:h-[560px] left-1/2 right-1/2 ml-[-50vw] mr-[-50vw]  bg-[#000000] col-span-12 flex items-start lg:items-center justify-center `}> */}
 				<Image
 					className="object-cover object-top z-[0] opacity-40 "
