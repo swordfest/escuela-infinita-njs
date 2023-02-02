@@ -53,7 +53,7 @@ export default function ReviewsTesting() {
 		}
 		const interval = setInterval(() => {
 			changeSlide(1);
-		}, 8000);
+		}, 12000);
 
 		// console.log(reviews.length);
 

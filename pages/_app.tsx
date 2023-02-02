@@ -4,6 +4,7 @@ import { RecoilRoot } from 'recoil'
 import '../styles/post.css'
 import { Archivo } from '@next/font/google'
 import '../public/fonts/flaticons/flaticon.css'
+import { Analytics } from '@vercel/analytics/react';
 
 // const archivo = Archivo({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
         }
       `}</style> */}
         <Component {...pageProps} />
+        <Analytics />
       </RecoilRoot>
     )
   
