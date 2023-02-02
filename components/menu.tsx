@@ -46,7 +46,7 @@ export default function Menu(props: any) {
 			<div
 				className={`  gap-6 ${
 					props.isMobile
-						? "w-full h-full flex flex-col items-center justify-start "
+						? "w-full h-full z-[8] flex flex-col items-center justify-start "
 						: "w-auto h-auto hidden xl:flex"
 				} transition-all ease-in-out delay-[1500ms] duration-1000 ${
 					enter && !props.isMobile ? "translate-y-0" : "translate-y-14"

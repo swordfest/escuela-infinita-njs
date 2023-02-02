@@ -20,7 +20,7 @@ export default function SumarioTesting(props: any) {
 			id="sumario"
 			className={`sumario relative show w-full h-auto col-span-12 gap-8 xl:gap-24 flex flex-col xl:flex-row items-center lg:items-start justify-start 2xl:pt-8 mb-32  transition-all ease-linear duration-500 `}>
 			<div
-				className={` w-full xl:w-[50vw] 2xl:w-1/2 h-full flex flex-col z-[1] items-center xl:items-start gap-4 text-justify leading-8 transition-all ease-in-out duration-500 ${
+				className={` w-full xl:w-[50vw] 2xl:w-1/2 h-full flex flex-col z-[0] items-center xl:items-start gap-4 text-justify leading-8 transition-all ease-in-out duration-500 ${
 					enter ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
 				}`}>
 				{/* translate-y-10 */}

@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { Meta } from "../../components/meta";
+import { Meta } from "./meta";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import useSWR, { preload } from "swr";
-import HeaderSingle from "../../components/headerSingle";
-import BlogEntry from "../../components/blogEntry";
-import Footer from "../../components/footer";
+import HeaderSingle from "./headerSingle";
+import BlogEntry from "./blogEntry";
+import Footer from "./footer";
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 

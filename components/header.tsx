@@ -15,6 +15,7 @@ export default function Header(props: any) {
 	const [bigScreen, setBigScreen] = useState(false);
 	const [overflow, setOverflow] = useState(false);
 	const [scrollPos, setScrollPos] = useRecoilState<number>(scrollPercentage);
+	const [abajo, setABajo] = useState(false)
 
 	const { rive, RiveComponent } = useRive(
 		{
@@ -56,6 +57,8 @@ export default function Header(props: any) {
 		} else {
 			setBigScreen(false);
 		}
+
+		
 	});
 
 	return (
@@ -87,7 +90,7 @@ export default function Header(props: any) {
 				{/* <RiveComponent /> */}
 				{/* <div className=" w-full h-full top-0 right-0 text-white bg-[#162330] bg-opacity-80 xl:bg-transparent"> */}
 
-				<div className=" z-[1] px-4 w-full h-full flex flex-col items-center xl:items-end justify-center gap-4 text-white ">
+				<div className=" px-4 w-full h-full flex flex-col items-center xl:items-end justify-center gap-4 text-white ">
 					<div
 						className={`font-black text-5xl lg:text-8xl text-center xl:text-end overflow-hidden `}>
 						<div
@@ -116,7 +119,7 @@ export default function Header(props: any) {
 							text={"DESCARGAR LIBRO - PDF"}
 							type={"button"}
 							link={
-								"http://apiei.aprendiendo.cu/download/378/?tmstv=1675133380"
+								"https://apiei.aprendiendo.cu/download/378/?tmstv=1675133380"
 							}
 							isVisible={enter}
 							delay={"duration-[1500ms]"}
@@ -127,7 +130,7 @@ export default function Header(props: any) {
 							text={"DESCARGAR LIBRO - EPUB"}
 							type={"button"}
 							link={
-								"https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/LA-ESCUELA-INFINITA-LIBRO.epub"
+								"https://apiei.aprendiendo.cu/download/384/?tmstv=1675134841"
 							}
 							isVisible={enter}
 							delay={"duration-[2000ms]"}

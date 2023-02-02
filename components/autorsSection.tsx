@@ -23,7 +23,7 @@ export default function Autors() {
 		{
 			autor: "Fernando Eugenio Ortega Cabrera",
 			institucion:
-				"Director Nacional. Dirección de Tecnología Educativa. Ministerio de Educación de la República de Cuba",
+				"Director Nacional de Tecnología Educativa. Ministerio de Educación de la República de Cuba",
 			codigo_orcid: "https://orcid.org/0000-0002-9006-0087",
 			linkedin: "https://linkedin.com/in/fernandortega",
 			twitter: "https://twitter.com/Fernand45508203",

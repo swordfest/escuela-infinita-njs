@@ -16,6 +16,10 @@ export default function Button(props: any) {
 		setOpen(false);
 	};
 
+	// const handleClick = (e: HTMLDivElement) => {
+	// 	if (e.getBoundingClientRect().bottom)
+	// }
+
 	const ref = useOutsideClick(handleClickOutside);
 
 	useEffect(() => {
@@ -28,11 +32,12 @@ export default function Button(props: any) {
 		return (
 			<button
 				name="Descarga"
-				className={`w-full md:w-72 h-14 bg-[#98CCA5] text-white select-none flex items-center transition-all hover:bg-[#a5dfb4] active:bg-[#85b390] ease-in-out ${
+				className={`w-full  md:w-72 h-14 bg-[#98CCA5] text-white select-none flex items-center transition-all hover:bg-[#a5dfb4] active:bg-[#85b390] ease-in-out ${
 					overflow ? `` : `delay-[3000ms] ${props.delay}`
 				} ${props.isVisible ? " translate-y-0 " : "  translate-y-20 "} `}>
 				<Link
-					href={props.link} target={'_blank'}
+					href={props.link}
+					target={"_blank"}
 					className={`text-[#0d2636] text-sm font-semibold w-full flex items-center gap-8 px-4 ${
 						!props.download ? "justify-between" : "justify-center"
 					}`}>
@@ -54,7 +59,7 @@ export default function Button(props: any) {
 				ref={ref}
 				onClick={() => setOpen(!open)}
 				title="Descargar Capitulos"
-				className={`relative w-full md:w-72 h-14 bg-[#98CCA5] hover:bg-[#a5dfb4] select-none flex items-center transition-all text-sm cursor-pointer ease-in-out ${
+				className={`relative w-full z-[1] md:w-72 h-14 bg-[#98CCA5] hover:bg-[#a5dfb4] select-none flex items-center transition-all text-sm cursor-pointer ease-in-out ${
 					overflow ? `` : `delay-[3000ms] ${props.delay}`
 				} ${props.isVisible ? "translate-y-0 " : "translate-y-20 "}`}>
 				<span className=" w-full h-auto flex items-center justify-between px-4 gap-8 text-[#0d2636] font-semibold">
@@ -76,7 +81,10 @@ export default function Button(props: any) {
 						"menu absolute w-full h-72 top-14 bg-[#98CCA5] text-[#0d2636] font-semibold flex flex-col items-center justify-start transition-transform overflow-y-auto " +
 						(open ? "" : "hidden")
 					}>
-					<Link className="w-full" href={'http://apiei.aprendiendo.cu/wp-content/uploads/2023/01/PROLOGO.pdf'} target={'_blank'}>
+					<Link
+						className="w-full"
+						href={"https://apiei.aprendiendo.cu/download/386/?tmstv=1675134929"}
+						target={"_blank"}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Prólogo
@@ -86,7 +94,10 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/INTRODUCCION.pdf'} target={'_blank'}>
+					<Link
+						className="w-full"
+						href={"https://apiei.aprendiendo.cu/download/388/?tmstv=1675134992"}
+						target={"_blank"}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Introducción
@@ -96,7 +107,10 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-0.pdf'} target={'_blank'}>
+					<Link
+						className="w-full"
+						href={"https://apiei.aprendiendo.cu/download/390/?tmstv=1675136736"}
+						target={"_blank"}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Capítulo 0
@@ -106,7 +120,10 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-1.pdf'} target={'_blank'}>
+					<Link
+						className="w-full"
+						href={"https://apiei.aprendiendo.cu/download/393/?tmstv=1675136736"}
+						target={"_blank"}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Capítulo 1
@@ -116,7 +133,10 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-2.pdf'} target={'_blank'}>
+					<Link
+						className="w-full"
+						href={"https://apiei.aprendiendo.cu/download/395/?tmstv=1675136736"}
+						target={"_blank"}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Capítulo 2
@@ -126,7 +146,10 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-3.pdf'} target={'_blank'}>
+					<Link
+						className="w-full"
+						href={"https://apiei.aprendiendo.cu/download/397/?tmstv=1675136844"}
+						target={"_blank"}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Capítulo 3
@@ -136,7 +159,10 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-4.pdf'} target={'_blank'}>
+					<Link
+						className="w-full"
+						href={"https://apiei.aprendiendo.cu/download/399/?tmstv=1675136844"}
+						target={"_blank"}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Capítulo 4
@@ -146,7 +172,10 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/CAPITULO-5.pdf'} target={'_blank'}>
+					<Link
+						className="w-full"
+						href={"https://apiei.aprendiendo.cu/download/401/?tmstv=1675136844"}
+						target={"_blank"}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Capítulo 5
@@ -156,7 +185,10 @@ export default function Button(props: any) {
 							</svg>
 						</li>
 					</Link>
-					<Link className="w-full" href={'https://apiei.aprendiendo.cu/wp-content/uploads/2023/01/SPIN-OFF.pdf'} target={'_blank'}>
+					<Link
+						className="w-full"
+						href={"https://apiei.aprendiendo.cu/download/403/?tmstv=1675136909"}
+						target={"_blank"}>
 						{/* <Link className="w-full" href={media.filter((m: any)=>{return m.id === 163})[0]?.['source_url']}> */}
 						<li className=" w-full h-14 flex items-center justify-between px-4 bg-[#98CCA5] transition-all hover:bg-[#85b390]">
 							Spin Off
@@ -177,20 +209,10 @@ export default function Button(props: any) {
 				name="Descarga"
 				className={
 					` absolute z-[1] w-10 h-10 hover:scale-105 select-none flex items-center justify-center transition-all bg-[#98CCA5] hover:bg-[#a5dfb4] active:bg-[#85b390] ${
-						props.side === "left" 
-							? "-left-8 top-[15%] "
-							: ""
-					} ${
-						props.side === "right"
-							? "-right-8 top-[15%] "
-							: ""
-					}` +
-					(props.side === "left"
-						? "left-8 top-[40%] "
-						: "") +
-					(props.side === "right"
-						? "right-8 top-[40%] "
-						: "")
+						props.side === "left" ? "-left-8 top-[15%] " : ""
+					} ${props.side === "right" ? "-right-8 top-[15%] " : ""}` +
+					(props.side === "left" ? "left-8 top-[40%] " : "") +
+					(props.side === "right" ? "right-8 top-[40%] " : "")
 				}>
 				<svg
 					className={props.side === "left" ? "fill-[#174563]" : "hidden"}

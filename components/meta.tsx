@@ -20,15 +20,14 @@ export function Meta ({ title, keywords, description}: Props) {
             <meta name="keywords" content={keywords} />
             <meta name="description" content={description} />
             <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any"/>
-            {/* <link rel="stylesheet" type="text/css" href="/fonts/flaticons/flaticon.css"></link> */}
-            <Script src="/js/scrollIntoView.js" />
+            {/* <Script src="/js/scrollIntoView.js" /> */}
             <title>{title}</title>
         </Head>
     )
 }
 
 Meta.defaultProps = {
-    title: 'Escuela Infinita',
+    title: 'La Escuela Infinita',
     keywords: 'education, learning, virtual environments, book, technologies',
-    description: 'Enseñar y Aprender en Entornos Virtuales',
+    description: 'Aprender y enseñar en entornos ubicuos',
 }

@@ -25,7 +25,6 @@ import {
 	scrollPercentage,
 } from "../components/store";
 import SumarioTesting from "../components/sumarioSectionTesting";
-import ReviewsTesting from "../components/reviewsSectionTrying";
 import Contact from "../components/contact";
 import { useRouter } from "next/router";
 // const inter = Inter({ subsets: ["latin"] });
@@ -69,6 +68,14 @@ export default function Home(props: any) {
 	// 	console.log(`Path changing to ${url}`);
 	// };
 
+	const handleScroll = () => {
+		let scrollPercentage =
+			(document.documentElement.scrollTop + document.body.scrollTop) /
+			(document.documentElement.scrollHeight -
+				document.documentElement.clientHeight);
+		setScrollPos(scrollPercentage);
+	};
+
 	useEffect(() => {
 		setReviews(props.reviews);
 		setCursos(props.cursos);
@@ -76,11 +83,13 @@ export default function Home(props: any) {
 		window.addEventListener("scroll", handleScroll);
 		window.onbeforeunload = () => {
             // window.scrollTo(0, 0);
-			if(window.location.hash != '') {
-				window.location.hash = '#'
-			}
-			
+			// if(window.location.hash != '') {
+			// 	window.location.hash = '#'
+			// }
+			window.removeEventListener("scroll", handleScroll);
+			setScrollPos(0)
         }; 
+		 
 	});
 
 	useEffect(() => {
@@ -108,13 +117,7 @@ export default function Home(props: any) {
 	// 	console.log(hash)
 	// }, [router.asPath]);
 
-	const handleScroll = () => {
-		let scrollPercentage =
-			(document.documentElement.scrollTop + document.body.scrollTop) /
-			(document.documentElement.scrollHeight -
-				document.documentElement.clientHeight);
-		setScrollPos(scrollPercentage);
-	};
+
 
 	return (
 		<>
@@ -126,7 +129,7 @@ export default function Home(props: any) {
 				{/* <Header /> */}
 				{/* <DownloadBook /> */}
 				<SumarioTesting appear={scrollPos} />
-				<ReviewsTesting />
+				<Reviews />
 				<Autors />
 				<CursosSection lista={props.cursos} />
 				<VideosSection />

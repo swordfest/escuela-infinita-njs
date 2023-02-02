@@ -57,10 +57,10 @@ export default function Navbar(props: any) {
 	return (
 		<>
 			<nav
-				className={`navbar fixed top-0 z-[3] w-full px-4 bg-white shadow-lg transition-all ${
+				className={`navbar fixed top-0 z-[4] w-full px-4 bg-white shadow-lg transition-all ${
 					overflow ? " " : " duration-1000 "
 				} ${scrolled} ${enter ? " translate-y-0 " : " -translate-y-20 "}`}>
-				<div className="nav-wrapper container w-full h-full mx-auto bg-white  flex items-center justify-between ">
+				<div className="nav-wrapper z-[4] container w-full h-full mx-auto bg-white  flex items-center justify-between ">
 					<Logo width={scrolledLogo} />
 					<Menu />
 					<ButtonMenuMobile />
