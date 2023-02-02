@@ -77,6 +77,7 @@ export default function Home(props: any) {
 	};
 
 	useEffect(() => {
+		window.addEventListener('onload', () => window.scrollTo(0, 0))
 		setReviews(props.reviews);
 		setCursos(props.cursos);
 		console.log(scrollPos);
