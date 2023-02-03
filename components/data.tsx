@@ -1,3 +1,10 @@
+
+export type MetaProps = {
+	title: string;
+	keywords: string;
+	description: string;
+};
+
 export interface Videos {
 	kind: string;
 	etag: string;
