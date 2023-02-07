@@ -9,6 +9,8 @@ import Footer from "../../components/footer";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import Curso from "../../components/curso";
+import { NextSeo } from "next-seo";
+import { optionsOpenGraph } from "../../components/store";
 
 export async function getStaticProps() {
 	// const data =  await fetch(`http://localhost:8000/wp-json/wp/v2/posts?_embed`)
@@ -40,6 +42,7 @@ export default function Cursos(props: any) {
 	return (
 		<>
 			<Meta title="La Escuela Infinita - Blog" />
+			<NextSeo openGraph={optionsOpenGraph}/>
 			<HeaderSingle page={'cursos'} />
 			<main className="container h-auto mx-auto grid grid-cols-12 auto-rows-auto gap-[30px] my-10 ">
 				<div className="post-list col-span-12 lg:col-span-8 h-auto grid grid-cols-12 auto-rows-auto gap-8 px-4 xl:px-0 ">

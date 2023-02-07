@@ -13,8 +13,9 @@ import Image from "next/image";
 import HeaderSingle from "../../components/headerSingle";
 import DOMPurify from "isomorphic-dompurify";
 import { useRecoilState } from "recoil";
-import { postsList } from "../../components/store";
+import { optionsOpenGraph, postsList } from "../../components/store";
 import { Inputs, lastPosts } from "../../components/data";
+import { NextSeo } from "next-seo";
 
 export async function getStaticProps(context: any) {
 	const {
@@ -159,6 +160,7 @@ export default function Post(props: any) {
 	return (
 		<>
 			<Meta title={`La Escuela Infinita - ${props.title.rendered}`} />
+			<NextSeo openGraph={optionsOpenGraph}/>
 			<HeaderSingle title={props.title.rendered} />
 			{/* <Meta title={props.title} /> */}
 			<main className="container h-auto mx-auto grid grid-cols-12 auto-rows-auto gap-[30px] my-10 ">

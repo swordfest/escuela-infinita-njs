@@ -3,6 +3,8 @@ import Footer from "../../components/footer";
 import HeaderSingle from "../../components/headerSingle";
 import DOMPurify from "isomorphic-dompurify";
 import YouTube from "react-youtube";
+import { NextSeo } from "next-seo";
+import { optionsOpenGraph } from "../../components/store";
 
 export async function getStaticProps(context: any) {
 	const {
@@ -63,6 +65,7 @@ export default function Curso(props: any) {
 	return (
 		<>
 			<Meta title={`La Escuela Infinita - ${props.title.rendered}`} />
+			<NextSeo openGraph={optionsOpenGraph}/>
 			<HeaderSingle title={props.title.rendered} />
 			{/* <Meta title={props.title} /> */}
 			<main className="container h-auto mx-auto grid grid-cols-12 auto-rows-auto gap-[30px] my-10 ">
