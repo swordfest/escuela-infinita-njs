@@ -30,6 +30,7 @@ export async function getStaticProps() {
 			tagsRes,
 			media,
 		},
+		revalidate: 60,
 	};
 }
 
@@ -46,7 +47,7 @@ export default function Repositorio(props: any) {
 			<NextSeo openGraph={optionsOpenGraph}/>
 			<HeaderSingle isBlog={true} page={"Repositorio"} />
 			<main className="container h-auto mx-auto grid grid-cols-12 auto-rows-auto gap-[30px] my-10 ">
-				<div className="recursos-list col-span-12 xl:col-span-8 h-auto flex flex-col lg:flex-row gap-8 px-4 xl:px-0 ">
+				<div className="recursos-list col-span-12 xl:col-span-8 h-auto grid grid-cols-12 auto-rows-auto gap-8 px-4 xl:px-0 ">
 					{hasMounted &&
 						props.result.map((c: any) => (
 							<Recurso

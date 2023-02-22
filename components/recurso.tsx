@@ -13,7 +13,7 @@ export default function Recurso(props: any) {
 
 	if (props.type === "enlace") {
 		return (
-			<div className="recurso-card w-full h-[680px] col-span-4 flex flex-col justify-between gap-4 group bg-white shadow-xl ">
+			<div className="recurso-card w-full h-[640px] col-span-4 flex flex-col justify-between gap-4 group bg-white shadow-xl ">
 				<div className="recurso-card-content h-full flex flex-col gap-1">
 					<div className={"img-wrapper relative w-full h-96 "}>
 						<Image
@@ -25,7 +25,7 @@ export default function Recurso(props: any) {
 					</div>
 					<div className="recurso-details h-full flex flex-col justify-between gap-4 py-2">
 						<div className="content-wrapper flex flex-col gap-4">
-							<h2 className=" text-lg 2xl:text-xl font-bold group-hover:text-[#2d2b5c] px-4 ">
+							<h2 className=" text-lg font-bold group-hover:text-[#2d2b5c] px-4 ">
 								{props.title}
 							</h2>
 
@@ -75,7 +75,7 @@ export default function Recurso(props: any) {
 
 	if (props.type === "documento") {
 		return (
-			<div className="recurso-card w-full h-[680px] col-span-4 flex flex-col justify-between gap-4 group bg-white shadow-xl ">
+			<div className="recurso-card w-full h-[640px] col-span-4 flex flex-col justify-between gap-4 group bg-white shadow-xl ">
 				<div className="recurso-card-content h-full flex flex-col gap-1">
 					<div className={"img-wrapper relative w-full h-96 "}>
 						<Image
@@ -87,7 +87,7 @@ export default function Recurso(props: any) {
 					</div>
 					<div className="recurso-details h-full flex flex-col justify-between gap-4 py-2">
 						<div className="content-wrapper flex flex-col gap-4">
-							<h2 className=" text-lg 2xl:text-xl font-bold group-hover:text-[#2d2b5c] px-4 ">
+							<h2 className=" text-lg font-bold group-hover:text-[#2d2b5c] px-4 ">
 								{props.title}
 							</h2>
 
