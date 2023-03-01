@@ -30,7 +30,7 @@ export function Meta({ title, keywords, description }: MetaProps) {
 Meta.defaultProps = {
 	title: "La Escuela Infinita. Aprender y enseñar en entornos ubicuos",
 	keywords:
-		"educación, aprendizaje, entornos ubicuos, libro, tecnología, transmedia, disruptivo, espacio invisible, comunidad conectada",
+		"educación, aprendizaje híbrido, tendencias pedagógicas, enseñanza-aprendizaje, escolarización, virtualidad, tecnología de la información y de la comunicación",
 	description:
 		"La Escuela Infinita propone bases para un nuevo modelo de escolarización universal y explica cómo aprender y enseñar de forma híbrida en el siglo XXI. Desde planteamientos disruptivos crea su relato a través de seis metáforas claves: la escuela vista como una conversación transmedial, como abundancia, como ubicuidad líquida, como totalidad que integra múltiples relaciones, como espacio invisible y como una comunidad conectada.",
 };
